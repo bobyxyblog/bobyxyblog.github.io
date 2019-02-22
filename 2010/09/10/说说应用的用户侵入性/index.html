@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="一个IT应用，尤其是基于互联网的IT应用，例如Blog，例如微博，又例如SNS，例如游戏，归根结底是要为用户创造价值，这个观点已经不怎么新鲜了。但是从另外一方面来讲，一个产品，多多少少会对用户产生某些要求，亦或是某些负面的影响，在这一面的观点还不是很多。我比较习惯将一个应用与“为用户创造的价值”相反的另一面称为“对用户的侵入”，我们现在讨论的，也就称作一个应用的“用户侵入性”。 定义用户侵入性首先">
+<meta property="og:type" content="article">
+<meta property="og:title" content="说说应用的用户侵入性">
+<meta property="og:url" content="http://bobyuxinyang.com/2010/09/10/说说应用的用户侵入性/index.html">
+<meta property="og:site_name" content="Bob&#39;s log">
+<meta property="og:description" content="一个IT应用，尤其是基于互联网的IT应用，例如Blog，例如微博，又例如SNS，例如游戏，归根结底是要为用户创造价值，这个观点已经不怎么新鲜了。但是从另外一方面来讲，一个产品，多多少少会对用户产生某些要求，亦或是某些负面的影响，在这一面的观点还不是很多。我比较习惯将一个应用与“为用户创造的价值”相反的另一面称为“对用户的侵入”，我们现在讨论的，也就称作一个应用的“用户侵入性”。 定义用户侵入性首先">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-22T08:31:25.525Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="说说应用的用户侵入性">
+<meta name="twitter:description" content="一个IT应用，尤其是基于互联网的IT应用，例如Blog，例如微博，又例如SNS，例如游戏，归根结底是要为用户创造价值，这个观点已经不怎么新鲜了。但是从另外一方面来讲，一个产品，多多少少会对用户产生某些要求，亦或是某些负面的影响，在这一面的观点还不是很多。我比较习惯将一个应用与“为用户创造的价值”相反的另一面称为“对用户的侵入”，我们现在讨论的，也就称作一个应用的“用户侵入性”。 定义用户侵入性首先">
+
+
+
+
+
+
+  <link rel="canonical" href="http://bobyuxinyang.com/2010/09/10/说说应用的用户侵入性/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>说说应用的用户侵入性 | Bob's log</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob's log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2010/09/10/说说应用的用户侵入性/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">说说应用的用户侵入性
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2010-09-10 00:00:00" itemprop="dateCreated datePublished" datetime="2010-09-10T00:00:00+08:00">2010-09-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>一个IT应用，尤其是基于互联网的IT应用，例如Blog，例如微博，又例如SNS，例如游戏，归根结底是要为用户创造价值，这个观点已经不怎么新鲜了。但是从另外一方面来讲，一个产品，多多少少会对用户产生某些要求，亦或是某些负面的影响，在这一面的观点还不是很多。我比较习惯将一个应用与“为用户创造的价值”相反的另一面称为“对用户的侵入”，我们现在讨论的，也就称作一个应用的“用户侵入性”。</p>
+<p>定义用户侵入性<br>首先要展开说说什么是用户侵入性，简单的说，它指一个应用需要用户为这个应用做的事儿，花的时间，学习的东西，总的来说一句话，用户付出的代价。用户使用一个产品付出的代价越大，那么这个产品的用户侵入性越高。 用户侵入性可以分成两个部分：一部分来自于培训成本，另一部分来自于使用成本。直观地讲，培训成本，就是一个用户从接触到某个应用到熟练使用某个应用以至于获得某个应用带来的价值，在整个过程中需要付出的代价，使用陈本，就是一个熟练地用户在使用这个应用过程中付出的代价。 也就是说，我们让用户使用一个产品，一方面用户必须付出代价来学习你的产品，另一方面用户必须持续的付出代价来使用你的产品。这两部分用户付出的代价，就是产品对用户的侵入性。</p>
+<p>一些常见应用的用户侵入性分析<br>在不同种类的产品应用的对比中，可以清晰地感受到不同应用对用户侵入程度的不同。 对于使用者来说，博客和微博的区别，很大程度上就在于微博的侵入程度小得多，也正是因为如此，可能只有很少一部分人一天能写上一篇像样的博客，但是大多数人都能在一天内发出很多条甚至几十条微博。 在众多的应用中，游戏类应用的用户侵入程度是最高的。一方面，大多数游戏在第一次开始玩的时候都有一段并不让人很愉快的“上手时间”，另一方面，绝大部分游戏进行中，都需要游戏玩家全身心的投入，付出很大的时间代价。而基于SNS平台的网页游戏（比如偷菜，餐厅）的出现，则改变了传统游戏极高的用户侵入性，取而代之的是对玩家更小的用户侵入性。在网页上玩农场游戏，也许你只需从每天的每一个小时中抽出5分钟，最多再加上每天集中的那么几十分钟时间即可。较小的用户侵入程度给用户带来的一种完全不同于以往的游戏体验。 短信和微博有很多共同点，他们都是一种实时传递信息的方式。但短信对用户的侵入程度则明显高于微博，从这个意义上说，我更愿意将短信称为“即时消息”而将微博称为“及时消息”区别。 将传统的B2C网站广告与最近流行的团购网站广告比较，也可以发现团购这种模式大大降低了对用户的侵入程度——你只需要每天“瞄一眼”最新商品信息。相对的说起来，传统的广告琳琅满目，让用户目不暇接，显然用户大多数时候都会吝啬的忽略掉那些广告的存在。 总的看来，近年来互联网上的各种应用，有着明显的降低用户侵入性的趋势。</p>
+<p>用户侵入性与用户粘度<br>与用户侵入性密切相关的，是用户粘度，而用户粘度则是一个产品追求的很重要的目标。 总的说来，一个产品用户侵入性越小，用户粘度越高。这很容易理解，你给用户造成的麻烦（用户所需付出的代价）越小，用户就越容易被你的产品价值所吸引，从而产生用户黏性，产生用户的忠诚度。 团购网站能够将团购的广告发送到用户的邮箱中，并且很多用户愿意查看，很大程度上是因为团购网站的广告对用户的侵入性实在是太小了，每天一条广告，这在大多数用户可以承受的范围内，而广告的价值往往又能够吸引用户，因此总体上团购网站广告的对用户产生的价值大于对用户的侵入，因此，大多数用户并不反对团购网站的广告。相比之下，传统的那种广告，为了“让用户带来更多的信息”，经常包含十几页几十页的商品信息，至少我收到这样的广告邮件会立刻删除。 不要给用户带来太多麻烦，用户自然会围绕着你。 现在的互联网已经于几年前甚至更早的互联网不同。上网慢慢的开始在随时随地进行，用户对网络的使用变得越来越频繁，直接果就是用户对于时间越来越吝啬。在以前，我们参加一次“上机”会经常在一个应用程序（比如Word）中抱着书学上几个小时，现在，我们更多的是打开手机，查看一下最新的微博列表，然后迅速关上手机。这也是为什么近年来的应用用户侵入性变的很低。 （待续）</p>
+<p>降低用户侵入性的方法反过来：尝试主动侵入用户</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2010/05/27/更换一个硬盘/" rel="next" title="更换一个硬盘">
+                <i class="fa fa-chevron-left"></i> 更换一个硬盘
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2010/12/06/如果用iPad在餐馆点餐……/" rel="prev" title="如果用iPad在餐馆点餐……">
+                如果用iPad在餐馆点餐…… <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">bobyuxiyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bob.yuxinyang@gmail.com" title="E-Mail &rarr; mailto:bob.yuxinyang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bobyuxiyang</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
