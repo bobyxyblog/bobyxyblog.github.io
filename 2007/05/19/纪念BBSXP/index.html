@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="有感于bbsxp…又想起jy 纪念一下2007年3月20日 7时22分 最近一些需要，又下载了bbsxp的论坛程序。又看到了那个熟悉的数据库，还有既熟悉又陌生的代码。不少地方变了，以前研究出来的不少小技巧都不能用，有的地方的程序被重写了，不过依旧感觉很熟悉。很欣慰的是，以前我写过的一段“生日榜”代码，现在在正式包里已经有了，虽然代码和我当年写的那个差的太远——这不是我的那些东西。但是看到bbsxp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="纪念BBSXP">
+<meta property="og:url" content="http://bobyuxinyang.com/2007/05/19/纪念BBSXP/index.html">
+<meta property="og:site_name" content="Bob&#39;s log">
+<meta property="og:description" content="有感于bbsxp…又想起jy 纪念一下2007年3月20日 7时22分 最近一些需要，又下载了bbsxp的论坛程序。又看到了那个熟悉的数据库，还有既熟悉又陌生的代码。不少地方变了，以前研究出来的不少小技巧都不能用，有的地方的程序被重写了，不过依旧感觉很熟悉。很欣慰的是，以前我写过的一段“生日榜”代码，现在在正式包里已经有了，虽然代码和我当年写的那个差的太远——这不是我的那些东西。但是看到bbsxp">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-13T05:48:09.916Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="纪念BBSXP">
+<meta name="twitter:description" content="有感于bbsxp…又想起jy 纪念一下2007年3月20日 7时22分 最近一些需要，又下载了bbsxp的论坛程序。又看到了那个熟悉的数据库，还有既熟悉又陌生的代码。不少地方变了，以前研究出来的不少小技巧都不能用，有的地方的程序被重写了，不过依旧感觉很熟悉。很欣慰的是，以前我写过的一段“生日榜”代码，现在在正式包里已经有了，虽然代码和我当年写的那个差的太远——这不是我的那些东西。但是看到bbsxp">
+
+
+
+
+
+
+  <link rel="canonical" href="http://bobyuxinyang.com/2007/05/19/纪念BBSXP/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>纪念BBSXP | Bob's log</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob's log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2007/05/19/纪念BBSXP/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">纪念BBSXP
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2007-05-19 00:00:00" itemprop="dateCreated datePublished" datetime="2007-05-19T00:00:00+08:00">2007-05-19</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>有感于bbsxp…又想起jy 纪念一下2007年3月20日 7时22分</p>
+<p>最近一些需要，又下载了bbsxp的论坛程序。又看到了那个熟悉的数据库，还有既熟悉又陌生的代码。<br>不少地方变了，以前研究出来的不少小技巧都不能用，有的地方的程序被重写了，不过依旧感觉很熟悉。<br>很欣慰的是，以前我写过的一段“生日榜”代码，现在在正式包里已经有了，虽然代码和我当年写的那个差的太远——这不是我的那些东西。<br>但是看到bbsxp的官方论坛，一片寒，当年的“全国首创”，现在一片萧条，就好像我的jy<br>我什么时候开始看bbsxp的？</p>
+<p>很久很久之前看到一本介绍yuzi的书，后来又在网上看到了yuzi的bbsxp，于是开始了和bbsxp打交道的日子。<br>时间大约是2003年。<br>我在bbsxp官方论坛上的注册日期：2003-9-13<br>其实开始用bbsxp应该是03年6月份，那时候中考结束。。。呵呵<br>记得下下来的第一个版本是bbsxp1.65，从风格可以很明显看出，那是从bbs3000改过来的。<br>那时候家里是拨号，自己也不怎么懂asp,程序下下来之后，做了一个链接，所有文件原封不动，花了几乎一个下午时间，把所有程序传到了服务器上。<br>对了 我的第一个虚拟主机，居然是免费的，还不限流量，不限iis数……是从某个论坛弄到的，当时人品真好。<br>当时和bbs一起传上去的还有一个校友录系统，做成了初中校友录，当时的想法是做个网站，不过没多久，和大多数类似的动机一样的网站一样，网站关门了，bbs留了下来。<br>感谢可爱的ss给我们的bbs取了这个雅俗共赏的名字，简忆群岛bbs,反正名字不错，一直用着了，2003-7-4开始，03年一个暑假时间，是jybbs的起步阶段。论坛注册会员突破10个，突破100个……板块个个变多了。<br>9月，开学了，也许大家都在高一，感谢wxyz的高一，相当轻松，我有足够的时间管理论坛，研究论坛的程序。jybbs进入高速发展期。jybbs也开始随着bbsxp的升级而升级，2.0,3.0,4.0….爽。论坛管理是个不简单的事情，我研究了不少相关资料，看了不少东西，至今受益匪浅。<br>其实一开始并没有去研究asp,那段时间我还是非常鄙视web开发的，我眼中最好的东西始终是delphi…由此错过了.net，可惜啊，呵呵<br>研究论坛是从研究论坛插件开始的，说是插件实际上就是一个个独立的小程序，或者调用一下论坛数据库，或者只是做一个链接。顺便说一下，asp的功能限制让“热插拔”成为不可能，呵呵，用上.net的反射技术，做插件就那个爽了~不过也有例外，最早应该是改宠物和虚拟形象的插件程序，那些程序做的并不成熟，或者说根本很粗糙，把他们加到论坛里，和论坛完美结合基本上很难……不过我确实是搞成功了～记得是在bbsxp5.0的时代，大概也就是04年暑假吧，不论是程序还是jy的人气，几乎是到高峰，呵呵<br>那个时候很爽，鼎盛的时候每天包括纯净水有2000多个帖子。。。注册会员开始直指10000,在全市学生论坛里，基本上也算排前面的了。<br>对了，还有那一次网聚，论坛的聚会，到的人很多啊，有20多个吧，真正的是论坛聚会 呵呵</p>
+<p>感谢所有在jy当过区长的人，感谢所有在jy做过版主管理员的人。。。呵呵。<br>给bbs做风格也是累人的事情，不过除了学会css和熟练用ps改网页图片之外，其他也没什么了，呵呵，我没什么艺术细胞。<br>做风格唯一的，也是最大的收获。。。在bbs上给别人按ps的要求做了一套风格，那个涉及到程序改动，所以技术含量还是比较高。后来拿到80多q币和两个8位qq作为报酬。。。<a href="http://www.airmoon.cn/" target="_blank" rel="noopener">http://www.airmoon.cn/</a> 很漂亮的一个页面,只可惜现在已经不存在了。<br>05年暑假，jy依然很热闹，不过相对04年时差了很多，快高三，也没怎么准备管了。<br>那时候jy已经换了200m的服务器，当时面临06年的服务器经费，募捐开始了，感谢所有为募捐出钱出力的同志们。<br>05年的暑假，8月10号，是高三开学的日子，那天帖子量首次跌破200，我心中坦然，开始感觉到萧条的时候该来临了。正好随后去了一趟新加坡，几天没上网，在回来的机场上了jy,果然是那样，一片萧条。<br>从那个时候开始，jy很快走了下坡路，后来伴随着一些铁杆的里去，jy只剩下了一个80多m的数据库和几百兆的上传文件。<br>06年的暑假，虽说已经放假，jy不再热闹了，说到底，bbs是上个世纪末或者说这个世纪出的一种东西，blog，q-zone这些东西的出现，让靠论坛聚拢人气的时代结束了，jy就此消亡。<br>2006-9-19 在大学的机房发现jybbs因为某些不可告人的问题（其实我都不太清楚）被公安查封，限期整改……<br>下载了数据库作为留念，jybbs消失了。留下了1115个注册会员信息，11105个主题，176202个回贴。。。。恨，因为烧了一个u盘，到2006-9-19的数据库永远消失了，现在手里的数据是到2006年初的，我只记得到06年的7月为止，主题＋回贴超过了200000,仅此而已。。。<br>这东西就跟初恋似的永远忘不掉，在我的眼里，bbsxp的代码永远很漂亮，呵呵。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2007/05/19/作为疯子的疯话/" rel="next" title="作为疯子的疯话">
+                <i class="fa fa-chevron-left"></i> 作为疯子的疯话
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2007/05/19/标准，没事儿找事儿/" rel="prev" title="标准，没事儿找事儿">
+                标准，没事儿找事儿 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">bobyuxiyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">323</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bob.yuxinyang@gmail.com" title="E-Mail &rarr; mailto:bob.yuxinyang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bobyuxiyang</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

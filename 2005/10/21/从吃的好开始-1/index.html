@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="从吃的好开始~ 校园卡系统设计 高三的中午的时间是宝贵的，可学校食堂的效率就那么的低下，长的吓人的队伍，凶神恶煞的“师傅”，质量实在不怎么地的菜……只能忍着了 却突然想到食堂的那套“校园卡”系统 无锡一中的“校园卡”其实也就只是饭卡，高一拿到卡时就感觉这东西质量不怎么样，估计是上个世纪九零年代初的东西了(系统还是foxbase 连同样差劲的中国石化都用foxpro…)。事实也证明，在这个学校里呆了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从吃的好开始~(1)">
+<meta property="og:url" content="http://bobyuxinyang.com/2005/10/21/从吃的好开始-1/index.html">
+<meta property="og:site_name" content="Bob&#39;s log">
+<meta property="og:description" content="从吃的好开始~ 校园卡系统设计 高三的中午的时间是宝贵的，可学校食堂的效率就那么的低下，长的吓人的队伍，凶神恶煞的“师傅”，质量实在不怎么地的菜……只能忍着了 却突然想到食堂的那套“校园卡”系统 无锡一中的“校园卡”其实也就只是饭卡，高一拿到卡时就感觉这东西质量不怎么样，估计是上个世纪九零年代初的东西了(系统还是foxbase 连同样差劲的中国石化都用foxpro…)。事实也证明，在这个学校里呆了">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-13T05:48:11.615Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从吃的好开始~(1)">
+<meta name="twitter:description" content="从吃的好开始~ 校园卡系统设计 高三的中午的时间是宝贵的，可学校食堂的效率就那么的低下，长的吓人的队伍，凶神恶煞的“师傅”，质量实在不怎么地的菜……只能忍着了 却突然想到食堂的那套“校园卡”系统 无锡一中的“校园卡”其实也就只是饭卡，高一拿到卡时就感觉这东西质量不怎么样，估计是上个世纪九零年代初的东西了(系统还是foxbase 连同样差劲的中国石化都用foxpro…)。事实也证明，在这个学校里呆了">
+
+
+
+
+
+
+  <link rel="canonical" href="http://bobyuxinyang.com/2005/10/21/从吃的好开始-1/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>从吃的好开始~(1) | Bob's log</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob's log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/从吃的好开始-1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">从吃的好开始~(1)
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2005-10-21 00:00:00" itemprop="dateCreated datePublished" datetime="2005-10-21T00:00:00+08:00">2005-10-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>从吃的好开始~ 校园卡系统设计 高三的中午的时间是宝贵的，可学校食堂的效率就那么的低下，长的吓人的队伍，凶神恶煞的“师傅”，质量实在不怎么地的菜……只能忍着了 却突然想到食堂的那套“校园卡”系统 无锡一中的“校园卡”其实也就只是饭卡，高一拿到卡时就感觉这东西质量不怎么样，估计是上个世纪九零年代初的东西了(系统还是foxbase 连同样差劲的中国石化都用foxpro…)。事实也证明，在这个学校里呆了两年多，饭卡换了无数张，而这只是我一个人，５块一张的卡算不上贵，不过想想学校在这上边大概也赚足了钱了吧~ 说说学校的饭卡系统 很明显，卡中存储的只是一个编号信息，这从加钱的过程可以看出来，那老师要的只是一个编号，我便可以扔下钱走人，同时，学校里应该有一台总的服务器储存了所有学生卡中的钱数（其实也就几千数据，数据量算不上大），刷卡时候能显示出现在卡中的钱数，而卡拿掉之后才去减钱。这样的话，食堂中每一台刷卡的终端应该都是联网的。 现在的问题不少，总结一下，大概有这么几点： １ 加钱很不方便，每次开学总务处都人满为患，相信每个一中的学生都是深有体会！ ２ 现在使用的磁卡性能比较差了，容易折断，磁条容易坏，而刷卡机由于有一定的年头了，工作起来更是想个老头子似的，什么都读不清楚。。。。每次刷卡的时候我总想，如果用菜票是不效率更高~ ３ 校园卡功能太单一，名曰“校园卡”却只能当饭卡，如果饭卡除了能在食堂使用之外，还能在小卖部，自动贩卖机使用，甚至用来交班费，交学费等等等等，若能实现这些功能，那一中的校园卡一定会成为一中的一个特色！ 所以很想给学校换一套饭卡系统，我还是重新来分析分析需求 系统需要完成的功能 １ 有些类似银行卡，但是只存钱，不取钱。（应该考虑在卡销毁时，也就是毕业时的退钱） ２ 校园消费，仅限于校园的消费，主要是食堂买饭，同时包括小卖部一类地方，但是自动贩卖机使用的实现有难度，主要是设备需要更新 ３ 身份标识，上面说到要实现班级班费管理等等功能，那么必须严格的遵循“一人一卡”。每张卡一个编号，每个编号对应一个人，这个编号应该统一编排，与班级，年级等无关（持卡人可能更换） …………未完待续 一些零散的想法，以后视情况加进来： １ 每个终端都是一台电脑肯定不实际，可能需要两种终端，一种是只会扣钱的那种，一种是能完成各种功能的终端（这个需要一台pc了），这种终端可以放在班级中，小卖部，办公室等等，可以加钱，查询帐务，扣钱（比如班级交钱，或者罚款 呵呵）等等 ２ 加钱一定要支持各种方式，只支持现金肯定太落后了 我想得到的方式有，现金，银行卡转帐，通过网络帐户（支付宝，paypal一类） 3 整个网络利用学校中局域网就行，但是如果能wi-fi 那岂不太爽~~~~ 4 既然是校园卡，不一定只能管理钱方面的事情，可以用来建立学生信用度 比如校内骑车扣分啊，，考试作弊处分啊，或者做了什么好事啊 都可以记在上面 呵呵….. 甚至是学生档案也可以部分的进到系统里边…. 这玩艺儿就算是教师节送给老师的礼物 呵呵 </p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2005/10/21/从吃的好开始-2/" rel="next" title="从吃的好开始~(2)">
+                <i class="fa fa-chevron-left"></i> 从吃的好开始~(2)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2005/10/21/2005年07月19日-终于可以回来了/" rel="prev" title="2005年07月19日 终于可以回来了">
+                2005年07月19日 终于可以回来了 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">bobyuxiyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">323</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bob.yuxinyang@gmail.com" title="E-Mail &rarr; mailto:bob.yuxinyang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bobyuxiyang</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

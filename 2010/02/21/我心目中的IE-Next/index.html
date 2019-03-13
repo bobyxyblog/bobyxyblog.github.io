@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="还是牢骚 惊闻3月份microsoft可能要发布前期版本的ie9了。上次写了一篇我心目中的windows.next，那说的是windows。但是按照google的观点，不可否认的是我们把越来越多的时间花在了浏览器上，因此其实所谓的windows.next很大程度上也将会取决于ie.next。我很难想象微软会推出一个什么样的ie9，如果还是像ie8一样，增加的都是类似web slice之类的噱头功能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我心目中的IE.Next">
+<meta property="og:url" content="http://bobyuxinyang.com/2010/02/21/我心目中的IE-Next/index.html">
+<meta property="og:site_name" content="Bob&#39;s log">
+<meta property="og:description" content="还是牢骚 惊闻3月份microsoft可能要发布前期版本的ie9了。上次写了一篇我心目中的windows.next，那说的是windows。但是按照google的观点，不可否认的是我们把越来越多的时间花在了浏览器上，因此其实所谓的windows.next很大程度上也将会取决于ie.next。我很难想象微软会推出一个什么样的ie9，如果还是像ie8一样，增加的都是类似web slice之类的噱头功能">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-13T03:49:10.663Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我心目中的IE.Next">
+<meta name="twitter:description" content="还是牢骚 惊闻3月份microsoft可能要发布前期版本的ie9了。上次写了一篇我心目中的windows.next，那说的是windows。但是按照google的观点，不可否认的是我们把越来越多的时间花在了浏览器上，因此其实所谓的windows.next很大程度上也将会取决于ie.next。我很难想象微软会推出一个什么样的ie9，如果还是像ie8一样，增加的都是类似web slice之类的噱头功能">
+
+
+
+
+
+
+  <link rel="canonical" href="http://bobyuxinyang.com/2010/02/21/我心目中的IE-Next/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>我心目中的IE.Next | Bob's log</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob's log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2010/02/21/我心目中的IE-Next/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">我心目中的IE.Next
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2010-02-21 00:00:00" itemprop="dateCreated datePublished" datetime="2010-02-21T00:00:00+08:00">2010-02-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>还是牢骚</p>
+<p>惊闻3月份microsoft可能要发布前期版本的ie9了。上次写了一篇<strong>我心目中的windows.next</strong>，那说的是windows。但是按照google的观点，不可否认的是我们把越来越多的时间花在了浏览器上，因此其实所谓的windows.next很大程度上也将会取决于ie.next。我很难想象微软会推出一个什么样的ie9，如果还是像ie8一样，增加的都是类似web slice之类的噱头功能，没有杀手级的东西拿出来，那么ie9可能不会带来什么起色。</p>
+<p>正好，顺着上次的思路，我再来侃侃我心目中的ie.next。在这之前要发的牢骚是，相比起现在依然在市场上处于霸主地位的windows来说，ie在市场上的优势已经完全没那么明显了。microsoft的公关总喜欢用ie的装机量来说问题，可事实上，现在很多的电脑上（哪怕很多初学者的电脑）都安装了其他的浏览器。我记得好像有份数据显示在比较专业的用户群体中ie+chrome是使用最多的组合，我个人倒是很赞同，至少我现在大部分时间都在使用chrome，只是涉及到调试程序或者有明显兼容性问题才会使用ie8。</p>
+<p>我在这里想说的是ie.next，或许更应该是对下一代浏览器的展望，绝不仅仅是ie。而之所以用ie这个名字，一方面是我作为ie忠实用户这么多年的一种感情（虽然现在已经不那么忠实了），另一方面则是对微软的一种屈服：下一代浏览器是一定要和操作系统紧密结合的，而与windows结合的，也就只有ie了。</p>
+<p>我心目中的下一代ie需要带来什么样的东西呢？</p>
+<p>对于google来说，由于windows操作系统十几年的先入优势，基于gdi的这一套本地应用程序的地位已经几乎称为了个人电脑上的标准。在以前不论是vb，不论是基于c++的mfc atl等等，甚至delphi的vcl，再甚至是后来基于.net的winform，各个厂商争论的焦点都是如何更好的利用windows sdk中提供的api来描述ui。</p>
+<p>浏览器的出现，尤其是html+js的发展壮大，提供了一种跳过windows sdk的机会，而且更重要的——它们比起windows sdk来说更加适合互联网应用程序，其实也就是所谓的ria。显然，google现在把赌注压在了html5上面，如果某一天html5真的成了事实上的标准，那么也就是google帝国崛起的哪一天。</p>
+<p>其实标准不标准这些事情，就是一些大公司明争暗斗的产物，并没有太多的好坏之分。对于microsoft来说，一向是不太喜欢html5的，毕竟对于曾经的垄断巨头来说，搞标准化就意味着将市场拱手相让。因此不论是microsoft还是adobe一直都会都对html5的推广不那么配合，很显然，google正在“挟标准以令大家”。</p>
+<p>但是市场还是认技术的，说实话，相比起sl和flash这种比较成熟的技术来说，html5的优势大致也就有一个：兼容先前技术。一方面，由于html现在已经成为了事实标准，因此广大的开发者显然更加容易接受一个“下一代html”而不是sl这样的“微软标准”。说实话，到底是html5好还是flash好还是sl好，只能说是各有千秋。</p>
+<p>貌似扯得有点远了，直接说ie.next应该如何吧。</p>
+<p>我认为首先微软应当拓展silverlight，推出一个完全基于native api的sl版本，也就类似现在的silverlight for embedded——不依赖任何虚拟机的sl版本，这样的目的其实很简单——性能。在性能上面我也不多说什么了，不知道到底是硬件跟不上ms的蓝图画的太大还是ms的开发团队总把性能作为最后一件事情，好吧，打住。</p>
+<p>然后，<strong>下一代的ie本身就应该完全由silverlight技术打造</strong>（其实就跟现在的pivot那样，wpf还是sl倒无所谓），如果性能问题解决了，那么将sl打造成“互联网应用程序”的一个标准也不是不可能。没错，以后大家做网页都是用sl就行了，如果sl技术足够成熟，那么ie运行互联网应用程序就好像windows系统运行本地exe文件一样容易。</p>
+<p>那html5或者flash又怎么办呢？很简单，ms完全能够实现一个基于silverlight的html5渲染程序，只要sl足够强大，这一切很简单。我想凭借ms的实力和在对开发者做工作的能力，推出一个完全基于sl技术的开发框架也不是不可能。<strong>想象一下，到那个时候，在下一代windows系统中，一切互联网应用都使用silverlight，上网不需要敲网址，只需要点击几个图标就能够进入silverlight的页面，同时传统的html页面也能够被渲染。</strong></p>
+<p>好吧，一切的基石是silverlight/wpf技术能够足够强大（<strong>关键是性能！</strong>），其实看得出来，很早以前ms就在算着这盘棋，可惜那个不争气的wpf……</p>
+<p>如果sl技术真的能够如此强大，那么下一代的ie包括下一代的silverlight，一定会作为操作系统的一部分存在。当初chrome横空出世时，有过这么一句话：<strong>从今之后windows系统将有两个任务栏，一个在地下，一个在天上。我觉着这句话简直就是一针见血。好吧，我真的不期望下一代的ie还是作为桌面上的一个图标出现。我要说的是：取消桌面概念。</strong></p>
+<p>因为上世纪80年代开始，计算机就被定义为“办公用品”，因此各个年代的图形化界面都有一个先入概念——“计算机屏幕就是桌面”。未来的windows系统肯定不会只运行在办公室pc机上，其实我现在已经想象不出在手机上如果运行windows的话需要“桌面”这东西干什么。</p>
+<p>看看现在的模式吧，我们是如何使用网络应用程序的：<br><strong>桌面（开始） - 应用程序(ie) – 网络应用程序(网页)</strong></p>
+<p>而我期望的是这样的模式来运行网络应用程序：<br><strong>开始 - 网络应用程序（此时把“ie”给我拿出来，“ie”就是网络应用程序的容器）</strong></p>
+<p>或者是本地应用程序:</p>
+<p><strong>开始 - 本地应用程序 （此时把“桌面”给我拿出来，“桌面”就是本地应用程序的容器）</strong></p>
+<p>想象一下，如果下一代windows跑在我家的电视上，我根本就不需要这个“桌面”，我只知道运行“看电视”应用程序（这也许是一个网络应用程序），你就直接调用silverlight的渲染核心（相当于打开ie）来帮助我在线收看电视。</p>
+<p>如果下一代windows跑在我家的工作pc上，那么我可以将“桌面”设置为默认打开，这样我依然可以像传统的windows那样使用它。</p>
+<p>从这个意义上说，ie.next就是下一个操作系统！其实chrome os正是我期望的东西，但是chrome毕竟无法运行本地应用程序。他只是做了microsoft还没有做的事情。</p>
+<p>因此到这个份上，很难再说清楚什么“操作系统”，什么“浏览器”。我只好用一句话概括，<strong>下一代ie浏览器需要紧密结合操作系统</strong>。</p>
+<p>其实我都没什么好说的了，眼光不放这么高，我要说的，一方面是silverlight的性能，一方面是现阶段ie渲染html+js的性能。作为使用者（尤其是开发者），我们就提出性能这一个要求，难道还太多吗？</p>
+<p>对于ie9，还是拭目以待吧。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2010/02/19/Wow-Yang-搬家到Wordpress/" rel="next" title="Wow, Yang! 搬家到Wordpress">
+                <i class="fa fa-chevron-left"></i> Wow, Yang! 搬家到Wordpress
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2010/02/22/起跑线/" rel="prev" title="起跑线">
+                起跑线 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">bobyuxiyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">323</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bob.yuxinyang@gmail.com" title="E-Mail &rarr; mailto:bob.yuxinyang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bobyuxiyang</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="最近搬家，想在网上淘一把好些的菜刀。不看不知道，原来看起来几乎没什么区别的菜刀，国产的名牌一把四五十，国外的牌子要好几百。我并没有直接买下四五十的菜刀…… 产品和价值 有很多产品经理一说起做产品，提到最多的大概是“我们能为用户带来什么”。的确，对于一个产品，尤其是it类的产品来说，为用户创造价值是第一位的。毕竟，我们吃了太多互联网泡沫的亏，一个根本无法带来将价值的产品，哪怕炒作的再厉害，最终也是要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="产品的理念——功能，感觉，品牌">
+<meta property="og:url" content="http://bobyuxinyang.com/2010/03/12/产品的理念——功能，感觉，品牌/index.html">
+<meta property="og:site_name" content="Bob&#39;s log">
+<meta property="og:description" content="最近搬家，想在网上淘一把好些的菜刀。不看不知道，原来看起来几乎没什么区别的菜刀，国产的名牌一把四五十，国外的牌子要好几百。我并没有直接买下四五十的菜刀…… 产品和价值 有很多产品经理一说起做产品，提到最多的大概是“我们能为用户带来什么”。的确，对于一个产品，尤其是it类的产品来说，为用户创造价值是第一位的。毕竟，我们吃了太多互联网泡沫的亏，一个根本无法带来将价值的产品，哪怕炒作的再厉害，最终也是要">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-13T03:49:10.664Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="产品的理念——功能，感觉，品牌">
+<meta name="twitter:description" content="最近搬家，想在网上淘一把好些的菜刀。不看不知道，原来看起来几乎没什么区别的菜刀，国产的名牌一把四五十，国外的牌子要好几百。我并没有直接买下四五十的菜刀…… 产品和价值 有很多产品经理一说起做产品，提到最多的大概是“我们能为用户带来什么”。的确，对于一个产品，尤其是it类的产品来说，为用户创造价值是第一位的。毕竟，我们吃了太多互联网泡沫的亏，一个根本无法带来将价值的产品，哪怕炒作的再厉害，最终也是要">
+
+
+
+
+
+
+  <link rel="canonical" href="http://bobyuxinyang.com/2010/03/12/产品的理念——功能，感觉，品牌/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>产品的理念——功能，感觉，品牌 | Bob's log</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob's log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2010/03/12/产品的理念——功能，感觉，品牌/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">产品的理念——功能，感觉，品牌
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2010-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2010-03-12T00:00:00+08:00">2010-03-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近搬家，想在网上淘一把好些的菜刀。不看不知道，原来看起来几乎没什么区别的菜刀，国产的名牌一把四五十，国外的牌子要好几百。我并没有直接买下四五十的菜刀……</p>
+<p><strong>产品和价值</strong></p>
+<p>有很多产品经理一说起做产品，提到最多的大概是“我们能为用户带来什么”。的确，对于一个产品，尤其是it类的产品来说，为用户创造价值是第一位的。毕竟，我们吃了太多互联网泡沫的亏，一个根本无法带来将价值的产品，哪怕炒作的再厉害，最终也是要失败的。</p>
+<p>于是有很多这样的故事。有个年轻人做互联网创业（很时髦吧），别人问他最大的优势是什么，他想了想说：“<strong>我可以利用互联网的优势，让用户以最低的成本，获得最大的利益</strong>。”（都是这么个意思，就不说具体的业务了）</p>
+<p>这话说得真好。言下之意，以前没有互联网这件事儿是可能因为成本太高或者其他原因是不可能的至少是不经济的，现在有了互联网，很多事情变成了可能。一直以来，我们都以这种理念在做产品，也就是利用互联网的信息优势，让生活或者生产更方便，成本更低。</p>
+<p>我也一直这么觉得，但菜刀这事儿颠覆了我的想法，事情要是这么简单，那我为啥不直接买下40多那把呢。</p>
+<p><strong>跟着感觉走</strong></p>
+<p>很多时候，并不是一款产品提供了足够多的功能，成本足够低，或者简单说性价比足够高，就能够在众多产品竞争中胜出，有时候甚至相反。问题的关键在于，消费者其实经常并不是非常理性的。</p>
+<p>有时候品牌是一种因素，同样的两款手机，一款是诺基亚，2000元左右，一款没有品牌，1000元左右，功能上后者大于前者。理性的消费者应该会购买后者，因为价格后者低于前者，从性价比上讲，后者远超过前者。实际上，前者销量远大于后者。你可以点上面的链接看看一个示例，一般情况下，你会购买后者吗？（提供链接仅供参考，没有任何广告目的）</p>
+<p>有时候很难说出原因，中国qq同时在线人数已经突破了1亿，而同样功能强大的msn或者gtalk或者其他曾经流行过的各种产品（谁还记得新浪uc，网易泡泡？）已经销声匿迹。很多时候你问一个人为什么只用qq，他会说：习惯了。</p>
+<p>有时候，事情更难说清楚。现在中国的c2c电子商务市场上，淘宝一家独大。如果说ebay在中国的失败是水土不服的话，那么百度有啊，腾讯拍拍则很难说是因为什么了。特别是百度曾经信誓旦旦拿出来的有啊，的的确确从功能上超过了淘宝（淘宝很多改进都是从有啊学来的），但是市场靠数据说话，数据靠网民创造，网民就是不买有阿的帐。这也就很难说清楚原因了。</p>
+<p>真的只能说，做产品是一个技术活，但是产品能不能火，就跟一个刚出道的歌星能不能火一样：得跟着感觉走。</p>
+<p><strong>产品在功能之后……</strong></p>
+<p>好吧，既然要跟着感觉走，那问题在“跟着谁的感觉走”，消费者，买单的人，没错，做产品就得跟着买单的人的感觉走。</p>
+<p>还拿手机来说事儿，手机已经成为了一种大众消费品。买手机的消费者有很多种，我们看看他们的感觉：</p>
+<p>打工仔，钱不多的学生这一类，买手机最先考虑的是性价比，于是，山寨机成了首选。</p>
+<p>it精英，也就是所谓“it人士”，经常打着搞开发的名号，买上一款智能手机，wm或者android之类，有钱的话也可能是iphone。</p>
+<p>真正的有钱人，摆阔的学生，很简单，什么贵买什么，当年的nokia8800，或者iphone，或者各种“机皇”。</p>
+<p>如果这么分析下去就没什么意义了，仔细分析你会发现，上面这些人只是手机购买群体的一小部分，而真正的“大众”则是这么一类人：不是很在乎钱缺钱，预算可能从300-3000不等，当然便宜点最好，带出去要有点面子，山寨机肯定不行，功能打电话发短信就够，但是功能要是能多一点肯定更好。抱着这种典型的小市民想法买手机的人，应该是最多的。</p>
+<p>我们按照这个要求在市场上放眼望去，nokia。没第二个了。我认为这就是诺基亚产品在市场上取得第一的原因。</p>
+<p>再拿菜刀说事儿，是实话，我心里很清楚50块的一把菜刀和500的一把菜刀用来切菜并不会有太大的区别，毕竟50块一把也不便宜，而且是几百年的老牌子。但是，就跟买手机一样，当市场上出现500一把的菜刀时，我总会在心里暗自觉得50一把的菜刀是不是太寒碜了，是不是砢碜了，是不是面子不够。如果这菜刀是我自己用，我还可以偷偷去买把50的，告诉自己没啥区别，但如果是买来送人，我想也许我会毫不犹豫放弃50的那一把。</p>
+<p>说到这里，真要说一句，做一个产品，在功能之后的，真的要做“感觉”。</p>
+<p><strong>感觉——说开了去</strong></p>
+<p>到这里突然想到郎咸平最近力推的一个新观点“媒体广告行业的本质是做一种精神”。愿意大概是现在因为媒体产业的足够发达和互联网的发展，媒体作为“信息传播”的作用越来越弱（因为我们太容易获取信息），而在这个时候，媒体更多的是要提供一种“精神”。这样才有差异化，才会让读者依赖。比如有的媒体特别“八卦”，有的媒体报道很有深度，有的媒体非常有“格调”等。</p>
+<p>将这个观点水平的迁移到互联网行业上来，我们大概可以做这么个类比。</p>
+<p>互联网行业就好像一片巨大的椰子林，很多人想上去摘椰子。最初，有几个人找到了几颗硕大的椰子树，于是爬了上去，经过这十几年的发展，我们现在想再进去的时候，已经发现每颗椰子树上都爬满了人，想爬上去太难了！</p>
+<p>这时候，消费者已经可以轻易的获取互联网应用。因此我们要再做和别人一样的应用，就想去和别人挤上一颗椰子树——竞争是惨烈的，并且别人往往已经爬到了椰子最好最大的地方。</p>
+<p>当椰子足够多，价格已经不是消费者购买的决定性因素时。我们就应该考虑是否能找到消费者的另一种感觉，为他们提供一些“特殊”的椰子。我们会发现，消费者并不是都喜欢最便宜最大最好的椰子，也许我们可以专门提供小巧可爱的椰子，我们可以专门提供生椰子，我们可以专门提供不同颜色的椰子，等等。而且，我们忽略了价格因素，可以把价格卖的很贵，又或者可以免费提供椰子而从椰子加工赚钱，等等。一下子，思路就打开了。</p>
+<p><strong>大一统：做产品就是做感觉</strong></p>
+<p>统一的来说，其实功能和性价比也可以算作感觉的一种。功能就好像还有人爬上去的椰子树，而其他的感觉则是对椰子的二次处理。总的说来，做产品的理念并非只是做功能，而是在做感觉。再者，感觉还分正面和负面，我们从一个普通消费者角度来看，直接举例子吧:</p>
+<p>看到nokia，你是什么感觉？<strong>正面：结实好用，买它肯定没错，反面</strong>：街机，个性化不足，价格有时候偏贵</p>
+<p>看到山寨手机，你是什么感觉？<strong>正面：功能强大，价格便宜，反面</strong>：没面子，便宜货，质量可能有问题</p>
+<p>再到互联网行业：</p>
+<p>看到google，你是什么感觉？<strong>正面：技术强大，还有一个“不作恶”;反面：</strong>都是英文看不懂，功能都很先进，所有服务都得联网，不方便</p>
+<p>看到microsoft，你是什么感觉？<strong>正面：技术相当强大，日常生活必需，功能复杂，反面</strong>：能用到的东西不多，很多东西搞不懂，价格贵，只能用盗版；</p>
+<p>电子商务：</p>
+<p>看到淘宝，你是什么感觉？<strong>正面：国内大家都用，可以买到便宜的东西；反面：</strong>东西质量可能不能保障</p>
+<p>看到有阿，你是什么感觉？<strong>正面：百度的东西，可能好用吧；反面：</strong>山寨淘宝的，而且我淘宝习惯了，懒得在这儿买</p>
+<p>用同样的方式去看待一个的产品，也许会更加容易把产品看的更加透彻。</p>
+<p><strong>从感觉到品牌</strong></p>
+<p>感觉是无形的，而品牌是有形的。产品一旦形成了固定的感觉，也就形成了一个品牌。因此做一个产品，远不止是做出一些功能。现在再回头看开头提到的那句话“<strong>我可以利用互联网的优势，让用户以最低的成本，获得最大的利益</strong>”。这话是不是说得太肤浅了一些呢？</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2010/03/11/五十多岁的那一代人/" rel="next" title="五十多岁的那一代人">
+                <i class="fa fa-chevron-left"></i> 五十多岁的那一代人
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2010/03/16/对目前高房价的几点看法/" rel="prev" title="对目前高房价的几点看法">
+                对目前高房价的几点看法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">bobyuxiyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">323</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bob.yuxinyang@gmail.com" title="E-Mail &rarr; mailto:bob.yuxinyang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bobyuxiyang</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

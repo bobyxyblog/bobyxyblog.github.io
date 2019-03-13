@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="下午闲来无事在家里往白云上写的帖子，玩mp3,便携耳机之类的兄弟们可以看看，都是一些必要的基础知识。不了解这些的话你很可能会花上一些冤枉钱，了解这些会让你把钱花的明明白白。如果这些对你有任何帮助，我都会感到欣慰。  对于数字音乐，首先有个采样频率现在绝大部分的都数字音乐都使用44.1k的采样频率 就是每一秒钟采44100个样本 根据采样理论，这个采样频率最高能还原22100hz的声音，超过了人耳听">
+<meta property="og:type" content="article">
+<meta property="og:title" content="电脑hifi的一些基础知识">
+<meta property="og:url" content="http://bobyuxinyang.com/2009/04/06/电脑hifi的一些基础知识/index.html">
+<meta property="og:site_name" content="Bob&#39;s log">
+<meta property="og:description" content="下午闲来无事在家里往白云上写的帖子，玩mp3,便携耳机之类的兄弟们可以看看，都是一些必要的基础知识。不了解这些的话你很可能会花上一些冤枉钱，了解这些会让你把钱花的明明白白。如果这些对你有任何帮助，我都会感到欣慰。  对于数字音乐，首先有个采样频率现在绝大部分的都数字音乐都使用44.1k的采样频率 就是每一秒钟采44100个样本 根据采样理论，这个采样频率最高能还原22100hz的声音，超过了人耳听">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-13T03:49:11.511Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="电脑hifi的一些基础知识">
+<meta name="twitter:description" content="下午闲来无事在家里往白云上写的帖子，玩mp3,便携耳机之类的兄弟们可以看看，都是一些必要的基础知识。不了解这些的话你很可能会花上一些冤枉钱，了解这些会让你把钱花的明明白白。如果这些对你有任何帮助，我都会感到欣慰。  对于数字音乐，首先有个采样频率现在绝大部分的都数字音乐都使用44.1k的采样频率 就是每一秒钟采44100个样本 根据采样理论，这个采样频率最高能还原22100hz的声音，超过了人耳听">
+
+
+
+
+
+
+  <link rel="canonical" href="http://bobyuxinyang.com/2009/04/06/电脑hifi的一些基础知识/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>电脑hifi的一些基础知识 | Bob's log</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob's log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2009/04/06/电脑hifi的一些基础知识/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">电脑hifi的一些基础知识
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2009-04-06 00:00:00" itemprop="dateCreated datePublished" datetime="2009-04-06T00:00:00+08:00">2009-04-06</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>下午闲来无事在家里往白云上写的帖子，玩mp3,便携耳机之类的兄弟们可以看看，都是一些必要的基础知识。不了解这些的话你很可能会花上一些冤枉钱，了解这些会让你把钱花的明明白白。<br>如果这些对你有任何帮助，我都会感到欣慰。 </p>
+<p>对于数字音乐，首先有个采样频率<br>现在绝大部分的都数字音乐都使用44.1k的采样频率 就是每一秒钟采44100个样本 根据采<br>样理论，这个采样频率最高能还原22100hz的声音，超过了人耳听觉范围，因此这个采样频<br>率已经够了<br>因为大部分声音频率都比较集中，mp3基本原理是把频率比较高或低的部分简化或直接丢掉<br>，因此可以大大减少文件大小 也就是有损压缩<br>根据mp3压缩方式的不同，文件大小也不同<br>128k 320k是指压缩后文件的大小 和频率无关 单位kbps(kb/s) </p>
+<p>还有一种压缩算法，比较消耗cpu的计算能力，它可以通过某些数学模型在不丢掉数据的前<br>提下减少采集样本的大小  ape是其中一种<br>顺便说下 flac也是，flac压缩比高一些，但是flac所消耗的cpu计算比ape少得多，这也就<br>是为什么很多mp3设备支持flac但很少支持ape </p>
+<p>在这里面，各种压缩算法的cpu计算消耗和耗电有直接关系，有很多同样音质下压缩比高于<br>mp3的算法，但是因为耗电较大，没有普及<br>因此一般所使用的就是mp3 最多还有wma 或者一些公司专用的格式 比如sony apple的 </p>
+<p>然后就是声音解码后还原播放的问题<br>这里面有几个过程 </p>
+<p>1 cd到电脑<br>网上ape mp3之类大部分都是别人从cd上把数据读出来<br>使用的就是普通光驱，普通光驱在读取数据的时候会有一定的误码率<br>对于正常光盘，误码率不超过某个数量级，纠错机制都能够完成纠错读取全部数据<br>而cd光盘不一样，误码率的要求比数据要求小好几个数量级，因此普通光驱读出来的数据<br>并不能说就和cd一模一样<br>这就是为什么有的10年 20年前的光驱还有很多发烧友收藏<br>现在很多人用48速抓cd音轨，然后刻盘，这样的cd和原来的cd差别很大的，一般的设备都<br>能听出来，比如爆音之类<br>网上下载ape有时候会附上一个txt，里面记录了抓轨时的过程，使用的光驱型号等等<br>同理，刻录cd的时候也有类似误码率的问题，而且刻录误码率比读取高的多，和刻录盘，<br>刻录机关系很大<br>如果直接用cd播放机播放，情况也类似，但是cd播放机还存在解码的问题。 </p>
+<p>2 电脑到压缩<br>在windows下，抓轨下来的一般使用wav格式存储，可以看做就是原始的数据<br>压缩过程就如上一篇帖子所说，有各种不同的压缩算法。 </p>
+<p>3 解码<br>根据不同的算法会有不同的解码算法，解码过程消耗cpu计算能力各有不同，电脑上感觉不<br>出来，但设备商会很明显<br>越慢消耗越计算多，消耗计算越多越费电<br>一般情况下<br>wav文件就是原始数据加上了一个文件头，因此解码最快<br>mp3慢些<br>wav再慢些<br>同样算法 高码率比低码率慢些 vbr(动态码率)比cbr（静态码率）慢些<br>无损的比有损慢些<br>ape比flac慢 </p>
+<p>但是耗电还和数据量有关，因此wav比mp3耗电 而且耗电多得多<br>ape是最耗电的 </p>
+<p>4 da转换<br>得到数字的原始数据，还有一个过程就是把数字的原始数据转成模拟型号<br>这就是解码芯片<br>很多mp3都会说用了xxx芯片<br>以前飞利浦芯片最好，所以很多mp3都会说用了飞芯。。其实完全是噱头<br>其实现在各种芯片差别已经没这么大了，包括国产的凌阳之类也不差，很多还支持视频解<br>码之类，不过相对还是三星飞利浦的还是更好些。。。<br>实际上，就算是同一个芯片，外围电路的水平影响也是非常大的，这也正是大厂商和小厂<br>商的区别。很经典的iaudio 5用了sigmatel3520这个很老的芯片，但几乎把这款芯片的性<br>能发挥到了极致，音质比当时的很多其他品牌mp3好很多 </p>
+<p>5 放大<br>da转换后的型号就可以直接从lineout输出了<br>但是要输出到耳机还要经过一个型号放大的过程<br>说实话对于大多数使用者，这个过程不是很重要，使用一般的运算放大器就可以解决<br>但是如果使用了一些对型号要求很高的耳机，比如大耳机 比如shure se530这种比较高档<br>的耳机等等，放大器要求就会比较高<br>有很多人私自改装ipod拆掉内置的放大模块，然后接上自己专门的随身耳放 人称imod。带<br>随身外接耳放的，也叫捆绑党，炸弹党。。。<br>如果是台机就好很多，可以用台式耳放。。。 </p>
+<p>6 耳机<br>放大之后的型号就进耳机了~耳机就不用多说了 呵呵 </p>
+<p>漏掉一个。<br>在音频采样阶段除了采样频率还有采样深度。采样频率规定了1秒采样多少次，采样深度规定了每次采样的长度，计算机音频(cd,mp3,wav)一般用16bits，电话一般是8bit，专业设备也有用24bits,32bits的。还见过凌阳单片机用10bits~<br>扩展版本的音频文件中同时还包括声道数等一些指标，甚至每个声道离人的距离，这些不算很重要。 </p>
+<p>介绍点基础知识<br>可能有错 欢迎讨论<br>活跃下气氛  呵呵 </p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2009/03/30/一个月来的总结/" rel="next" title="一个月来的总结">
+                <i class="fa fa-chevron-left"></i> 一个月来的总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2009/04/08/关于道德的随想-1/" rel="prev" title="关于道德的随想(1)">
+                关于道德的随想(1) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">bobyuxiyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">323</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bob.yuxinyang@gmail.com" title="E-Mail &rarr; mailto:bob.yuxinyang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bobyuxiyang</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

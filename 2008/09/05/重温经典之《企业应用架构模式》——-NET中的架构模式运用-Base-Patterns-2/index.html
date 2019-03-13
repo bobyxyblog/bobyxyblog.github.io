@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="忙了两天，继续我的随笔。 今天来看的，是另外几个基本模式。这些基本模式很多都已经发展的非常成熟，以至于现在大家都不习惯称其为模式了。但是我还是决定继续了解一下这些模式的来龙去脉，这样能够让我们对现有的一些用法有更加透彻的领悟。 registry模式 在架构设计中，我们总关注各种各样的对象以及各个对象之间的关系，我们经常new一个对象，然后由一个对象的产生多个对象，如此反复。但是这一切复杂的关系，总">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重温经典之《企业应用架构模式》——.NET中的架构模式运用 (Base Patterns 2)">
+<meta property="og:url" content="http://bobyuxinyang.com/2008/09/05/重温经典之《企业应用架构模式》——-NET中的架构模式运用-Base-Patterns-2/index.html">
+<meta property="og:site_name" content="Bob&#39;s log">
+<meta property="og:description" content="忙了两天，继续我的随笔。 今天来看的，是另外几个基本模式。这些基本模式很多都已经发展的非常成熟，以至于现在大家都不习惯称其为模式了。但是我还是决定继续了解一下这些模式的来龙去脉，这样能够让我们对现有的一些用法有更加透彻的领悟。 registry模式 在架构设计中，我们总关注各种各样的对象以及各个对象之间的关系，我们经常new一个对象，然后由一个对象的产生多个对象，如此反复。但是这一切复杂的关系，总">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-13T05:48:07.291Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="重温经典之《企业应用架构模式》——.NET中的架构模式运用 (Base Patterns 2)">
+<meta name="twitter:description" content="忙了两天，继续我的随笔。 今天来看的，是另外几个基本模式。这些基本模式很多都已经发展的非常成熟，以至于现在大家都不习惯称其为模式了。但是我还是决定继续了解一下这些模式的来龙去脉，这样能够让我们对现有的一些用法有更加透彻的领悟。 registry模式 在架构设计中，我们总关注各种各样的对象以及各个对象之间的关系，我们经常new一个对象，然后由一个对象的产生多个对象，如此反复。但是这一切复杂的关系，总">
+
+
+
+
+
+
+  <link rel="canonical" href="http://bobyuxinyang.com/2008/09/05/重温经典之《企业应用架构模式》——-NET中的架构模式运用-Base-Patterns-2/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>重温经典之《企业应用架构模式》——.NET中的架构模式运用 (Base Patterns 2) | Bob's log</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob's log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2008/09/05/重温经典之《企业应用架构模式》——-NET中的架构模式运用-Base-Patterns-2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">重温经典之《企业应用架构模式》——.NET中的架构模式运用 (Base Patterns 2)
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2008-09-05 00:00:00" itemprop="dateCreated datePublished" datetime="2008-09-05T00:00:00+08:00">2008-09-05</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p></p><p style="text-indent: 21pt"><span style="font-family: 宋体">忙了两天，继续我的随笔。</span></p> <p style="text-indent: 21pt"><span style="font-family: 宋体">今天来看的，是另外几个基本模式。这些基本模式很多都已经发展的非常成熟，以至于现在大家都不习惯称其为模式了。但是我还是决定继续了解一下这些模式的来龙去脉，这样能够让我们对现有的一些用法有更加透彻的领悟。</span></p> <h2>registry<span style="font-family: 宋体">模式</span></h2> <p style="text-indent: 21pt"><span style="font-family: 宋体">在架构设计中，我们总关注各种各样的对象以及各个对象之间的关系，我们经常</span>new<span style="font-family: 宋体">一个对象，然后由一个对象的产生多个对象，如此反复。但是这一切复杂的关系，总得需要正确一个开始，第一个对象从哪里开始呢？</span></p> <p style="text-indent: 21pt"><span style="font-family: 宋体">我们经常在系统中引入一种全局的对象，这种对象对他作用域中所有程序都是已知的，任何程序都可以直接通过这个全局对象来获得一个对象实例，并由此开始一系列的操作。这种引入全局对象的操作方式在这里就被称作为</span>registry<span style="font-family: 宋体">模式。</span></p> <p style="text-indent: 21pt"><span style="font-family: 宋体">这样的说法是抽象的，换句话说，</span>registry<span style="font-family: 宋体">模式，就是在系统中定义一个用于获得其他对象实例的全局对象。</span></p> <p style="text-indent: 21pt"><span style="font-family: 宋体">这种模式的目的在于&#8220;获得对象&#8221;，就好象读取配置需要获取配置文件对象，权限管理需要获得权限管理对象。在面向对象编程中，一个对象的实例往往是通过</span>new<span style="font-family: 宋体">关键字获得的，也许你会问，那为什么这里还要创建专门的全局对象用于&#8220;获得对象实例&#8221;呢？这里就是这个模式的重点。</span></p> <p style="text-indent: 21pt"><span style="font-family: 宋体">之所以我们要使用一个专门的对象用于对象获取，就是因为我们对</span>new<span style="font-family: 宋体">这个操作不放心，一个最简单的要求是，我们经常要求获得的对象实例是全局唯一的。</span></p> <p style="text-indent: 21pt"><span style="font-family: 宋体">到这里你也许会想到</span>singleton<span style="font-family: 宋体">模式，没错，这种最简单的</span>registry<span style="font-family: 宋体">就是使用</span>singleton<span style="font-family: 宋体">实现的。在书中也有大量的代码来说明了如何使用</span>singleton<span style="font-family: 宋体">实现一个</span>registry<span style="font-family: 宋体">对象，实际上大多数情况下我们使用</span>singletom<span style="font-family: 宋体">模式也就足够了。因为我们很多时候所需要完成的事情，就是&#8220;要求获得的对象实例是全局唯一的&#8221;。</span></p> <p style="text-indent: 21pt"><span style="font-family: 宋体">确实是这样的，但是思考一下，还会有其他需求吗？</span></p> <p style="text-indent: 21pt"><span style="font-family: 宋体">设想一个打印文件系统的场景，任务队列里有非常多的任务，每次处理一个任务，都需要获取一个打印机对象，而打印机对象是极为有限的，比如只有</span>5<span style="font-family: 宋体">个。</span></p> <p style="text-indent: 21pt"><span style="font-family: 宋体">我们决定获取打印机</span>(printer)<span style="font-family: 宋体">对象的时候使用</span>registry<span style="font-family: 宋体">模式。在系统中定义一个全局</span>printerregistry<span style="font-family: 宋体">对象，理想情况下，我们希望每调用一次</span>printerregistry.getavailableprinter<span style="font-family: 宋体">方法就能够获得一个可用的打印机对象，参考</span>singletom<span style="font-family: 宋体">模式，我们可以写出类似这样的代码：</span></p> <p align="left">&lt;span style=”font-size: 9pt; font-family: ‘courier new’”</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2008/09/01/重温经典之《企业应用架构模式》——-NET中的架构模式运用-Session-State模式/" rel="next" title="重温经典之《企业应用架构模式》——.NET中的架构模式运用 (Session State模式)">
+                <i class="fa fa-chevron-left"></i> 重温经典之《企业应用架构模式》——.NET中的架构模式运用 (Session State模式)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2008/09/05/从6-0到6-1/" rel="prev" title="从6.0到6.1">
+                从6.0到6.1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">bobyuxiyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">323</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bob.yuxinyang@gmail.com" title="E-Mail &rarr; mailto:bob.yuxinyang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">registry模式</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bobyuxiyang</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

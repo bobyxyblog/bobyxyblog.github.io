@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="04.22.2006 基带传输(baseband):离散的数字信号 占用全部带宽，同时只能传送一个信号，分时传输宽带传输(broadband):模拟信号 网卡：并-&amp;gt;串  i/o地址 类似0x300 表示 系统调用设备的地址  中断号irq：设备打断cpu的标识 0-15pci总线一般可以自动识别irq，能共享irqmac地址 6字节  前3字节-&amp;gt;厂商  后3字节-&amp;gt;序列号 全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[04.22.2006]MCSE笔记6">
+<meta property="og:url" content="http://bobyuxinyang.com/2006/04/23/04-22-2006-MCSE笔记6/index.html">
+<meta property="og:site_name" content="Bob&#39;s log">
+<meta property="og:description" content="04.22.2006 基带传输(baseband):离散的数字信号 占用全部带宽，同时只能传送一个信号，分时传输宽带传输(broadband):模拟信号 网卡：并-&amp;gt;串  i/o地址 类似0x300 表示 系统调用设备的地址  中断号irq：设备打断cpu的标识 0-15pci总线一般可以自动识别irq，能共享irqmac地址 6字节  前3字节-&amp;gt;厂商  后3字节-&amp;gt;序列号 全">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-13T05:48:10.852Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[04.22.2006]MCSE笔记6">
+<meta name="twitter:description" content="04.22.2006 基带传输(baseband):离散的数字信号 占用全部带宽，同时只能传送一个信号，分时传输宽带传输(broadband):模拟信号 网卡：并-&amp;gt;串  i/o地址 类似0x300 表示 系统调用设备的地址  中断号irq：设备打断cpu的标识 0-15pci总线一般可以自动识别irq，能共享irqmac地址 6字节  前3字节-&amp;gt;厂商  后3字节-&amp;gt;序列号 全">
+
+
+
+
+
+
+  <link rel="canonical" href="http://bobyuxinyang.com/2006/04/23/04-22-2006-MCSE笔记6/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>[04.22.2006]MCSE笔记6 | Bob's log</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob's log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/23/04-22-2006-MCSE笔记6/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">[04.22.2006]MCSE笔记6
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2006-04-23 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-23T00:00:00+08:00">2006-04-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>04.22.2006</p>
+<p><strong>基带传输(baseband):离散的数字信号 占用全部带宽，同时只能传送一个信号，分时传输</strong><br>宽带传输(broadband):模拟信号</p>
+<p>网卡：并-&gt;串<br>  i/o地址 类似0x300 表示 系统调用设备的地址<br>  中断号irq：设备打断cpu的标识<strong> 0-15<br>pci总线一般可以自动识别irq，能共享irq</strong><br>mac地址 6字节  前3字节-&gt;厂商  后3字节-&gt;序列号 全世界唯一</p>
+<p>数据包:mac地址标示,或广播地址<br>1直接帧 p2p通讯 目标地址为目标网卡mac地址<br>2广播帧 目标地址为广播地址 越少越好<br>3多目广播帧 对选定的目标发送信息</p>
+<p>访问机制:如何把数据发到网线上<br>主要机制:<br><strong>csma/cd,侦测到网线上有数据包,则等待,否则发送一个包,冲突则停止发送<br>  高负荷时冲突增多,效率下降,实际带宽降低<br>令牌传递(toker passing):拥有令牌的主机,则能够发送数据(可以避免冲突) 发送完之后把令牌交给下一台 大负荷的时候效率不下降</strong></p>
+<p>osi模型^_^ 七层结构 每一层帮助上层完成工作<br>应用层:完成用户操作,包括各种协议(ftp http smtp dns…)<br>表达层，会话层<br>上三层面向用户<br>下四层提供可靠p2p数据传输<br><strong>传输层：完成数据包的可靠传输 负责分段重组<br>网络层：传送有大小限制的数据包 负责如何在子网间传递数据，寻址<br>数据链路层：不但加报头，而且加报尾（带效验，确保正确性）负责子网内的传输<br>packet-&gt;frame(二层以下)<br>物理层：负责网线传输</strong></p>
+<p>modem：和网卡一样工作第二层，通过电话线来传送数据</p>
+<p>以太网：第一第二层的实施 csma/cd机制</p>
+<p>itu,ccitt电信组织~</p>
+<p>ieee802模型<br>第一层第二层的细化<br>二层分为：<br>  逻辑链路控制层: (llc) <strong>负责差错和流量控制<br>  媒体访问子层:(mac) 负责访问控制</strong></p>
+<p><strong>以太网：是总线型 基带 csma/cd 802.3</strong><br>10base2 细缆 bnct 185m<br>10base5 粗缆<br>10baset 双绞线 最短2.5m 最长100m<br>100baset4:能在3类线实现100m网络 已不用<br>100basetx:5类线传输100m<br>100basefx:光纤传输</p>
+<p>中继器：延长传输距离</p>
+<p>5-4-3规范，两台主机，最多有5条网线，4个中继器，（对于细缆最多3根网线可以接机器）只适合10m<br><strong>100m最长205m 100+5(uplink)+100  和数据包最小大小有关<br>双绞线理论最短2.5m^_^<br>数据包最大1.5k</strong></p>
+<p><strong>令牌环网token ring：802.5 token passing机制</strong><br>msau:令牌环网hub 表面是星型，内部回环型 一点断路，自动直接接通，保证环网畅通(星型环)<br>速度 4mbps&amp;16mbps<br>保证高负荷下传输效率</p>
+<p>802.4 token bus 令牌总线<br>在总线型网络上通过编号实现逻辑上的令牌结构<br>能在总线上实现大负荷传输</p>
+<p>apple talk<br>苹果机使用<br>机制 csma/ca 慢于 csma/cd<br> 可在苹果机上安装ethernet网卡 走tcp/ip 和windowsnt互联</p>
+<p><strong>网络协议<br>netbeui:速度快，效率高，尺寸小，配置简单  不能跨越路由器(赛车)<br>ipx/spx:netware使用，速度快，规模大后路由效果差(轿车)<br>tcp/ip:规模大，路由效果好  但是速度慢(卡车)</strong></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2006/04/23/JYBBS暑假计划/" rel="next" title="JYBBS暑假计划">
+                <i class="fa fa-chevron-left"></i> JYBBS暑假计划
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2006/04/24/04-23-2006-MCSE笔记7/" rel="prev" title="[04.23.2006]MCSE笔记7">
+                [04.23.2006]MCSE笔记7 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">bobyuxiyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">323</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bob.yuxinyang@gmail.com" title="E-Mail &rarr; mailto:bob.yuxinyang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bobyuxiyang</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="windowsxp开机有一个进度条，会一遍一遍的跑，不少人认为只跑两圈就进去的就是开机速度快 网上出现过一种优化方式，修改注册表将所谓的“开机预读取”设置为“不预读”，则可以大大减少进度条“跑”的次数，但是这种“优化方法”出来不久，便有更多的文章指出这是“谬误”，还举出相当多的事例，或是试验，说明不预读并不能减少开机时间，大多的理由是进度条消失后的“黑屏时间”增加。 因为一直用的休眠，所以我一直也">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于windows的开机预读取">
+<meta property="og:url" content="http://bobyuxinyang.com/2006/05/17/关于windows的开机预读取/index.html">
+<meta property="og:site_name" content="Bob&#39;s log">
+<meta property="og:description" content="windowsxp开机有一个进度条，会一遍一遍的跑，不少人认为只跑两圈就进去的就是开机速度快 网上出现过一种优化方式，修改注册表将所谓的“开机预读取”设置为“不预读”，则可以大大减少进度条“跑”的次数，但是这种“优化方法”出来不久，便有更多的文章指出这是“谬误”，还举出相当多的事例，或是试验，说明不预读并不能减少开机时间，大多的理由是进度条消失后的“黑屏时间”增加。 因为一直用的休眠，所以我一直也">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://bobyuxinyang.com/2006/05/17/关于windows的开机预读取/1.jpg">
+<meta property="og:updated_time" content="2019-03-13T05:48:10.417Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于windows的开机预读取">
+<meta name="twitter:description" content="windowsxp开机有一个进度条，会一遍一遍的跑，不少人认为只跑两圈就进去的就是开机速度快 网上出现过一种优化方式，修改注册表将所谓的“开机预读取”设置为“不预读”，则可以大大减少进度条“跑”的次数，但是这种“优化方法”出来不久，便有更多的文章指出这是“谬误”，还举出相当多的事例，或是试验，说明不预读并不能减少开机时间，大多的理由是进度条消失后的“黑屏时间”增加。 因为一直用的休眠，所以我一直也">
+<meta name="twitter:image" content="http://bobyuxinyang.com/2006/05/17/关于windows的开机预读取/1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://bobyuxinyang.com/2006/05/17/关于windows的开机预读取/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>关于windows的开机预读取 | Bob's log</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob's log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/05/17/关于windows的开机预读取/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">关于windows的开机预读取
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2006-05-17 00:00:00" itemprop="dateCreated datePublished" datetime="2006-05-17T00:00:00+08:00">2006-05-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>windowsxp开机有一个进度条，会一遍一遍的跑，不少人认为只跑两圈就进去的就是开机速度快</p>
+<p>网上出现过一种优化方式，修改注册表将所谓的“开机预读取”设置为“不预读”，则可以大大减少进度条“跑”的次数，但是这种“优化方法”出来不久，便有更多的文章指出这是“谬误”，还举出相当多的事例，或是试验，说明不预读并不能减少开机时间，大多的理由是进度条消失后的“黑屏时间”增加。</p>
+<p>因为一直用的休眠，所以我一直也没怎么在意。前两天和别人谈到这个问题，我便好好研究一番。</p>
+<p>结论是，其实关于这个问题，所谓设置为“不预读”的优化方法也并非谬误，而这个所谓的预读也并非没有用处，否则ms怎么也不会花人力物力弄这么个浪费开机时间的东西。</p>
+<p>先说说什么是所谓的“预读取”。预读取分两种，一种是“系统文件预读”，一种是“应用程序预读”。具体的不去讨论，现在只讨论预读取对速度的影响。</p>
+<p>我们都有经验，当第一次打开word的时候会等待比较长的时间，硬盘灯不停的在亮，但是关闭再次打开，word启动速度就快得多了。这个其实就是windows的预读取做的优化。windows预读取发现你带开了一个他的预读取数据库没有的应用程序时，他就会将这个应用程序中某些信息在内存中留下一个映象，下次打开这个程序就不用再去硬盘上找文件，能大大加块程序启动速度。</p>
+<p>问题来了，内存中的映象重新启动之后就会消失，下次开机启动程序依然很慢，怎么办呢？这就需要“开机预读取”功能。windows会把使用频率较高的一些应用程序的信息记录下来，每次开机时，就完成一次对程序的预读取，从而大大加快应用程序的启动速度。</p>
+<p>你大概已经猜到，那个“进度条”一遍一遍的跑的时候，windows就在进行开机预读取的工作。</p>
+<p>因此，如果直接取消掉注册表中的“预读取功能”是一定会大大降低应用程序的启动速度的，当然开机速度会有一定的增加，不过这是得不偿失，因为没有了那一段必要的“系统文件预读取”，在进度条消失之后系统会从硬盘上去寻找大量的系统文件，反而影响启动速度，而且应用程序的启动速度也是一定会大大减慢的。<strong>其实比较好的优化办法是这样，找到“开机预读取”的信息，手动把不是很常用，不需要预读取的应用程序删除，尽量减少开机预读取的应用程序的数量，由此来加快启动速度！</strong></p>
+<p>位置在x:\windows\prefetch下面，命名是     exe文件名-16进制hash.exe</p>
+<p>有一些实测数据，一台装了许多应用软件的电脑：</p>
+<p>不作处理，开机29s,取消预读取，开机32s，删除prefetch文件夹下面大部分文件后，开机23s,有比较明显的开机速度提升，不过第一次运行应用程序的时候速度的确有所下降，并且prefetch文件夹下文件会自动生成，越来越多！</p>
+<p>下面是ms网站上对prefetch的解释</p>
+<p>prefetch<br>all versions of windows except real-mode windows 3x are demand-paged operating systems, where file data and code is faulted into memory from disk as an application attempts to access it. data and code is faulted in page-granular chunks where a page’s size is dictated by the cpu’s memory management hardware. a page is 4kb on the x86. prefetching is the process of bringing data and code pages into memory from disk before it’s demanded.<br>in order to know what it should prefetch, the windows xp cache manager monitors the page faults, both those that require that data be read from disk (hard faults) and those that simply require that data already in memory be added to a process’s working set (soft faults), that occur during the boot process and application startup. by default it traces through the first two minutes of the boot process, 60 seconds following the time when all win32 services have finished initializing, or 30 seconds following the start of the user’s shell (typically microsoft internet explorer), whichever of these three events occurs first. the cache manager also monitors the first 10 seconds of application startup. after collecting a trace that’s organized into faults taken on the ntfs master file table (mft) metadata file (if the application accesses files or directories on ntfs volumes), the files referenced, and the directories referenced, it notifies the prefetch component of the task scheduler by signaling a named event object.<br>the task scheduler then performs a call to the internal ntquerysysteminformation system call requesting the trace data. after performing post-processing on the trace data, the task scheduler writes it out to a file in the \windows\prefetch folder. the file’s name is the name of the application to which the trace applies followed by a dash and the hexadecimal representation of a hash of the file’s path. the file has a .pf extension, so an example would be notepad.exe-af43252301.pf.<br><strong>an exception to the file name rule is the file that stores the boot’s trace, which is always named ntosboot-b00dfaad.pf (a convolution of the hexadecimal-compatible word baadf00d, which programmers often use to represent uninitialized data). only after the cache manager has finished the boot trace (the time of which was defined earlier) does it collect page fault information for specific applications.</strong></p>
+<p><strong>这个似乎是最影响启动速度的文件，也就是所谓的“系统文件预读取”吧</strong><br>when the system boots or an application starts, the cache manager is called to give it an opportunity to perform prefetching. the cache manager looks in the prefetch directory to see if a trace file exists for the prefetch scenario in question. if it does, the cache manager calls ntfs to prefetch any mft metadata file references, reads in the contents of each of the directories referenced, and finally opens each file referenced. it then calls the memory manager to read in any data and code specified in the trace that’s not already in memory. the memory manager initiates all of the reads asynchronously and then waits for them to complete before letting an application’s startup continue.<br>how does this scheme provide a performance benefit? the answer lies in the fact that during typical system boot or application startup, the order of faults is such that some pages are brought in from one part of a file, then from another part of the same file, then pages are read from a different file, then perhaps from a directory, and so on. this jumping around results in moving the heads around on the disk. microsoft has learned through analysis that this slows boot and application startup times. by prefetching data from a file or directory all at once before accessing another one, this scattered seeking for data on the disk is greatly reduced or eliminated, thus improving the overall time for system and application startup.</p>
+<p><img src="/2006/05/17/关于windows的开机预读取/1.jpg" alt=""></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2006/05/15/配了台电脑-极其难受/" rel="next" title="配了台电脑,极其难受">
+                <i class="fa fa-chevron-left"></i> 配了台电脑,极其难受
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2006/05/24/我说自主创新/" rel="prev" title="我说自主创新">
+                我说自主创新 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">bobyuxiyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">323</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bob.yuxinyang@gmail.com" title="E-Mail &rarr; mailto:bob.yuxinyang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bobyuxiyang</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

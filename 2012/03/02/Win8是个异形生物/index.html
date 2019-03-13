@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="win8发布dp版本时候，我第一时间拿下来把玩一番。这回又发布cp版本，我虽然已经很长时间不接触win平台的开发，但还是决定熬夜尝鲜一把。 win8给人的感觉，是微软开始试着有了一个统一的领导核心，把散乱的微软帝国的产品拼凑到一个中心产品中来。这些散乱的产品包括，windows，windows live，新的metro，zune和xbox，甚至想得到，还有未露面的office。 毕竟对微软来说，w">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Win8是个异形生物">
+<meta property="og:url" content="http://bobyuxinyang.com/2012/03/02/Win8是个异形生物/index.html">
+<meta property="og:site_name" content="Bob&#39;s log">
+<meta property="og:description" content="win8发布dp版本时候，我第一时间拿下来把玩一番。这回又发布cp版本，我虽然已经很长时间不接触win平台的开发，但还是决定熬夜尝鲜一把。 win8给人的感觉，是微软开始试着有了一个统一的领导核心，把散乱的微软帝国的产品拼凑到一个中心产品中来。这些散乱的产品包括，windows，windows live，新的metro，zune和xbox，甚至想得到，还有未露面的office。 毕竟对微软来说，w">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-13T02:59:02.195Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Win8是个异形生物">
+<meta name="twitter:description" content="win8发布dp版本时候，我第一时间拿下来把玩一番。这回又发布cp版本，我虽然已经很长时间不接触win平台的开发，但还是决定熬夜尝鲜一把。 win8给人的感觉，是微软开始试着有了一个统一的领导核心，把散乱的微软帝国的产品拼凑到一个中心产品中来。这些散乱的产品包括，windows，windows live，新的metro，zune和xbox，甚至想得到，还有未露面的office。 毕竟对微软来说，w">
+
+
+
+
+
+
+  <link rel="canonical" href="http://bobyuxinyang.com/2012/03/02/Win8是个异形生物/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Win8是个异形生物 | Bob's log</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob's log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2012/03/02/Win8是个异形生物/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Win8是个异形生物
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2012-03-02 00:00:00" itemprop="dateCreated datePublished" datetime="2012-03-02T00:00:00+08:00">2012-03-02</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>win8发布dp版本时候，我第一时间拿下来把玩一番。这回又发布cp版本，我虽然已经很长时间不接触win平台的开发，但还是决定熬夜尝鲜一把。</p>
+<p>win8给人的感觉，是微软开始试着有了一个统一的领导核心，把散乱的微软帝国的产品拼凑到一个中心产品中来。这些散乱的产品包括，windows，windows live，新的metro，zune和xbox，甚至想得到，还有未露面的office。</p>
+<p>毕竟对微软来说，windows才是核心，因此有了win8这个奇怪的异形生物。可想而知win8是怎么诞生的：win7升级，因为metro这个新鲜物的加入，让win7的各种特性显得格格不入，于是一场windows传统桌面是否要保留的讨论开始，windows团队的同学们为了让传荣windows被保留，被逼迫着让改进win7拥有一个更加“适合触摸”的界面。而搞metro的同学大概也作出了妥协，给metro界面加入一些鼠标支持功能，比如滚动条，比如鼠标四角的操作（我真的不喜欢这种奇怪的功能，包括苹果已经往生的”expose”）。</p>
+<p>最郁闷的大概是win团队的开始菜单，这么有名的win键直接换了界面⋯⋯成了metro的入口，命根子没了啊。以前我总习惯敲一下win，输入word，然后回车进入wrod，现在好开心，敲一下win，窜出来一个metro界面，一输入文字，metro方块儿没了，出来个菜单，一回车，好家伙，metro又走了，传统的word跑了出来⋯⋯</p>
+<p>相信大家在metro里面点资源管理器也有这感觉，这是个什么怪胎操作系统啊。</p>
+<p>好吧，这只是开始。</p>
+<p>搞游戏的xbox团队啥的更加不能放过了，这两年xbox这么火，你win8说要做家庭娱乐怎么少得了我，于是xbox功能，所谓娱乐活动啥的也一股脑儿丢到了metro里面。这时候win团队的media center不爽了，这工作以前不是我干的么，估计又是一顿吵架，最后大家妥协，media center和xbox live都保留在win8里面了。不过这样media center不高兴了，zune，xbox live这两年可是红人，media center一直不受待见，谁在win7下听音乐看电影用media center啊，不过呢，media center的互联网视频一直做得不瘟不火，于是我惊讶的发现，mediacenter还在，但启动欢迎词居然变成了“在电脑上收看电视的最佳方法”。</p>
+<p>实际上，你会发现，如果你想听音乐，在win8上，你至少有三种方法：1，metro里面的music应用，2，用media center，3，别忘了media player。对了，我觉得大多数人应该还会装个qq音乐，千千静听吧⋯⋯</p>
+<p>其实吧，win8里面，连ie都有两种，一个是桌面版ie，一个是metro版ie。我去！这真的是一个操作系统吗？</p>
+<p>最后最郁闷的，应该还是visual studio团队。装上新的vs，我的天哪，vs还真是个桌面+metro风格的杂糅，到写code的事情就不说了吧，开发一个metro界面，你还得研究winrt，然后选c++,js和c#其中一种（这意味着各种开发组件不会统一。。），好吧，wpf还可以用，winform也还可以用，还有silverlight，更重要的，好像win下面开发大家用的最多的还是什么wtl啊atl啊或者qt啊什么的⋯⋯开发者们，你们为什么还不发疯？对了，还有个windows phone平台，那个也是metro，啊？wp7和win8程序不通用？废话，那是两组人开发的。</p>
+<p>windows live团队的同学们还没上场呢，为了一个“云”，他们肯定也少不了折腾⋯⋯</p>
+<p>反正，我已经快疯了。</p>
+<p>win8就是一个字，混乱！</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2012/02/24/为什么信用卡就不该设密码？/" rel="next" title="为什么信用卡就不该设密码？">
+                <i class="fa fa-chevron-left"></i> 为什么信用卡就不该设密码？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2012/05/08/蒙牛有毒？/" rel="prev" title="蒙牛有毒？">
+                蒙牛有毒？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">bobyuxiyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">323</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bob.yuxinyang@gmail.com" title="E-Mail &rarr; mailto:bob.yuxinyang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bobyuxiyang</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

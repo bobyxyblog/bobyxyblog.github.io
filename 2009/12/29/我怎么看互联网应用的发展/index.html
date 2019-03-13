@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="不知道有没有人想过，互联网发展到今天，互联网是为什么？ bill gates在2001年发表的“数字世纪”的文章，在今天看来，大部分都已经成为了现实。对于互联网领域it领域的预测，非一个技术天才+商业天才不可，顺便说到s.b.那样的商业奇才，充其量能够把office的销售额提升个几倍，但很难主导技术的发展方向。 互联网没有新东西 - 复制生活 21世纪，可以说是互联网的“元世纪”。而互联网之所以改">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我怎么看互联网应用的发展">
+<meta property="og:url" content="http://bobyuxinyang.com/2009/12/29/我怎么看互联网应用的发展/index.html">
+<meta property="og:site_name" content="Bob&#39;s log">
+<meta property="og:description" content="不知道有没有人想过，互联网发展到今天，互联网是为什么？ bill gates在2001年发表的“数字世纪”的文章，在今天看来，大部分都已经成为了现实。对于互联网领域it领域的预测，非一个技术天才+商业天才不可，顺便说到s.b.那样的商业奇才，充其量能够把office的销售额提升个几倍，但很难主导技术的发展方向。 互联网没有新东西 - 复制生活 21世纪，可以说是互联网的“元世纪”。而互联网之所以改">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-13T03:49:10.787Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我怎么看互联网应用的发展">
+<meta name="twitter:description" content="不知道有没有人想过，互联网发展到今天，互联网是为什么？ bill gates在2001年发表的“数字世纪”的文章，在今天看来，大部分都已经成为了现实。对于互联网领域it领域的预测，非一个技术天才+商业天才不可，顺便说到s.b.那样的商业奇才，充其量能够把office的销售额提升个几倍，但很难主导技术的发展方向。 互联网没有新东西 - 复制生活 21世纪，可以说是互联网的“元世纪”。而互联网之所以改">
+
+
+
+
+
+
+  <link rel="canonical" href="http://bobyuxinyang.com/2009/12/29/我怎么看互联网应用的发展/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>我怎么看互联网应用的发展 | Bob's log</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob's log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2009/12/29/我怎么看互联网应用的发展/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">我怎么看互联网应用的发展
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2009-12-29 00:00:00" itemprop="dateCreated datePublished" datetime="2009-12-29T00:00:00+08:00">2009-12-29</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>不知道有没有人想过，互联网发展到今天，互联网是为什么？</p>
+<p>bill gates在2001年发表的“数字世纪”的文章，在今天看来，大部分都已经成为了现实。对于互联网领域it领域的预测，非一个技术天才+商业天才不可，顺便说到s.b.那样的商业奇才，充其量能够把office的销售额提升个几倍，但很难主导技术的发展方向。</p>
+<p><strong>互联网没有新东西 - 复制生活</strong></p>
+<p>21世纪，可以说是互联网的“元世纪”。而互联网之所以改变我们的生活，第一步则是对现实生活的复制。</p>
+<p>仔细体会，我们可以发现当今互联网行业的很多赚钱赚眼球的应用，其实都是一个现实生活其他应用的“互联网版本”。例如最简单的im应用，是面对面讲话或者寻呼机的互联网版本；office工具，是传统纸质办公的互联网版本；各种各样的的oa，则替代了以往众多行政人员大脑中控制的“工作流”。显然我们很容易接受这种“替代”，那要回答这种互联网替代的“为什么”，就要首先去感觉这种“替代”。</p>
+<p>一个替代的例子，则是sns。sns从03年左右被作为概念提出，到06年之后的火热，再到现在的习以为常，可以说催生了一个相当大规模的产业。而sns的本质，可以用一句话来概括——复制人真实的社会关系。在真实生活中，我们常常要花去很大的成本维护社会关系方式不外乎是聚会，吃饭，或是电话，或是bbs，甚至是blog，而这些方式对真是社会关系的复制程度，都远远没有sns那么彻底，那么到位（论坛也许是最接近sns了）。sns的出现，使我们可以在互联网上轻松做到以往以前需要很大成本才能做到的事情。我们现在在sns上，24*7的维护者自己的社会关系，好像造就了很多“宅男宅女”，其实他们通过sns，与各种朋友们的联系和交际可能比传统意义上那些成天出入灯红酒绿的“交际花”们还厉害。</p>
+<p>这个替代的过程中，互联网对传统生活流程并非一成不变的复制，很多时候充满着“适应”，而产生很多新的玩法。例如oicq工具诞生之日，曾模仿制作了“网络寻呼机”，使用方式有些类似对讲机（很多qq老用户都还适应早前“一人一句话”那种方式吧）。后来我们发现，互联网降低了寻呼成本，直接可以改进为“二人世界”聊天，也就是现在大家习惯的“开一个窗口，二人聊天”模式。</p>
+<p>很多互联网应用，并非一开始就以“替代者”的身份出现，但是一个互联网应用要融入用户，则经常找到一个“被替代者”，有了这样的“被替代者”，这个应用才能慢慢渗透进用户群，才能慢慢改进。</p>
+<p>搜索引擎大概是现在最火热的互联网应用了。很多人都知道，搜索引擎的前身是yahoo公司的“网络索引目录”，而真正到搜索引擎出现爆发式成长，则是人们有一天突然发现，这种新鲜玩意儿能够代替传统的书籍，电视或是智者，而向我们提供知识。直到这一天，搜索引擎才开始慢慢的起到这个“替代者”的角色，于是慢慢的成为了人们生活中不可缺少的一部分。而图书馆，百科全书等等的份额开始越来越小。</p>
+<p>在线视频(yotube, youku等等)也是类似，很早起以前大家觉得在线视频是一种很无聊的应用。慢慢的，人们发现我们花在在线视频上的休闲时间可能已经超过了花在电视上的休闲时间！随着带宽，资费等等瓶颈的消除，在线视频的未来一定是进军家庭电视屏幕而在一定程度上代替传统电视。（很期待某天在家打开电视看到的是yytv 或者 pptv 而不是某种 ccav）</p>
+<p>这些都遵循这样一个公式：<strong>传统产业 + 互联网（包括计算机）= 新应用</strong>。</p>
+<p>sns只不过是代替了传统的交际；<br>twitter只不过是现实生活中多人广播交流（可以理解成公共场合演讲）的复制品；<br>qq只不过是寻呼机或是电话机的复制品；<br>webgame只不过是传统多人游戏的复制品；<br>电子商务只不过是对传统买卖行为的复制；<br>……</p>
+<p>互联网确实正在复制整个真实世界，我想通过这个公式告诉大家的是，如果你正在做一个互联网应用，并且很自豪的宣称：这是一个前所未有的全新应用，不属于现有任何产业。那么也许你已经走上歧途。</p>
+<p>甚至我想说，互联网没有新东西，一切互联网应用都可以看做某种传统应用的互联网改进。互联网应用复制生活，更重要的是“替代生活”，从而改变了生活方式。</p>
+<p><strong>以光速改变生活</strong></p>
+<p>之所以我们愿意去接受互联网应用对我们生活的替代，并不只是因为我们“喜新厌旧”，而是互联网确实给我们带来了很多新的东西。下面探讨的是上一部分中的”<strong>互联网（包括计算机）”到底是什么。这里我把一切总结为两个字：速度</strong>。</p>
+<p>it和互联网领域，一切东西归结为一个电信号，并且以光速传输，这便是互联网应用给我们带来的最大不同。</p>
+<p>比如office工具对纸质文档的替代过程，就是因为文档使用电信号在计算机中进行编辑，比使用纸张来的快速的多。这还是在上世纪80年代发生的事情，而现在互联网的普及，使这些电信号不仅在一台计算机中被处理，还在全世界的计算机之间被处理，甚至，无线互联网的出现使这些内容能够“随时随地”的被处理，这便带来了更大的改进。</p>
+<p>我们接触到的应用，归结起来都会经过：<strong>数字化（单机） - 互联网 - 无处不在的无线互联网</strong>这几个阶段。这过程中，给我们带来的是很多想不到的速度，可能更准确的说法是“及时”，有人说这里面还有很多“智能化”的好处。往深处说，所谓的“智能化”也就是速度的另一种体现。因为在这几个过程中，信息越“触手可得”，越“速度”，我们越是能够对信息进行更好的处理，从而带来更大价值。</p>
+<p>例如对于erp系统，它替代了传统生产管理中的许多事务，则包含了很多“智能化”。最早，我们使用一台计算机，记录生产本身中的诸多事务，从而比纸质记录更加快速的处理数据和快速反应，这是第一个阶段。后来使用网络，我们在工厂中部署整套的erp系统，有机的接合了各个生产的环节而并非只是生产本身。这个阶段，则是所谓的“基于网络的解决方案”，而随着无线互联网的出现，尤其是“物联网”技术的发展，生产中的更多事务都能够被及时的数字化，及时的传输到网络中，及时的反映给人，反应给机器。</p>
+<p>有很多“产业”或是“应用”，往往在没有it的时候意义不大，在进入互联网时代后，随着三个阶段的推移而浮现出更大的意义。例如twitter服务：很久之前我们就能够在公众场合大声喊话从而引起关注或是传播信息，在计算机来临后，我们也曾通过邮寄软盘光盘等方式发布信息，互联网来临后，这样的看似无意义的举动突然成本变的非常低，于是twitter出现了，而移动互联网使得twitter的及时性大大增加。</p>
+<p>这三个阶段，几乎是自19世纪70年代末计算机开始普及所有新应用需要经历的。</p>
+<p>再看民用的e-mail应用。最早，也许我们经常把一些信息保存在计算机上，方便处理，如果需要交流，我们可以打印出来并且邮寄，这是第一阶段。互联网的出现，带来了e-mail，通过网络直接邮寄，这是速度的提升。而移动互联网的出现，使得我们随时随地收发e-mail（可以理解成短信，其实他们差不多），这便造就了黑莓，造就了新的传奇。</p>
+<p>再看mp3音乐，从留声机，到随声听，到随身cd，到随身mp3，到ipod；</p>
+<p>再看最原始的读书笔记，到电脑上的读书笔记，到douban应用。</p>
+<p>我们套用这个发展过程，可以假设，任何应用都会经历这三个阶段，而在每个阶段都会出现一个“领导者”，这样的领导者便会称霸市场。大家可以思考一下windows xp，ie，google search, ipod, facebook, twitter，amazon这些曾经或者正在称霸市场的产品或者是任意一个出现在人们生活中的应用 1. 属于什么<strong>传统产业，2. 属于哪个阶段</strong>。</p>
+<p>如果我们再激进一些，去寻找各个产业，绘制出一张二维图表，也许我们思路会更加开阔。</p>
+<p>利用这个规律，我们不妨对电子商务做一个蓝图展望。以电子商务为例，电子商务现在正在第二个阶段蓬勃发展。过去，没有电子商务，我们仅仅是去商店买东西，后来，商店开始使用单机记录销售和货物信息，再后来是ebay，是taobao，这是第二个阶段。而第三个阶段显然还没有到来，我们可以思考一下移动互联网的速度和电子商务结合能够带来什么：</p>
+<p>ellnie是一个白领，她每天的早饭都是在上班的地铁上使用选购，地铁到站后她订购的早餐就出现在出站口；<br>fanna出门旅游，她两手空空的站在峡谷中，订购了帐篷，食物以及其他一切，一小时后她便开始了野营；<br>gisa在大街上逛街，突然下雨，她订购了一把雨伞，5分钟后伞送到了手中。送货者是根据gps找到gisa的。<br>有一种新的职业出现，他们就像110巡警，负责在大街上巡视，当接到“辖区”内有订单出现时，便最快速度前去取货并送货，听起来好像很复杂，当然一切的取货，送货过程路线都是由光速实时计算的（别忘了“物联网”）。</p>
+<p>觉得不可思议么？想想看无线互联网结合sns已经让你随时随地了解朋友们的最新动向了。</p>
+<p>taobao已经开始研发自主手机，这个市场会相当的大。</p>
+<p>我要说的是：互联网最大的优势是“速度”，可能更准确的说法是“及时”。当高速的互联网取代传统的工作生活方式，这便是机会。</p>
+<p><strong>瓶颈</strong></p>
+<p>如果你认真的读到这里，可能已经开始跃跃欲试拿着你绘制的“二维表格”并开始酝酿着创业计划了。但是现实是残酷的，我们上面说的一切都受着各种因素的制约。</p>
+<p>最大的瓶颈也许是技术，例如在没有3g服务或者3g服务资费很高的地区，很多应用都难以开展。另一个瓶颈或许是政策，看看twitter在中国大陆的发展就会明白。有许许多多的瓶颈制约着发展，但永远记住，只要某天某个瓶颈一被解除，发展必定是爆发式的。</p>
+<p>当通往第三个阶段时，在技术上的瓶颈主要有这些：</p>
+<p>3g网络的速度和资费 - 看看中国联通的wo的价格；<br>移动终端的性能价格 - 看看明年一月apple将要推出的平板电脑，我很期待的windows mobile 7以及相关设备；<br>云服务 - 看看中国是否能有真正靠谱的云服务商出现<br>数据为中心的服务发展 – 众多open api是否能通往一个终点</p>
+<p>而我们所必须关心的，则是这个应用的瓶颈有多少，在哪儿，是否可能突破，何时能够突破。永远记住，瓶颈突破的标准，是应用带来的价值大于应用本身的成本。</p>
+<p><strong>依赖</strong></p>
+<p>一切的一切之后，我们再也离不开互联网了，于是：<strong>互联网产业形成了。</strong></p>
+<p><strong>一个新应用的产生</strong></p>
+<p>其实除了互联网，每个行业的新产品都有这么一个改变人类生活的过程。汽车，钢铁，喷气式飞机……而互联网不同的，大概就是它以光速而来吧。</p>
+<p>p.s. 为什么老把 互联网 打成 狐狸王 或者 换脸网。。。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2009/11/18/地铁/" rel="next" title="地铁">
+                <i class="fa fa-chevron-left"></i> 地铁
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2010/01/13/在中国的互联网道路上坚定走下去-1/" rel="prev" title="在中国的互联网道路上坚定走下去(1)">
+                在中国的互联网道路上坚定走下去(1) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">bobyuxiyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">323</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bob.yuxinyang@gmail.com" title="E-Mail &rarr; mailto:bob.yuxinyang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bobyuxiyang</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

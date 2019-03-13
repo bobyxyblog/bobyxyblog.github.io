@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="接着昨天没有说完的东西。 享受完通宵coding的快感之后，是一整天甚至两天的颓废的萎靡不正，大脑思维混乱，眼睛痛得厉害等等等等。深刻的记得晚上12点坐在电脑前的感觉，就剩下那么些东西，再加把劲就搞定了，真的停手不写，的确会是欲望满足不了的一种痛苦，也许也睡不好吧。于是go on，于是写了很多功能，写了很多在脑子里徘徊了很久的东西，最后程序跑起来的一刹那，确实是很爽，很high，是久违的感觉。确实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="亦步亦趋的走2">
+<meta property="og:url" content="http://bobyuxinyang.com/2008/11/09/亦步亦趋的走2/index.html">
+<meta property="og:site_name" content="Bob&#39;s log">
+<meta property="og:description" content="接着昨天没有说完的东西。 享受完通宵coding的快感之后，是一整天甚至两天的颓废的萎靡不正，大脑思维混乱，眼睛痛得厉害等等等等。深刻的记得晚上12点坐在电脑前的感觉，就剩下那么些东西，再加把劲就搞定了，真的停手不写，的确会是欲望满足不了的一种痛苦，也许也睡不好吧。于是go on，于是写了很多功能，写了很多在脑子里徘徊了很久的东西，最后程序跑起来的一刹那，确实是很爽，很high，是久违的感觉。确实">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-13T05:48:06.867Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="亦步亦趋的走2">
+<meta name="twitter:description" content="接着昨天没有说完的东西。 享受完通宵coding的快感之后，是一整天甚至两天的颓废的萎靡不正，大脑思维混乱，眼睛痛得厉害等等等等。深刻的记得晚上12点坐在电脑前的感觉，就剩下那么些东西，再加把劲就搞定了，真的停手不写，的确会是欲望满足不了的一种痛苦，也许也睡不好吧。于是go on，于是写了很多功能，写了很多在脑子里徘徊了很久的东西，最后程序跑起来的一刹那，确实是很爽，很high，是久违的感觉。确实">
+
+
+
+
+
+
+  <link rel="canonical" href="http://bobyuxinyang.com/2008/11/09/亦步亦趋的走2/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>亦步亦趋的走2 | Bob's log</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob's log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2008/11/09/亦步亦趋的走2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">亦步亦趋的走2
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2008-11-09 00:00:00" itemprop="dateCreated datePublished" datetime="2008-11-09T00:00:00+08:00">2008-11-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>接着昨天没有说完的东西。</p>
+<p>享受完通宵coding的快感之后，是一整天甚至两天的颓废的萎靡不正，大脑思维混乱，眼睛痛得厉害等等等等。深刻的记得晚上12点坐在电脑前的感觉，就剩下那么些东西，再加把劲就搞定了，真的停手不写，的确会是欲望满足不了的一种痛苦，也许也睡不好吧。于是go on，于是写了很多功能，写了很多在脑子里徘徊了很久的东西，最后程序跑起来的一刹那，确实是很爽，很high，是久违的感觉。确实，满足了coding的欲望。但之后，随之而来的，是一系列的更加痛苦的东西。<br>其实有时候欲望的满足也就是一刹那的感觉，过去之后，什么都不是，还是得面对现实，生活照样继续，时间照样快步走着，不会因为一时的快乐，地球就永远停止在哪一个毫秒。这也就解释了为什么要始终“看到成功以后的东西”。当人把高考当做人生最高渴望时，在高考之后，能够静下心来面对现实的人，才是胜利者。生活永远在继续，永远没有“最后的胜利者”。</p>
+<p>于是想到叔本华的悲观论，人生就是一场苦难。<br>也许是正确的吧，其实很久之前，我就同意这样的观点了。欲望无穷无尽，就像软件工程中无穷无尽的需求一样。windows95是一个伟大的项目，但后面还有win98,2k,xp,vista，永远没有镜头，windows永远不会有一个“终结版”。至少，我不能想象100年后的教科书中有这样一段话“100年前的一段时期，为期几十年，个人电脑主流一种叫做windows的操作系统……”。需求无穷无尽，欲望无穷无尽，好像时刻都在前进，却没有终点。</p>
+<p>其实我并不喜欢这样的论调，我的想法是，每个阶段都有着自己的milestone，每个milestone的达到，就是人或者和软件开发的目的。它们可能如此简单，而作为人，之后处于在向着前方的milestone迈进的途中，才不会空虚和缺乏意义。<br>所以即使梦想实现，也必将会有新的梦想，永远，我们都在路上，任何一个目的地，都只是过客，匆匆的来，匆匆的去，只是一刹那的事情。</p>
+<p>由此引申开来，现实是最有力的见证者，只有接受现实，在正确的时间，正确的地点做正确的事情，上帝或者现实才会承认，任何欺骗的行为，都是自欺欺人。因为当没有到达一个milestone之前，做什么虚假的事情都是没有用的。</p>
+<p>其实，最后就简单的归到一句话。面对现实，上路，该发生的，总会发生。<br>we had a joy, we had a fun, we had a season in the sun.<br>但是过去的成功，都过去了，就过去了，在已经过去的东西上花的时间全部是浪费。<br>又想起2005.11的那次上路，如此的悲壮，如此的慷慨，如此的华丽，最后如此的凯旋！<br>又是一个11月，又一次上路。</p>
+<p>什么都不多想了，那些梦让它去吧，现实会让所有东西成为现实的，虽然这些跟这句话一样纠结。</p>
+<p> 很纠结的写了一堆东西，其实并没有那么纠结，时间很简单，就这么过着，明天又是一个新的开始。</p>
+<p><strong>期中考试</strong></p>
+<p>虽然期中考试5们，不过其实并没有想象的那么麻烦。半年前的期中考试，两门天书，也过了，期末考试，n门天书，也就那么样。说句实话，这次期中考试这几门课，要是我都没能过，那么只有两种可能，一种是老师抽风了，一种是我这真的f了。<br>但是该复习的，该预习的，该学习的，还是要学。这些课虽然说没有那么天书，不过说实话都是挺重要的东西，我的考试有两种，这些应该都属于后者，但是现在真的没有达到后者的标准，也许是我欠老师的吧，改补得，该学的，还是不能少的。其实对现在这几个老师的印象，比那几门垃圾课好得多，不过貌似除了个别bt老师之外，跟老师确实没太大关系，客观的说，还是课程的原因吧。16000买的课程也并不是一无是处的，虽然绝大多数确实一无是处！但是因为那些一无是处的垃圾课程把主要的一些东西也丢掉了，确实也很让人痛心。<br>学习永远是路上一件很重要的事情。<br>另外，比赛我也会认真的做，也许是最后一次浪漫的无忧无虑的投入精力了。</p>
+<p><strong>英语</strong></p>
+<p>这几天看文章总是觉着看不进去，一看文章就头昏脑发昏，眼睛发胀。其实总觉得学了这么多年英语没白学，结果突然发现今天看点中文的技术文章也有一样的症状，才突然反应过来，不是英文的事情，该好好分配一下时间了。<br>一直想专注在某些东西上面，发现错了，专注成就专业，但是过于专注，只能是死钉子一根。想起y同志说的”t型人才”，看来是该再改变一下了，不论怎么样，只要每时每刻都在路上，足够了。因此，在beta2一下，也就是beta2了，beta1并没有那么成功，我承认，beta1应该达到的效果也达到了。</p>
+<p><strong>身体</strong></p>
+<p>再说句实话，这两年虽说减肥不少，但是实际上身体状况的的确确一年不如一年。如果要我在体重和身体选择一样的话，我宁愿选择体重。<br>不过既然都这样了，该面对现实，还得面对现实。最近身体是很不好，由于来自里外的折磨，所以其实也没什么好说的，前两次身体挂掉也有经验了，该锻炼，就锻炼身体吧。认真的做几件事情，吃饭，睡觉，运动，就这样。</p>
+<p>生活在继续，邯郸学步似的亦步亦趋的走着，没有终点，走向下面的milestone。到下一个正确的时间，在正确的场合，会去做正确的事情。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2008/11/08/亦步亦趋的走1/" rel="next" title="亦步亦趋的走1">
+                <i class="fa fa-chevron-left"></i> 亦步亦趋的走1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2008/11/13/一切归于音乐/" rel="prev" title="一切归于音乐">
+                一切归于音乐 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">bobyuxiyang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">323</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bob.yuxinyang@gmail.com" title="E-Mail &rarr; mailto:bob.yuxinyang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bobyuxiyang</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
