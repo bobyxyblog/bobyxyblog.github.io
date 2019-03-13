@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="好久没更新了，首先是这个月一直在忙于各种杂事&amp;#8230;&amp;#8230;其次是发现wpf中除了dependencyproperty之外很多新东西都很好玩，玩其他的去了，以至没有及时更新这里。废话不多说，现在我们来讨论wpf dependencyproperty的metadata(元数据)以及attachedproperty。 见识propertymetadata 如果你尝试过自己定义一个depen">
+  <meta name="description" content="http://www.cnblogs.com/yayx/archive/2008/06/03/1213126.html 好久没更新了，首先是这个月一直在忙于各种杂事&amp;#8230;&amp;#8230;其次是发现wpf中除了dependencyproperty之外很多新东西都很好玩，玩其他的去了，以至没有及时更新这里。废话不多说，现在我们来讨论wpf dependencyproperty的metadata(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WPF里的DependencyProperty(5)">
 <meta property="og:url" content="http://bobyuxinyang.com/2008/06/03/WPF里的DependencyProperty-5/index.html">
 <meta property="og:site_name" content="Bob&#39;s log">
-<meta property="og:description" content="好久没更新了，首先是这个月一直在忙于各种杂事&amp;#8230;&amp;#8230;其次是发现wpf中除了dependencyproperty之外很多新东西都很好玩，玩其他的去了，以至没有及时更新这里。废话不多说，现在我们来讨论wpf dependencyproperty的metadata(元数据)以及attachedproperty。 见识propertymetadata 如果你尝试过自己定义一个depen">
+<meta property="og:description" content="http://www.cnblogs.com/yayx/archive/2008/06/03/1213126.html 好久没更新了，首先是这个月一直在忙于各种杂事&amp;#8230;&amp;#8230;其次是发现wpf中除了dependencyproperty之外很多新东西都很好玩，玩其他的去了，以至没有及时更新这里。废话不多说，现在我们来讨论wpf dependencyproperty的metadata(">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T05:48:08.049Z">
+<meta property="og:updated_time" content="2019-03-13T06:36:24.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WPF里的DependencyProperty(5)">
-<meta name="twitter:description" content="好久没更新了，首先是这个月一直在忙于各种杂事&amp;#8230;&amp;#8230;其次是发现wpf中除了dependencyproperty之外很多新东西都很好玩，玩其他的去了，以至没有及时更新这里。废话不多说，现在我们来讨论wpf dependencyproperty的metadata(元数据)以及attachedproperty。 见识propertymetadata 如果你尝试过自己定义一个depen">
+<meta name="twitter:description" content="http://www.cnblogs.com/yayx/archive/2008/06/03/1213126.html 好久没更新了，首先是这个月一直在忙于各种杂事&amp;#8230;&amp;#8230;其次是发现wpf中除了dependencyproperty之外很多新东西都很好玩，玩其他的去了，以至没有及时更新这里。废话不多说，现在我们来讨论wpf dependencyproperty的metadata(">
 
 
 
@@ -404,7 +404,8 @@
       
 
       
-        <p></p><p>好久没更新了，首先是这个月一直在忙于各种杂事&#8230;&#8230;其次是发现wpf中除了dependencyproperty之外很多新东西都很好玩，玩其他的去了，以至没有及时更新这里。废话不多说，现在我们来讨论wpf dependencyproperty的metadata(元数据)以及attachedproperty。</p> <h3>见识propertymetadata</h3> <p>如果你尝试过自己定义一个dependencyproperty，你一定会发现在dependencyproperty.regist方法中可以传入一个propertymetadata类型的对象，这就是属性的”metadata”。如果你对.net框架比较了解，你对”metadata”这个词应该不陌生，简单地说，metadata就是一个用来描述对象自身的对象，同理，这里的metadata也就是我们用来描述dependencyproperty本身的东西。</p> <p>这么说比较抽象。看些具体的东西吧。</p> <div style="border-right: #cccccc 1px solid; padding-right: 5px; border-top: #cccccc 1px solid; padding-left: 4px; font-size: 13px; padding-bottom: 4px; border-left: #cccccc 1px solid; width: 98%; word-break: break-all; padding-top: 4px; border-bottom: #cccccc 1px solid; background-color: #eeeeee"><img id="dd1e6769b22867dad6011d9e8d9d0af0"><span style="color: #000000">dependencyproperty.register(</span><span style="color: #800000">“</span><span style="color: #800000">custom</span><span style="color: #800000">“</span><span style="color: #000000"><p></p>
+        <p><a href="http://www.cnblogs.com/yayx/archive/2008/06/03/1213126.html" target="_blank" rel="noopener">http://www.cnblogs.com/yayx/archive/2008/06/03/1213126.html</a></p>
+<p></p><p>好久没更新了，首先是这个月一直在忙于各种杂事&#8230;&#8230;其次是发现wpf中除了dependencyproperty之外很多新东西都很好玩，玩其他的去了，以至没有及时更新这里。废话不多说，现在我们来讨论wpf dependencyproperty的metadata(元数据)以及attachedproperty。</p> <h3>见识propertymetadata</h3> <p>如果你尝试过自己定义一个dependencyproperty，你一定会发现在dependencyproperty.regist方法中可以传入一个propertymetadata类型的对象，这就是属性的”metadata”。如果你对.net框架比较了解，你对”metadata”这个词应该不陌生，简单地说，metadata就是一个用来描述对象自身的对象，同理，这里的metadata也就是我们用来描述dependencyproperty本身的东西。</p> <p>这么说比较抽象。看些具体的东西吧。</p> <div style="border-right: #cccccc 1px solid; padding-right: 5px; border-top: #cccccc 1px solid; padding-left: 4px; font-size: 13px; padding-bottom: 4px; border-left: #cccccc 1px solid; width: 98%; word-break: break-all; padding-top: 4px; border-bottom: #cccccc 1px solid; background-color: #eeeeee"><img id="dd1e6769b22867dad6011d9e8d9d0af0"><span style="color: #000000">dependencyproperty.register(</span><span style="color: #800000">“</span><span style="color: #800000">custom</span><span style="color: #800000">“</span><span style="color: #000000"><p></p>
 </span></div>
       
     </div>

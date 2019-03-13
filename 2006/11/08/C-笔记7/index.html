@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="比较深入看了.net框架的东西，深刻体会到.net不是个傻瓜的东西．．．最近还在接触ajax,包括传统j+x和ms搞得傻瓜asp.net ajax，有些头昏脑胀．．整理一下，把以前一直没看的视频再拿出来稍微研究一下，略过一些暂时用不到或者比较简单的东西．．．算是整理思路 prividerfactory 窗体继承 打印">
+  <meta name="description" content="比较深入看了.net框架的东西，深刻体会到.net不是个傻瓜的东西．．．最近还在接触ajax,包括传统j+x和MS搞得傻瓜asp.net ajax，有些头昏脑胀．．整理一下，把以前一直没看的视频再拿出来稍微研究一下，略过一些暂时用不到或者比较简单的东西．．．算是整理思路 数据库访问 DataGridView傻瓜式连接数据库 考虑sql语句安全性，应用parameter参数而不用字符串直接连接 Ge">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C#笔记7">
 <meta property="og:url" content="http://bobyuxinyang.com/2006/11/08/C-笔记7/index.html">
 <meta property="og:site_name" content="Bob&#39;s log">
-<meta property="og:description" content="比较深入看了.net框架的东西，深刻体会到.net不是个傻瓜的东西．．．最近还在接触ajax,包括传统j+x和ms搞得傻瓜asp.net ajax，有些头昏脑胀．．整理一下，把以前一直没看的视频再拿出来稍微研究一下，略过一些暂时用不到或者比较简单的东西．．．算是整理思路 prividerfactory 窗体继承 打印">
+<meta property="og:description" content="比较深入看了.net框架的东西，深刻体会到.net不是个傻瓜的东西．．．最近还在接触ajax,包括传统j+x和MS搞得傻瓜asp.net ajax，有些头昏脑胀．．整理一下，把以前一直没看的视频再拿出来稍微研究一下，略过一些暂时用不到或者比较简单的东西．．．算是整理思路 数据库访问 DataGridView傻瓜式连接数据库 考虑sql语句安全性，应用parameter参数而不用字符串直接连接 Ge">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T05:48:09.947Z">
+<meta property="og:updated_time" content="2019-03-13T07:22:09.631Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C#笔记7">
-<meta name="twitter:description" content="比较深入看了.net框架的东西，深刻体会到.net不是个傻瓜的东西．．．最近还在接触ajax,包括传统j+x和ms搞得傻瓜asp.net ajax，有些头昏脑胀．．整理一下，把以前一直没看的视频再拿出来稍微研究一下，略过一些暂时用不到或者比较简单的东西．．．算是整理思路 prividerfactory 窗体继承 打印">
+<meta name="twitter:description" content="比较深入看了.net框架的东西，深刻体会到.net不是个傻瓜的东西．．．最近还在接触ajax,包括传统j+x和MS搞得傻瓜asp.net ajax，有些头昏脑胀．．整理一下，把以前一直没看的视频再拿出来稍微研究一下，略过一些暂时用不到或者比较简单的东西．．．算是整理思路 数据库访问 DataGridView傻瓜式连接数据库 考虑sql语句安全性，应用parameter参数而不用字符串直接连接 Ge">
 
 
 
@@ -404,10 +404,8 @@
       
 
       
-        <p>比较深入看了.net框架的东西，深刻体会到.net不是个傻瓜的东西．．．最近还在接触ajax,包括传统j+x和ms搞得傻瓜asp.net ajax，有些头昏脑胀．．整理一下，把以前一直没看的视频再拿出来稍微研究一下，略过一些暂时用不到或者比较简单的东西．．．算是整理思路</p>
-<p>prividerfactory</p>
-<p>窗体继承</p>
-<p>打印</p>
+        <p>比较深入看了.net框架的东西，深刻体会到.net不是个傻瓜的东西．．．最近还在接触ajax,包括传统j+x和MS搞得傻瓜asp.net ajax，有些头昏脑胀．．整理一下，把以前一直没看的视频再拿出来稍微研究一下，略过一些暂时用不到或者比较简单的东西．．．算是整理思路</p>
+<p>数据库访问 DataGridView傻瓜式连接数据库 考虑sql语句安全性，应用parameter参数而不用字符串直接连接 GetData By Adapter<br>不需要open conn,用sql conn创建adapter,然后fill GetData By Reader<br>用command update by adapter<br>用CommandBullder 为adapter 创建commandbuilder<br>然后用adapter的update() update by command parameter<br>sql语句里用@id变量，sqlparameter创建参数<br>用cmd.Parameter.Add()加入<br><strong>ProviderFactory 窗体继承</strong><br>Form使用WebService<br>用wsdl建立代理，或者Reference<br>自动建立一个NS<br>使用：定义NS.代理类,即可使用其中方法   打印<br>调用Win32 Com组件<br>倒入win32api dll<br>[DllImport(“”,CharSet=CharSet.Ansi)]<br>public static extern int <strong>*</strong><br>必须为static和extern ActiveX之类的直接倒入就行 打印 生成安装包  </p>
 
       
     </div>

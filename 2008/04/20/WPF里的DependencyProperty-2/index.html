@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="废话 照例，每篇开头都说些废话。 一年前写了一篇.net3.0里的dependencyproperty（1）,没下文了，很对不起大家。是啊，都是一年前的事情了。这一年中发生了很多事情&amp;#8230;&amp;#8230;(略)&amp;#8230;&amp;#8230;，最近终于又有空开始研究wpf了。一年过去，wpf发布了3.5版本，有了许多不大不小的改变，我准备接着去年的进度，继续研习下去，现在就先试着把去年准备写的关">
+  <meta name="description" content="https://www.cnblogs.com/yayx/archive/2008/04/20/1162963.html 废话 照例，每篇开头都说些废话。 一年前写了一篇.net3.0里的dependencyproperty（1）,没下文了，很对不起大家。是啊，都是一年前的事情了。这一年中发生了很多事情&amp;#8230;&amp;#8230;(略)&amp;#8230;&amp;#8230;，最近终于又有空开始研究wpf了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WPF里的DependencyProperty(2)">
 <meta property="og:url" content="http://bobyuxinyang.com/2008/04/20/WPF里的DependencyProperty-2/index.html">
 <meta property="og:site_name" content="Bob&#39;s log">
-<meta property="og:description" content="废话 照例，每篇开头都说些废话。 一年前写了一篇.net3.0里的dependencyproperty（1）,没下文了，很对不起大家。是啊，都是一年前的事情了。这一年中发生了很多事情&amp;#8230;&amp;#8230;(略)&amp;#8230;&amp;#8230;，最近终于又有空开始研究wpf了。一年过去，wpf发布了3.5版本，有了许多不大不小的改变，我准备接着去年的进度，继续研习下去，现在就先试着把去年准备写的关">
+<meta property="og:description" content="https://www.cnblogs.com/yayx/archive/2008/04/20/1162963.html 废话 照例，每篇开头都说些废话。 一年前写了一篇.net3.0里的dependencyproperty（1）,没下文了，很对不起大家。是啊，都是一年前的事情了。这一年中发生了很多事情&amp;#8230;&amp;#8230;(略)&amp;#8230;&amp;#8230;，最近终于又有空开始研究wpf了。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T05:48:08.171Z">
+<meta property="og:updated_time" content="2019-03-13T06:43:04.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WPF里的DependencyProperty(2)">
-<meta name="twitter:description" content="废话 照例，每篇开头都说些废话。 一年前写了一篇.net3.0里的dependencyproperty（1）,没下文了，很对不起大家。是啊，都是一年前的事情了。这一年中发生了很多事情&amp;#8230;&amp;#8230;(略)&amp;#8230;&amp;#8230;，最近终于又有空开始研究wpf了。一年过去，wpf发布了3.5版本，有了许多不大不小的改变，我准备接着去年的进度，继续研习下去，现在就先试着把去年准备写的关">
+<meta name="twitter:description" content="https://www.cnblogs.com/yayx/archive/2008/04/20/1162963.html 废话 照例，每篇开头都说些废话。 一年前写了一篇.net3.0里的dependencyproperty（1）,没下文了，很对不起大家。是啊，都是一年前的事情了。这一年中发生了很多事情&amp;#8230;&amp;#8230;(略)&amp;#8230;&amp;#8230;，最近终于又有空开始研究wpf了。">
 
 
 
@@ -404,7 +404,8 @@
       
 
       
-        <p></p><h2>废话</h2> <p>照例，每篇开头都说些废话。<br> 一年前写了一篇<a href="http://www.cnblogs.com/yayx/archive/2007/05/26/761117.html" target="_blank" rel="noopener">.net3.0里的dependencyproperty（1）</a>,没下文了，很对不起大家。是啊，都是一年前的事情了。这一年中发生了很多事情&#8230;&#8230;(略)&#8230;&#8230;，最近终于又有空开始研究wpf了。一年过去，wpf发布了3.5版本，有了许多不大不小的改变，我准备接着去年的进度，继续研习下去，现在就先试着把去年准备写的关于dependencyproperty的东西写完吧。<br> 去年说到要介绍一下dependencyproperty的应用，好的，我们继续。</p> <h2>dependencyproperty用在哪儿？</h2> <p>这一节的内容都摘抄自msdn^_^，因此详细的资料都可以参考msdn，我在这里稍微解释一下，主要是为了下一个小节做下铺垫。</p> <ul> <li> <p>resources（资源）</p> </li><li> <p>data binding（数据绑定）</p> </li><li> <p>styles（风格）</p> </li><li> <p>animations（动画）</p> </li><li> <p>metadata overrides（元数据覆盖）</p> </li><li> <p>property value inheritance（值继承）</p> </li><li> <p>wpf designer integration（wpf设计集成）</p> </li> </ul> <p>在<strong>resources和data binding</strong>中，xaml提供了这样一种语法，来为属性赋值：</p> <blockquote> <div style="border-right: #cccccc 1px solid; padding-right: 5px; border-top: #cccccc 1px solid; padding-left: 4px; font-size: 13px; padding-bottom: 4px; border-left: #cccccc 1px solid; width: 98%; word-break: break-all; padding-top: 4px; border-bottom: #cccccc 1px solid; background-color: #eeeeee"><span style="color: #0000ff">&lt;</span><span style="color: #800000">butto<p></p>
+        <p><a href="https://www.cnblogs.com/yayx/archive/2008/04/20/1162963.html" target="_blank" rel="noopener">https://www.cnblogs.com/yayx/archive/2008/04/20/1162963.html</a></p>
+<p></p><h2>废话</h2> <p>照例，每篇开头都说些废话。<br> 一年前写了一篇<a href="http://www.cnblogs.com/yayx/archive/2007/05/26/761117.html" target="_blank" rel="noopener">.net3.0里的dependencyproperty（1）</a>,没下文了，很对不起大家。是啊，都是一年前的事情了。这一年中发生了很多事情&#8230;&#8230;(略)&#8230;&#8230;，最近终于又有空开始研究wpf了。一年过去，wpf发布了3.5版本，有了许多不大不小的改变，我准备接着去年的进度，继续研习下去，现在就先试着把去年准备写的关于dependencyproperty的东西写完吧。<br> 去年说到要介绍一下dependencyproperty的应用，好的，我们继续。</p> <h2>dependencyproperty用在哪儿？</h2> <p>这一节的内容都摘抄自msdn^_^，因此详细的资料都可以参考msdn，我在这里稍微解释一下，主要是为了下一个小节做下铺垫。</p> <ul> <li> <p>resources（资源）</p> </li><li> <p>data binding（数据绑定）</p> </li><li> <p>styles（风格）</p> </li><li> <p>animations（动画）</p> </li><li> <p>metadata overrides（元数据覆盖）</p> </li><li> <p>property value inheritance（值继承）</p> </li><li> <p>wpf designer integration（wpf设计集成）</p> </li> </ul> <p>在<strong>resources和data binding</strong>中，xaml提供了这样一种语法，来为属性赋值：</p> <blockquote> <div style="border-right: #cccccc 1px solid; padding-right: 5px; border-top: #cccccc 1px solid; padding-left: 4px; font-size: 13px; padding-bottom: 4px; border-left: #cccccc 1px solid; width: 98%; word-break: break-all; padding-top: 4px; border-bottom: #cccccc 1px solid; background-color: #eeeeee"><span style="color: #0000ff">&lt;</span><span style="color: #800000">butto<p></p>
 </span></div></blockquote>
       
     </div>
@@ -445,8 +446,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2008/04/22/WPF里的DependencyProperty-3/" rel="prev" title="WPF里的DependencyProperty(3)">
-                WPF里的DependencyProperty(3) <i class="fa fa-chevron-right"></i>
+              <a href="/2008/04/22/说说计划跟打算/" rel="prev" title="说说计划跟打算">
+                说说计划跟打算 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="首先回顾一下上一篇post提出来的三个问题。 我只定义了一个静态的dependencyproperty类，在实例中并没有提供一个成员变量或是什么地方存储这个属性的值，那么这个值存储到什么地方了呢？ 上一篇post提到的&amp;#8220;反射&amp;#8221;问题。不论在数据绑定还是动画中我们都只提供了一个属性名字符串，难道wpf真的需要使用反射读取属性数据？ 如果我们在动画进行时同时通过slider来改变">
+  <meta name="description" content="http://www.cnblogs.com/yayx/archive/2008/04/24/1168738.html 首先回顾一下上一篇post提出来的三个问题。 我只定义了一个静态的dependencyproperty类，在实例中并没有提供一个成员变量或是什么地方存储这个属性的值，那么这个值存储到什么地方了呢？ 上一篇post提到的&amp;#8220;反射&amp;#8221;问题。不论在数据绑定还是动画中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WPF里的DependencyProperty(4)">
 <meta property="og:url" content="http://bobyuxinyang.com/2008/04/24/WPF里的DependencyProperty-4/index.html">
 <meta property="og:site_name" content="Bob&#39;s log">
-<meta property="og:description" content="首先回顾一下上一篇post提出来的三个问题。 我只定义了一个静态的dependencyproperty类，在实例中并没有提供一个成员变量或是什么地方存储这个属性的值，那么这个值存储到什么地方了呢？ 上一篇post提到的&amp;#8220;反射&amp;#8221;问题。不论在数据绑定还是动画中我们都只提供了一个属性名字符串，难道wpf真的需要使用反射读取属性数据？ 如果我们在动画进行时同时通过slider来改变">
+<meta property="og:description" content="http://www.cnblogs.com/yayx/archive/2008/04/24/1168738.html 首先回顾一下上一篇post提出来的三个问题。 我只定义了一个静态的dependencyproperty类，在实例中并没有提供一个成员变量或是什么地方存储这个属性的值，那么这个值存储到什么地方了呢？ 上一篇post提到的&amp;#8220;反射&amp;#8221;问题。不论在数据绑定还是动画中">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T05:48:08.202Z">
+<meta property="og:updated_time" content="2019-03-13T07:06:20.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WPF里的DependencyProperty(4)">
-<meta name="twitter:description" content="首先回顾一下上一篇post提出来的三个问题。 我只定义了一个静态的dependencyproperty类，在实例中并没有提供一个成员变量或是什么地方存储这个属性的值，那么这个值存储到什么地方了呢？ 上一篇post提到的&amp;#8220;反射&amp;#8221;问题。不论在数据绑定还是动画中我们都只提供了一个属性名字符串，难道wpf真的需要使用反射读取属性数据？ 如果我们在动画进行时同时通过slider来改变">
+<meta name="twitter:description" content="http://www.cnblogs.com/yayx/archive/2008/04/24/1168738.html 首先回顾一下上一篇post提出来的三个问题。 我只定义了一个静态的dependencyproperty类，在实例中并没有提供一个成员变量或是什么地方存储这个属性的值，那么这个值存储到什么地方了呢？ 上一篇post提到的&amp;#8220;反射&amp;#8221;问题。不论在数据绑定还是动画中">
 
 
 
@@ -404,7 +404,8 @@
       
 
       
-        <p></p><p>首先回顾一下上一篇post提出来的三个问题。</p> <li>我只定义了一个静态的dependencyproperty类，在实例中并没有提供一个成员变量或是什么地方存储这个属性的值，那么这个值存储到什么地方了呢？ </li><li>上一篇post提到的&#8220;反射&#8221;问题。不论在数据绑定还是动画中我们都只提供了一个属性名字符串，难道wpf真的需要使用反射读取属性数据？ </li><li>如果我们在动画进行时同时通过slider来改变dependencyproperty的值，会发生什么？此时property中到底存储了来自哪里的值，是原始我们赋给的值？是数据绑定的值？还是当前动画的值？此时我们通过getvalue方法，会得到什么样的值呢？ <p>解决这些问题，我们需要了解一些dependencyproperty的工作机制，这也就是今天的主要内容。下面就开始。</p> <h3>尝试diy一个dependencyproperty</h3> <p>microsoft总是封装好了一切，并给我们一个&#8220;最佳实践&#8221;，让我们照着msdn抄代码。照猫画虎写代码谁都会，但是dependencyproperty到底是如何工作的呢？<br> 从上面的例子我们已经看到，dependencyproperty需要处理例如：targetproperty=”transparency”这样对属性的访问，也就是通过字符串获取属性的值。</p> <p>下面我们先假设我们自己是wpf team的一员，我们如何来实现上面的功能呢？如果是我，我可能会考虑写出类似下面这样的代码：</p> <div style="border-right: #cccccc 1px solid; padding-right: 5px; border-top: #cccccc 1px solid; padding-left: 4px; font-size: 13px; padding-bottom: 4px; border-left: #cccccc 1px solid; width: 98%; word-break: break-all; padding-top: 4px; border-bottom: #cccccc 1px solid; background-color: #eeeeee"><img id="dd1e6769b22867dad6011d9e8d9d0af0"><span style="color: #0000ff">public</span>&lt;span style=”color: #000000”<p></p>
+        <p><a href="http://www.cnblogs.com/yayx/archive/2008/04/24/1168738.html" target="_blank" rel="noopener">http://www.cnblogs.com/yayx/archive/2008/04/24/1168738.html</a></p>
+<p></p><p>首先回顾一下上一篇post提出来的三个问题。</p> <li>我只定义了一个静态的dependencyproperty类，在实例中并没有提供一个成员变量或是什么地方存储这个属性的值，那么这个值存储到什么地方了呢？ </li><li>上一篇post提到的&#8220;反射&#8221;问题。不论在数据绑定还是动画中我们都只提供了一个属性名字符串，难道wpf真的需要使用反射读取属性数据？ </li><li>如果我们在动画进行时同时通过slider来改变dependencyproperty的值，会发生什么？此时property中到底存储了来自哪里的值，是原始我们赋给的值？是数据绑定的值？还是当前动画的值？此时我们通过getvalue方法，会得到什么样的值呢？ <p>解决这些问题，我们需要了解一些dependencyproperty的工作机制，这也就是今天的主要内容。下面就开始。</p> <h3>尝试diy一个dependencyproperty</h3> <p>microsoft总是封装好了一切，并给我们一个&#8220;最佳实践&#8221;，让我们照着msdn抄代码。照猫画虎写代码谁都会，但是dependencyproperty到底是如何工作的呢？<br> 从上面的例子我们已经看到，dependencyproperty需要处理例如：targetproperty=”transparency”这样对属性的访问，也就是通过字符串获取属性的值。</p> <p>下面我们先假设我们自己是wpf team的一员，我们如何来实现上面的功能呢？如果是我，我可能会考虑写出类似下面这样的代码：</p> <div style="border-right: #cccccc 1px solid; padding-right: 5px; border-top: #cccccc 1px solid; padding-left: 4px; font-size: 13px; padding-bottom: 4px; border-left: #cccccc 1px solid; width: 98%; word-break: break-all; padding-top: 4px; border-bottom: #cccccc 1px solid; background-color: #eeeeee"><img id="dd1e6769b22867dad6011d9e8d9d0af0"><span style="color: #0000ff">public</span>&lt;span style=”color: #000000”<p></p>
 </div></li>
       
     </div>
@@ -435,8 +436,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2008/04/23/WPF-Silverlight为什么要使用Canvas-SetLeft-这样的方法/" rel="next" title="WPF/Silverlight为什么要使用Canvas.SetLeft()这样的方法?">
-                <i class="fa fa-chevron-left"></i> WPF/Silverlight为什么要使用Canvas.SetLeft()这样的方法?
+              <a href="/2008/04/24/WPF写的斗地主游戏源码/" rel="next" title="WPF写的斗地主游戏源码">
+                <i class="fa fa-chevron-left"></i> WPF写的斗地主游戏源码
               </a>
             
           </div>
@@ -445,8 +446,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2008/04/24/WPF写的斗地主游戏源码/" rel="prev" title="WPF写的斗地主游戏源码">
-                WPF写的斗地主游戏源码 <i class="fa fa-chevron-right"></i>
+              <a href="/2008/04/26/记忆的生活，生活的记忆（1）/" rel="prev" title="记忆的生活，生活的记忆（1）">
+                记忆的生活，生活的记忆（1） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

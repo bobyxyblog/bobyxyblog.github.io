@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="看见园子里有兄弟在讨论到关于wpf/sl中的属性的问题，比如: &amp;#8220;为啥flex可以直接对控件的left,top这些属性直接操作，sl还要转一下。这个很难理解，难道是因为dp的好用？相对dp的使用flex的实现简单明了的多了&amp;#8221; 正好我最近在研究wpf，在这儿说说我的看法。可能大家大多就是在用wpf或者sl就是做界面，因此首先比较关心界面布局的问题，我就先以wpf的layout">
+  <meta name="description" content="http://www.cnblogs.com/yayx/archive/2008/04/23/1167110.html 看见园子里有兄弟在讨论到关于wpf/sl中的属性的问题，比如: &amp;#8220;为啥flex可以直接对控件的left,top这些属性直接操作，sl还要转一下。这个很难理解，难道是因为dp的好用？相对dp的使用flex的实现简单明了的多了&amp;#8221; 正好我最近在研究wpf，在这儿">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WPF&#x2F;Silverlight为什么要使用Canvas.SetLeft()这样的方法?">
 <meta property="og:url" content="http://bobyuxinyang.com/2008/04/23/WPF-Silverlight为什么要使用Canvas-SetLeft-这样的方法/index.html">
 <meta property="og:site_name" content="Bob&#39;s log">
-<meta property="og:description" content="看见园子里有兄弟在讨论到关于wpf/sl中的属性的问题，比如: &amp;#8220;为啥flex可以直接对控件的left,top这些属性直接操作，sl还要转一下。这个很难理解，难道是因为dp的好用？相对dp的使用flex的实现简单明了的多了&amp;#8221; 正好我最近在研究wpf，在这儿说说我的看法。可能大家大多就是在用wpf或者sl就是做界面，因此首先比较关心界面布局的问题，我就先以wpf的layout">
+<meta property="og:description" content="http://www.cnblogs.com/yayx/archive/2008/04/23/1167110.html 看见园子里有兄弟在讨论到关于wpf/sl中的属性的问题，比如: &amp;#8220;为啥flex可以直接对控件的left,top这些属性直接操作，sl还要转一下。这个很难理解，难道是因为dp的好用？相对dp的使用flex的实现简单明了的多了&amp;#8221; 正好我最近在研究wpf，在这儿">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T05:48:08.211Z">
+<meta property="og:updated_time" content="2019-03-13T06:41:12.403Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WPF&#x2F;Silverlight为什么要使用Canvas.SetLeft()这样的方法?">
-<meta name="twitter:description" content="看见园子里有兄弟在讨论到关于wpf/sl中的属性的问题，比如: &amp;#8220;为啥flex可以直接对控件的left,top这些属性直接操作，sl还要转一下。这个很难理解，难道是因为dp的好用？相对dp的使用flex的实现简单明了的多了&amp;#8221; 正好我最近在研究wpf，在这儿说说我的看法。可能大家大多就是在用wpf或者sl就是做界面，因此首先比较关心界面布局的问题，我就先以wpf的layout">
+<meta name="twitter:description" content="http://www.cnblogs.com/yayx/archive/2008/04/23/1167110.html 看见园子里有兄弟在讨论到关于wpf/sl中的属性的问题，比如: &amp;#8220;为啥flex可以直接对控件的left,top这些属性直接操作，sl还要转一下。这个很难理解，难道是因为dp的好用？相对dp的使用flex的实现简单明了的多了&amp;#8221; 正好我最近在研究wpf，在这儿">
 
 
 
@@ -404,7 +404,8 @@
       
 
       
-        <p></p><p>看见园子里有兄弟在讨论到关于wpf/sl中的属性的问题，比如:</p> <p><span style="color: #808080">&#8220;为啥flex可以直接对控件的left,top这些属性直接操作，sl还要转一下。这个很难理解，难道是因为dp的好用？相对dp的使用flex的实现简单明了的多了&#8221;</span></p> <p>正好我最近在研究wpf，在这儿说说我的看法。可能大家大多就是在用wpf或者sl就是做界面，因此首先比较关心界面布局的问题，我就先以wpf的layout为例解释一些用法。</p> <h3>wpf中的布局对象</h3> <p>wpf中不可以给每个界面元素控件都加上”left”或者”top”这样的属性吗？其实不是，在一般的布局时，wpf为每个继承自frameworkelement的组件提供了margin这个属性，通过这个属性，我们可以轻松的设置四周的边距。再加上horizontalalignment和verticalalignment属性，我们足以完成一般的元素定位。最常用的，我们在windows中随便拖一个button，就会看到生成类似这样的xaml代码:</p> <div style="border-right: #cccccc 1px solid; padding-right: 5px; border-top: #cccccc 1px solid; padding-left: 4px; font-size: 13px; padding-bottom: 4px; border-left: #cccccc 1px solid; width: 98%; word-break: break-all; padding-top: 4px; border-bottom: #cccccc 1px solid; background-color: #eeeeee"><img id="dd1e6769b22867dad6011d9e8d9d0af0"><span style="color: #0000ff">&lt;</span><span style="color: #800000">butto<p></p>
+        <p><a href="http://www.cnblogs.com/yayx/archive/2008/04/23/1167110.html" target="_blank" rel="noopener">http://www.cnblogs.com/yayx/archive/2008/04/23/1167110.html</a></p>
+<p></p><p>看见园子里有兄弟在讨论到关于wpf/sl中的属性的问题，比如:</p> <p><span style="color: #808080">&#8220;为啥flex可以直接对控件的left,top这些属性直接操作，sl还要转一下。这个很难理解，难道是因为dp的好用？相对dp的使用flex的实现简单明了的多了&#8221;</span></p> <p>正好我最近在研究wpf，在这儿说说我的看法。可能大家大多就是在用wpf或者sl就是做界面，因此首先比较关心界面布局的问题，我就先以wpf的layout为例解释一些用法。</p> <h3>wpf中的布局对象</h3> <p>wpf中不可以给每个界面元素控件都加上”left”或者”top”这样的属性吗？其实不是，在一般的布局时，wpf为每个继承自frameworkelement的组件提供了margin这个属性，通过这个属性，我们可以轻松的设置四周的边距。再加上horizontalalignment和verticalalignment属性，我们足以完成一般的元素定位。最常用的，我们在windows中随便拖一个button，就会看到生成类似这样的xaml代码:</p> <div style="border-right: #cccccc 1px solid; padding-right: 5px; border-top: #cccccc 1px solid; padding-left: 4px; font-size: 13px; padding-bottom: 4px; border-left: #cccccc 1px solid; width: 98%; word-break: break-all; padding-top: 4px; border-bottom: #cccccc 1px solid; background-color: #eeeeee"><img id="dd1e6769b22867dad6011d9e8d9d0af0"><span style="color: #0000ff">&lt;</span><span style="color: #800000">butto<p></p>
 </span></div>
       
     </div>
@@ -435,8 +436,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2008/04/22/说说计划跟打算/" rel="next" title="说说计划跟打算">
-                <i class="fa fa-chevron-left"></i> 说说计划跟打算
+              <a href="/2008/04/22/WPF里的DependencyProperty-3/" rel="next" title="WPF里的DependencyProperty(3)">
+                <i class="fa fa-chevron-left"></i> WPF里的DependencyProperty(3)
               </a>
             
           </div>
@@ -445,8 +446,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2008/04/24/WPF里的DependencyProperty-4/" rel="prev" title="WPF里的DependencyProperty(4)">
-                WPF里的DependencyProperty(4) <i class="fa fa-chevron-right"></i>
+              <a href="/2008/04/24/WPF写的斗地主游戏源码/" rel="prev" title="WPF写的斗地主游戏源码">
+                WPF写的斗地主游戏源码 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

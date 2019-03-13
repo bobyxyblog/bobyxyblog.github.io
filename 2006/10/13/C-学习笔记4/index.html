@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Bob&#39;s log">
 <meta property="og:description" content="开始看数据绑定和数据库方面的东西 感觉有点乱,看是七七八八都看懂了,就是觉得这一整套的东西用起来比较复杂,应该会有不少技巧,要完全会用好像不是那么简单,,下面准备看看程序,争取把最经典的程序–留言板写一个出来……. 主要就是dataadapter dataset   dbcommand这些东西,,,显示数据似乎都用datalist repeter datagird一类的来显示,封装的都不用以前do">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T05:48:10.093Z">
+<meta property="og:updated_time" content="2019-03-13T07:33:35.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C#学习笔记4">
 <meta name="twitter:description" content="开始看数据绑定和数据库方面的东西 感觉有点乱,看是七七八八都看懂了,就是觉得这一整套的东西用起来比较复杂,应该会有不少技巧,要完全会用好像不是那么简单,,下面准备看看程序,争取把最经典的程序–留言板写一个出来……. 主要就是dataadapter dataset   dbcommand这些东西,,,显示数据似乎都用datalist repeter datagird一类的来显示,封装的都不用以前do">
@@ -405,6 +405,7 @@
 
       
         <p>开始看数据绑定和数据库方面的东西 感觉有点乱,看是七七八八都看懂了,就是觉得这一整套的东西用起来比较复杂,应该会有不少技巧,要完全会用好像不是那么简单,,下面准备看看程序,争取把最经典的程序–留言板写一个出来……. 主要就是dataadapter dataset   dbcommand这些东西,,,显示数据似乎都用datalist repeter datagird一类的来显示,封装的都不用以前do while来重复显示了,,,但是具体用法还要慢慢体会体会……….呵呵</p>
+<p> 数据绑定今天时间不是很多，准备把数据绑定这东西好好研究一下,尽量看数据源，原本以为数据源只能是数据库数组一类，实际上一个变量都能作为绑定的数据源，实际上，数据绑定应该说只是建立一个控件显示值和程序中的值的关系 关于DataBind，类似“数据感知”，但是绑定之后变量改变并不会导致控件的Update,需要执行DataBind()函数，这是个每一个控件都有的成员，换句话说.net中每个控件都可以进行绑定的 执行时可以Label1.DataBind() 如果直接DataBind() 则相当于Page.DataBind() 这会对页面上所有组件进行DataBind()操作 关于数据源，DataSource属性，设置的数据源是有限制的，一般是集合类的东西 比如DataSet DataView ArrayList等，不过还有一个方法是用&lt;%# %&gt;绑定，这个比较灵活有个最简单的例子，把Label的Text属性改成&lt;%#str%&gt; 然后在程序中修改了str的值的时候再Label.DataBind()则Label的Text也会变成str的值应该不只是Text属性可以绑定到变量 关于Container.DataItem数据绑定里面经常用这个，前面提到过，现在再研究研究。。。首先是Container 这个代表当前对象的容器 看到有这么些写法&lt;%# Container.DataItem(“Phone”)%&gt;&lt;%# DataBinder.Eval(Container.DataItem,”NeiRong”)%&gt; Datalist绑定到一个DataTable上，然后&lt;asp:datalist id=”dd” runat=”server”&gt;<itemtemplate>       &lt;%# Container.DataItem(“字段”)%&gt;</itemtemplate><a href="asp:datalist" target="_blank" rel="noopener">asp:datalist</a> 这里Container表示容器，绑定到指DataTable 上,就指DataTable了,网上查到一句话,. (Container)代表你的绑定数据的一列大概明白,只绑定在ArrayList,也就是一列数据时,直接Container.DataItem就行绑定在DT一类数据时侯,得&lt;%# DataBinder.Eval(Container.DataItem,”NeiRong”)%&gt;,这都试过了没问题看到的另外一种方法, &lt;%# Container.DataItem(“Phone”)%&gt; 总是不能通过,不知道怎么回事情,大概明白了,先看下面….继续ADO.NetADO.net断开式结构用DataSetDataProvider负责提供从数据库中取得的数据 程序-&gt;Dataset-&gt;DataProvider-&gt;数据库 DataProvider又分为DaraAdapter-&gt;Command-&gt;Connection DataReader封装了DataSet和DataAdapter，类似ADO的RecordSet对象，对应还有XMLReader用来读取XML Connection对象Open() Close()方法ConntionString获取连接字符串连接关闭时候可以设置 SqlConnection Conn1=new SqlConnection(“strConn”);Conn1为创建的连接对象 可以把strConn放在web.config（为XML格式文件）中appSettings中调用： System.Configuration.ConfigurationSettings.AppSettings[“strConn”] 数据库连接可以写在Page_Load中,也可随连随用 Command对象SqlCommand对象, SqlCommand nwComm=new SqlCommand(queryStr,Conn1)queryStr 为需要执行的字符串,比如sql语句有个Connection属性表示当前的连接执行,不返回行的SQL命令:,,  nwComm..ExecuteNonQuery(); 会返回操作影响的行数检索数据库中的单个的值,比如Select count(*) 返回数值,, int count=(int)scalarCommand.ExecuteScalar(); ExecuteReader方法和DataReader对象是一种简单的,非常优化,只读的,单向的,单行的读取方式 存储过程的处理,CommandType=CommandType.StoredProcedureSqlCommand的QueryStr改成存储过程名称还要设置Parameter先不仔细研究了 DataSet存储了多个表以及表间关系 创建DataSet  创建DataAdapter(传入SQL语句) Adapter.Fill(Data.Set,“字段名”)绑定到Dataset上 DataSet.Tables.Add(“”)Dataset.Tables.Tables[“表名”].Collumn.add(  加入字段  DataaAdapter  </p>
 
       
     </div>
@@ -445,8 +446,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2006/10/22/C-学习笔记5/" rel="prev" title="C#学习笔记5">
-                C#学习笔记5 <i class="fa fa-chevron-right"></i>
+              <a href="/2006/10/22/和ajax撞了一下腰/" rel="prev" title="和ajax撞了一下腰">
+                和ajax撞了一下腰 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
