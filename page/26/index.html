@@ -319,6 +319,172 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/26/04-25-2006-MCSE笔记9/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2006/04/26/04-25-2006-MCSE笔记9/" class="post-title-link" itemprop="url">[04.25.2006]MCSE笔记9</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2006-04-26 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-26T00:00:00+08:00">2006-04-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>04.25.2006</p>
+<p>打印机<br>打印设备(print device):真实的打印机<br>打印机(printer):逻辑上的打印机<br><strong>一个“打印机”可以对应多个“打印设备” 一个“打印设备”也可以对应多个“打印机”(优先级，权限可以不同),实现不同打印方式
+</strong>打印服务器(printer server):连有打印机的pc<br>网络接口打印机（network-interface print device）</p>
+<p>打印假脱机(printer spooler) 服务不启动，打印机无法工作<br>后台打印文件夹（缓存位置）</p>
+<p>一个“打印机”对应多个“打印设备” <strong>启用“打印池”,让“打印机”对应多个端口 (驱动程序必须相同 port本地远程都可以)<br>一个“打印设备”也可以对应多个“打印机” 创建多个“打印机”，端口指向同一个“打印设备”
+</strong>不同优先级的多个”打印机”必须在一个机器上</p>
+<p>共享时，对不同的客户端可以提供附加的驱动程序</p>
+<p>打印权限：<br>  打印：可以管理自己提交的文档<br>  管理文档：同时可以别人管理的文档<br>  管理打印机：对打印机所有操作</p>
+<p><strong>打印重定向：修改端口  在本地新建端口，指向远程打印设备   实现打印任务的转移</strong></p>
+<p>可能的错误： 1 权限不够 2 乱码（驱动问题） 3 server硬盘空间不够  <strong>4 打印stall乱码(重启print spooler服务)</strong></p>
+<p>网络打印机:添加本地打印机,新建tcp/ip端口 </p>
+<p>http打印,可以穿过路由器<br>服务器:共享打印机,安装iis<br>客户端:添加网络打印机 <strong><a href="http://ip/printers/共享名/.printer" target="_blank" rel="noopener">http://ip/printers/共享名/.printer</a></strong></p>
+<p>tcp:慢，确保正确性<br>udp:很快，依赖应用程序负责数据可用，在需要速度快或者很难获得回应时使用<br>icmp:  ping<br>igmp:给一组计算机发消息<br>arp:负责ip和mac转化   <strong>1检查arp cache (若无对应mac)2发出广播，通过ip寻找目标mac 3所有收到的计算机add mac to cache 4 reply 5自己add mac to cache 6发送数据</strong></p>
+<p>application中，套接字：windows socket&amp;netbt socket<br>windows socket使用dns解析   (host name)<br>netbt socket使用wins解析    (netbios name)</p>
+<p>netbios<br>netbios名称： 不超过16字符  最后一位用16进制，标示服务</p>
+<p>1 去服务器注册netbios name 2 查询 3关机，释放name</p>
+<p><strong>名称解析： 名称超过15字符或者包含”.”即转向dns解析       1使用cache 2使用专门netbios解析服务器(wins)  3通过广播查询    (lmhosts)</strong><br>(可以通过wins去通过dns查找)<br>节点类型：b-node(广播) p-node(去问wins) m-node(先b后p) h-node(先p后b)  (未指定wins默认b 指定wins默认h)<br>lmhosts文件： 本机host   #pre 开机即载入cache</p>
+<p>wins客户端开机时自动注册(原地址，目标地址，注册名 能跨网段)  -&gt; 收到响应 (含ttl)  到1/2ttl是刷新（重新注册）<br>netbios name 查询: net use x: \<strong><em>\</em></strong> 即开始解析<br>释放：服务器把ttl设置为0 </p>
+<p><strong>成为wins服务器：有固定ip 有wins服务 </strong></p>
+<p><strong>wins客户端访问非wins:在wins服务器添加wins数据库静态纪录 手动写上computername&amp;ip<br>非wins需要wins服务器访问:通过广播找到一台wins proxy(静态ip)访问,转发wins server</strong></p>
+<p>解析另外网段的wins，通过wins数据库复制  <strong>复制伙伴(push/pull)：推（根据变化数目决定） 拉（根据时间决定）<br> 保证高同步，用推；带宽有限，用拉    推荐：push/pull patern<br>先停止，再jetpack命令，压缩wins数据库</strong></p>
+<p><strong>———————————————-</strong></p>
+<p>wins似乎有很多东西，相当复杂样子，，，这边有关于wins的详细资料，有空来看看</p>
+<p><a href="http://www.microsoft.com/china/technet/itsolutions/techguide/msm/winsrvmg/winspog/winspog1.mspx" target="_blank" rel="noopener">http://www.microsoft.com/china/technet/itsolutions/techguide/msm/winsrvmg/winspog/winspog1.mspx</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/25/04-24-2006-MCSE笔记8/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -420,6 +586,149 @@
 <p>net<br>net use 察看网络连接<br>net send * hello 向本工作组发送</p>
 <hr>
 <p>今天有难度了，，tcp/ip不愧是“最难”的课程 呵呵</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/24/我想学的数学类课程/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2006/04/24/我想学的数学类课程/" class="post-title-link" itemprop="url">我想学的数学类课程</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2006-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-24T00:00:00+08:00">2006-04-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>  1 高等数学<br>2 线性代数<br>3 概率论与数理统计<br>4 离散数学<br>5 数学建模<br>….<br>6 计算几何……组合数学~…… 好多，不知道hust怎么安排课程的</p>
 
           
         
@@ -632,7 +941,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/24/我想学的数学类课程/">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/23/JYBBS暑假计划/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bobyuxiyang">
@@ -652,7 +961,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2006/04/24/我想学的数学类课程/" class="post-title-link" itemprop="url">我想学的数学类课程</a>
+                <a href="/2006/04/23/JYBBS暑假计划/" class="post-title-link" itemprop="url">JYBBS暑假计划</a>
               
             
           </h2>
@@ -677,7 +986,7 @@
                 
               
 
-              <time title="创建时间：2006-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-24T00:00:00+08:00">2006-04-24</time>
+              <time title="创建时间：2006-04-23 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-23T00:00:00+08:00">2006-04-23</time>
             
 
             
@@ -718,7 +1027,7 @@
       
         
           
-            <p>  1 高等数学<br>2 线性代数<br>3 概率论与数理统计<br>4 离散数学<br>5 数学建模<br>….<br>6 计算几何……组合数学~…… 好多，不知道hust怎么安排课程的</p>
+            <p>  板块： 1 简忆同学录-&gt;原一中,大桥等版合并 起网上同学录的作用,方便联系 -&gt;美食移至之内,交流各地美食之用 2 简忆动漫社-&gt;以前东满板块,动漫交流,活动等… 3 简忆影音吧-&gt;原电影音乐板块 讨论,资源交流等 4 简忆自游人-&gt;组织旅游… 5 简忆文学社-&gt;文学交流… 6 简忆g-sport-&gt;原体育版权全部合并 7 简忆科技园-&gt;学术交流,计算机等 原学习板 8 简忆大水池-&gt;新水库 9 版务-&gt; 区长办公室,管理办公室,宣传部   清理所有个人论坛资料,删除无用资料   征集logo:jy  简忆  中英文   争取组织聚会,重新开始召集管理层,所有改变开会决定….   good luck to jy  </p>
 
           
         
@@ -934,149 +1243,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/23/JYBBS暑假计划/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bobyuxiyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bob's log">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2006/04/23/JYBBS暑假计划/" class="post-title-link" itemprop="url">JYBBS暑假计划</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2006-04-23 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-23T00:00:00+08:00">2006-04-23</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>  板块： 1 简忆同学录-&gt;原一中,大桥等版合并 起网上同学录的作用,方便联系 -&gt;美食移至之内,交流各地美食之用 2 简忆动漫社-&gt;以前东满板块,动漫交流,活动等… 3 简忆影音吧-&gt;原电影音乐板块 讨论,资源交流等 4 简忆自游人-&gt;组织旅游… 5 简忆文学社-&gt;文学交流… 6 简忆g-sport-&gt;原体育版权全部合并 7 简忆科技园-&gt;学术交流,计算机等 原学习板 8 简忆大水池-&gt;新水库 9 版务-&gt; 区长办公室,管理办公室,宣传部   清理所有个人论坛资料,删除无用资料   征集logo:jy  简忆  中英文   争取组织聚会,重新开始召集管理层,所有改变开会决定….   good luck to jy  </p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/22/04-21-2006-MCSE笔记5/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1172,158 +1338,6 @@
 <p>——-下面开始学网络基础了，会比较无聊…… come on!  还是老样子，只记下不清楚地和很重要的东西</p>
 <p>同轴电缆：同轴+屏蔽  只能组建总线型网络 +两个终结器 即50o电阻，在屏蔽层和芯上，吸收反射 10m网络<br><strong>露天需要避雷器，否则会烧网卡<br>双绞线：橙色绿色绞合度比较高 1,2,3,6负责传输 橙白 橙 绿白 蓝 蓝白 绿 棕 棕白<br>交叉线：hub(1,2发送 3，6接受) 网卡（3,6发送 1,2接受） 同种相连做对换<br>干扰较大可以用屏蔽线</strong></p>
 <p>光纤：<br> 单模 走激光，细，直线传播，距离长 带宽极高<br> 多模，复色光 2km<br>抗干扰，安全性好</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/21/04-20-2006-MCSE笔记4/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bobyuxiyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bob's log">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2006/04/21/04-20-2006-MCSE笔记4/" class="post-title-link" itemprop="url">[04.20.2006]MCSE笔记4</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2006-04-21 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-21T00:00:00+08:00">2006-04-21</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>04.20.2006</p>
-<p>32g以上不推荐fat32<br>ntfs: 支持ad(ad必需ntfs)  支持许可 加密 配额……  不支持软盘<br>转换： convert c:/fs: ntfs</p>
-<p>permission:决定用户如何访问对象 记录在ntfs资源上 及时生效<br>right: 记录在user信息上，重新登陆生效</p>
-<p>文件权限：修改 比 写 多删除   <strong>完全控制 比 修改 多可以修改文件权限<br>拥有 更改权限 或者 所有者  就可以改变权限<br>拥有 取得所有权  可以改变对象所有权为 自己<br>admins 可以成为任何一个对象所有者（此时owner为administrators组）</strong></p>
-<p>admins通过 取得所有权 可以对任何文件操作 但会改变所有者 且无法改回<br><strong>许可累加  底层权限优先 拒绝权限优先</strong></p>
-<p><strong>特例: 对文件夹有 完全控制  则可以删除所有文件！(posix兼容)</strong></p>
-<p>copy文件时，根据目标文件夹变化<br>move文件时，不同盘，根据目标文件夹变化，<strong>move相同盘，不变(未建立新文件)</strong></p>
-<p>copy压缩文件按照压缩大小计算，1m to 1.44m可能会报空间不足</p>
-<p>配额：1 只对于磁盘 2 根据所有者确定大小 3 按照非压缩计算 4看到的磁盘剩余空间根据配额大小</p>
-<p>加密：文件内容加密，换操作系统也不能读取<br><strong>copy时，加密文件仍然加密 压缩文件不再压缩</strong></p>
 
           
         
@@ -1538,6 +1552,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/21/04-20-2006-MCSE笔记4/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2006/04/21/04-20-2006-MCSE笔记4/" class="post-title-link" itemprop="url">[04.20.2006]MCSE笔记4</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2006-04-21 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-21T00:00:00+08:00">2006-04-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>04.20.2006</p>
+<p>32g以上不推荐fat32<br>ntfs: 支持ad(ad必需ntfs)  支持许可 加密 配额……  不支持软盘<br>转换： convert c:/fs: ntfs</p>
+<p>permission:决定用户如何访问对象 记录在ntfs资源上 及时生效<br>right: 记录在user信息上，重新登陆生效</p>
+<p>文件权限：修改 比 写 多删除   <strong>完全控制 比 修改 多可以修改文件权限<br>拥有 更改权限 或者 所有者  就可以改变权限<br>拥有 取得所有权  可以改变对象所有权为 自己<br>admins 可以成为任何一个对象所有者（此时owner为administrators组）</strong></p>
+<p>admins通过 取得所有权 可以对任何文件操作 但会改变所有者 且无法改回<br><strong>许可累加  底层权限优先 拒绝权限优先</strong></p>
+<p><strong>特例: 对文件夹有 完全控制  则可以删除所有文件！(posix兼容)</strong></p>
+<p>copy文件时，根据目标文件夹变化<br>move文件时，不同盘，根据目标文件夹变化，<strong>move相同盘，不变(未建立新文件)</strong></p>
+<p>copy压缩文件按照压缩大小计算，1m to 1.44m可能会报空间不足</p>
+<p>配额：1 只对于磁盘 2 根据所有者确定大小 3 按照非压缩计算 4看到的磁盘剩余空间根据配额大小</p>
+<p>加密：文件内容加密，换操作系统也不能读取<br><strong>copy时，加密文件仍然加密 压缩文件不再压缩</strong></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/19/04-18-2006-MCSE笔记2/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1678,197 +1844,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/18/04-17-2006-MCSE笔记1/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bobyuxiyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bob's log">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2006/04/18/04-17-2006-MCSE笔记1/" class="post-title-link" itemprop="url">[04.17.2006]MCSE笔记1</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2006-04-18 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-18T00:00:00+08:00">2006-04-18</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>4.17.2006 </p>
-<p>winpro:</p>
-<p>winpro 最多能建立10个连接</p>
-<p>脱机文件夹-&gt;用缓存把东西存下来 自动同步<strong>(自动解决冲突 给一个提示)</strong></p>
-<p>ipp打印:通过http打印</p>
-<p>icm图像颜色管理:同步显示颜色与印刷（打印）颜色</p>
-<p>系统准备工具system preparation tool:</p>
-<p>  批量安装系统 处理 computer name重复 ipaddress重复…</p>
-<p>摘掉个性化信息</p>
-<p>(硬件必须相同)</p>
-<p>无人参与安装</p>
-<p>写到unattend.txt文件中</p>
-<p>安装盘有模板</p>
-<p>setup manager wizard生成unattend.txt</p>
-<p> (在support/tools下面)</p>
-<p>windows driver model</p>
-<p>98/nt4驱动可能能在2000下用</p>
-<p>自动处理ups状态</p>
-<p>nt4支持ntfs 不支持fat32</p>
-<p>优化磁盘：笨办法</p>
-<p>copy hd1 to hd2</p>
-<p>del hd1</p>
-<p>copy hd2 to hd1</p>
-<p>备份工具 backup:</p>
-<p>nt4: to磁带机</p>
-<p>2000: to 网络，硬盘，目录……</p>
-<p>支持磁盘映射</p>
-<p>kerberos 身份验证协议在ad中身份验证 灵活&amp;安全</p>
-<p>ipsec ip加密 底层</p>
-<p>https 只能作网络浏览</p>
-<p>smartcard 实现安全性</p>
-<p><strong>runas 按住shift点右键 出现 运行为…  </strong></p>
-<hr>
-<p>winser</p>
-<p>ad:a kind of directory serives</p>
-<p>网络资源的管理 索引</p>
-<p>novell-&gt;nds</p>
-<p>win2k-&gt;ad  灵活 方便调整</p>
-<p>1 名字基于dns 层次结构</p>
-<p>2 在<strong>组策略</strong> 记录下用户相关信息,,自动安装win2k，自动配置，自动安装软件…</p>
-<p>3 管理授权  <strong>域-&gt;组织单元(ou) 分配管理</strong></p>
-<p>dns动态更新 动态更新dns记录</p>
-<p>索引服务 做全文检索</p>
-<p>dfs分布式文件系统(ad实现):文件结构的逻辑组织</p>
-<p>disk quotas 磁盘配额  配置用户在server上可用磁盘空间</p>
-<p>做成路由器 拨号接入器  iis。。。</p>
-<hr>
-<p>winadvser</p>
-<p><strong>支持集群</strong></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1916,7 +1891,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">323</span>
+                    <span class="site-state-item-count">324</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
