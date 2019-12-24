@@ -608,6 +608,149 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/10/22/和ajax撞了一下腰/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2006/10/22/和ajax撞了一下腰/" class="post-title-link" itemprop="url">和ajax撞了一下腰</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2006-10-22 00:00:00" itemprop="dateCreated datePublished" datetime="2006-10-22T00:00:00+08:00">2006-10-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>绝对是心血来潮,以前只知道ajax是个什么东西,不过从来没有仔细研究过,一切认识停留在”了解” 今天看了,震惊 呵呵,真是个好东西~   ajax最简单的工作流程…. 把网页的元素当作对象(dom),对象的事件连接到js函数,创建xmlhttprequest组件,用open方法打开,把onreadystatechange事件(状态改变,表明在传输数据)连接到某个函数,再用send()方法发送请求,就完成了~ 响应的函数里面,检测readystate=4(返回)  status=200(并且成功) 则可以从创建的组件中获得数据,一般获得方法是用getelementby***属性.因为传输的文本用xml表示可以实现强大的功能,所以一般用xmlhttpreq.responsexml.getelementsbytagname这一类的东西,得到之后,就可以处理了 上面是客户端 在服务器端,open的时候可以指定url,如果url是一个aspx(其实更好的办法应该用web service),那自然请求就发送到asp.net服务上,?后面指定了参数,参数处理就是很简单的了,处理完之后有一个把数据写回的动作,也就是把处理后的结果写回,其他就不用管了 样例是在jsp环境下输出的,用response.getwriter();输出xml的字符流就行,c#里面的例子还是没找到,哪天有时间把样例写一个ajax+asp.net版本<del>~</del>~ 差不多就这样,明天开始还是务务正业,补习一下c++ 写写那个所谓的”单向链表的学生档案管理系统”,争取弄一个”面向对象的” 呵呵</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/10/22/C-学习笔记5/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -734,149 +877,6 @@
 <p>回复留言 reply</p>
 <p>default</p>
 <p>似乎数据表字段名用datetime会和.net保留字冲突。。。有待确认，有待寻找其他类似会冲突的保留字</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/10/22/和ajax撞了一下腰/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bobyuxiyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bob's log">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2006/10/22/和ajax撞了一下腰/" class="post-title-link" itemprop="url">和ajax撞了一下腰</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2006-10-22 00:00:00" itemprop="dateCreated datePublished" datetime="2006-10-22T00:00:00+08:00">2006-10-22</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>绝对是心血来潮,以前只知道ajax是个什么东西,不过从来没有仔细研究过,一切认识停留在”了解” 今天看了,震惊 呵呵,真是个好东西~   ajax最简单的工作流程…. 把网页的元素当作对象(dom),对象的事件连接到js函数,创建xmlhttprequest组件,用open方法打开,把onreadystatechange事件(状态改变,表明在传输数据)连接到某个函数,再用send()方法发送请求,就完成了~ 响应的函数里面,检测readystate=4(返回)  status=200(并且成功) 则可以从创建的组件中获得数据,一般获得方法是用getelementby***属性.因为传输的文本用xml表示可以实现强大的功能,所以一般用xmlhttpreq.responsexml.getelementsbytagname这一类的东西,得到之后,就可以处理了 上面是客户端 在服务器端,open的时候可以指定url,如果url是一个aspx(其实更好的办法应该用web service),那自然请求就发送到asp.net服务上,?后面指定了参数,参数处理就是很简单的了,处理完之后有一个把数据写回的动作,也就是把处理后的结果写回,其他就不用管了 样例是在jsp环境下输出的,用response.getwriter();输出xml的字符流就行,c#里面的例子还是没找到,哪天有时间把样例写一个ajax+asp.net版本<del>~</del>~ 差不多就这样,明天开始还是务务正业,补习一下c++ 写写那个所谓的”单向链表的学生档案管理系统”,争取弄一个”面向对象的” 呵呵</p>
 
           
         
