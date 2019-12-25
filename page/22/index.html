@@ -463,151 +463,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/10/22/Div-css简单接触/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bobyuxiyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bob's log">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2006/10/22/Div-css简单接触/" class="post-title-link" itemprop="url">Div+css简单接触</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2006-10-22 00:00:00" itemprop="dateCreated datePublished" datetime="2006-10-22T00:00:00+08:00">2006-10-22</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>从来都是用table做网页,虽然说知道div+css这个东西,但从来没有实践过 找了篇教程,稍微看了看 感觉基本上这东西就是考css熟练程度,把css2.0中文手册那一本搞定了基本上也就很熟练了 呵呵 ————- 定位不一定要用一层一层的table<br>而是使用一层一层的div 先按照页面划分div 建立结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;container&quot;&gt;&lt;!--页面层容器--&gt;</span><br><span class="line"> &lt;div id=&quot;header&quot;&gt;&lt;!--页面头部--&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"> &lt;div id=&quot;pagebody&quot;&gt;&lt;!--页面主体--&gt;</span><br><span class="line"> &lt;div id=&quot;sidebar&quot;&gt;&lt;!--侧边栏--&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"> &lt;div id=&quot;mainbody&quot;&gt;&lt;!--主体内容--&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"> &lt;div id=&quot;footer&quot;&gt;&lt;!--页面底部--&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>然后建立css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/*基本信息*/</span><br><span class="line">body &#123;font:12px tahoma;margin:0px;text-align:center;background:#fff;&#125; /*页面层容器*/</span><br><span class="line">#container &#123;width:100%&#125; /*页面头部*/</span><br><span class="line">#header &#123;width:800px;margin:0 auto;height:100px;background:#ffcc99&#125; /*页面主体*/</span><br><span class="line">#pagebody &#123;width:800px;margin:0 auto;height:400px;background:#ccff00&#125; /*页面底部*/</span><br><span class="line">#footer &#123;width:800px;margin:0 auto;height:50px;background:#00ffff&#125; 用css来控制div的样式,从而控制叶面   ********margin:0 auto 上下无边距,左右自动相等,则居中   body &#123;font:12px tahoma;margin:0px;text-align:center;background:#fff;&#125;</span><br><span class="line">a:link,a:visited &#123;font-size:12px;text-decoration:none;&#125;</span><br><span class="line">a:hover&#123;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>当在html中定义为id=”divid”时，在css对应的设置语法则是#divid{} ，如果在html中定义为class=”divid”时，则在css中对应的设置语法是.divid。<br> 如果id=”divid”这个层中包括了一个<code>&lt;img&gt;&lt;/img&gt;</code>，则这个img在css中对应的设置语法应该是<code>#divid img {}</code>，同样，如果是包含在<code>class=&quot;divid&quot;</code>这个层中时，则设置语法应该是.divid img {}<br>这可以为页面每一个元素编写样式<br>用ul li包含东西,在#menu ul li{}编写css样式 border控制线型</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/10/22/和ajax撞了一下腰/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -877,6 +732,151 @@
 <p>回复留言 reply</p>
 <p>default</p>
 <p>似乎数据表字段名用datetime会和.net保留字冲突。。。有待确认，有待寻找其他类似会冲突的保留字</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/10/22/Div-css简单接触/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2006/10/22/Div-css简单接触/" class="post-title-link" itemprop="url">Div+css简单接触</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2006-10-22 00:00:00" itemprop="dateCreated datePublished" datetime="2006-10-22T00:00:00+08:00">2006-10-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>从来都是用table做网页,虽然说知道div+css这个东西,但从来没有实践过 找了篇教程,稍微看了看 感觉基本上这东西就是考css熟练程度,把css2.0中文手册那一本搞定了基本上也就很熟练了 呵呵 ————- 定位不一定要用一层一层的table<br>而是使用一层一层的div 先按照页面划分div 建立结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;container&quot;&gt;&lt;!--页面层容器--&gt;</span><br><span class="line"> &lt;div id=&quot;header&quot;&gt;&lt;!--页面头部--&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"> &lt;div id=&quot;pagebody&quot;&gt;&lt;!--页面主体--&gt;</span><br><span class="line"> &lt;div id=&quot;sidebar&quot;&gt;&lt;!--侧边栏--&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"> &lt;div id=&quot;mainbody&quot;&gt;&lt;!--主体内容--&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"> &lt;div id=&quot;footer&quot;&gt;&lt;!--页面底部--&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后建立css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/*基本信息*/</span><br><span class="line">body &#123;font:12px tahoma;margin:0px;text-align:center;background:#fff;&#125; /*页面层容器*/</span><br><span class="line">#container &#123;width:100%&#125; /*页面头部*/</span><br><span class="line">#header &#123;width:800px;margin:0 auto;height:100px;background:#ffcc99&#125; /*页面主体*/</span><br><span class="line">#pagebody &#123;width:800px;margin:0 auto;height:400px;background:#ccff00&#125; /*页面底部*/</span><br><span class="line">#footer &#123;width:800px;margin:0 auto;height:50px;background:#00ffff&#125; 用css来控制div的样式,从而控制叶面   ********margin:0 auto 上下无边距,左右自动相等,则居中   body &#123;font:12px tahoma;margin:0px;text-align:center;background:#fff;&#125;</span><br><span class="line">a:link,a:visited &#123;font-size:12px;text-decoration:none;&#125;</span><br><span class="line">a:hover&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当在html中定义为id=”divid”时，在css对应的设置语法则是#divid{} ，如果在html中定义为class=”divid”时，则在css中对应的设置语法是.divid。<br> 如果id=”divid”这个层中包括了一个<code>&lt;img&gt;&lt;/img&gt;</code>，则这个img在css中对应的设置语法应该是<code>#divid img {}</code>，同样，如果是包含在<code>class=&quot;divid&quot;</code>这个层中时，则设置语法应该是.divid img {}<br>这可以为页面每一个元素编写样式<br>用ul li包含东西,在#menu ul li{}编写css样式 border控制线型</p>
 
           
         
