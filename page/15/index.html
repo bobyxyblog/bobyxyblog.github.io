@@ -892,149 +892,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2008/09/05/重温经典之《企业应用架构模式》——-NET中的架构模式运用-Base-Patterns-2/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bobyuxiyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bob's log">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2008/09/05/重温经典之《企业应用架构模式》——-NET中的架构模式运用-Base-Patterns-2/" class="post-title-link" itemprop="url">重温经典之《企业应用架构模式》——.NET中的架构模式运用 (Base Patterns 2)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-09-05 00:00:00" itemprop="dateCreated datePublished" datetime="2008-09-05T00:00:00+08:00">2008-09-05</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.cnblogs.com/yayx/archive/2008/09/05/1285337.html" target="_blank" rel="noopener">https://www.cnblogs.com/yayx/archive/2008/09/05/1285337.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;忙了两天，继续我的随笔。&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;今天来看的，是另外几个基本模式。这些基本模式很多都已经发展的非常成熟，以至于现在大家都不习惯称其为模式了。但是我还是决定继续了解一下这些模式的来龙去脉，这样能够让我们对现有的一些用法有更加透彻的领悟。&lt;/span&gt;&lt;/p&gt; &lt;h2&gt;Registry&lt;span style=&quot;font-family: 宋体&quot;&gt;模式&lt;/span&gt;&lt;/h2&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;在架构设计中，我们总关注各种各样的对象以及各个对象之间的关系，我们经常&lt;/span&gt;new&lt;span style=&quot;font-family: 宋体&quot;&gt;一个对象，然后由一个对象的产生多个对象，如此反复。但是这一切复杂的关系，总得需要正确一个开始，第一个对象从哪里开始呢？&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;我们经常在系统中引入一种全局的对象，这种对象对他作用域中所有程序都是已知的，任何程序都可以直接通过这个全局对象来获得一个对象实例，并由此开始一系列的操作。这种引入全局对象的操作方式在这里就被称作为&lt;/span&gt;Registry&lt;span style=&quot;font-family: 宋体&quot;&gt;模式。&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;这样的说法是抽象的，换句话说，&lt;/span&gt;Registry&lt;span style=&quot;font-family: 宋体&quot;&gt;模式，就是在系统中定义一个用于获得其他对象实例的全局对象。&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;这种模式的目的在于&amp;#8220;获得对象&amp;#8221;，就好象读取配置需要获取配置文件对象，权限管理需要获得权限管理对象。在面向对象编程中，一个对象的实例往往是通过&lt;/span&gt;new&lt;span style=&quot;font-family: 宋体&quot;&gt;关键字获得的，也许你会问，那为什么这里还要创建专门的全局对象用于&amp;#8220;获得对象实例&amp;#8221;呢？这里就是这个模式的重点。&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;之所以我们要使用一个专门的对象用于对象获取，就是因为我们对&lt;/span&gt;new&lt;span style=&quot;font-family: 宋体&quot;&gt;这个操作不放心，一个最简单的要求是，我们经常要求获得的对象实例是全局唯一的。&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;到这里你也许会想到&lt;/span&gt;Singleton&lt;span style=&quot;font-family: 宋体&quot;&gt;模式，没错，这种最简单的&lt;/span&gt;Registry&lt;span style=&quot;font-family: 宋体&quot;&gt;就是使用&lt;/span&gt;Singleton&lt;span style=&quot;font-family: 宋体&quot;&gt;实现的。在书中也有大量的代码来说明了如何使用&lt;/span&gt;Singleton&lt;span style=&quot;font-family: 宋体&quot;&gt;实现一个&lt;/span&gt;Registry&lt;span style=&quot;font-family: 宋体&quot;&gt;对象，实际上大多数情况下我们使用&lt;/span&gt;Singletom&lt;span style=&quot;font-family: 宋体&quot;&gt;模式也就足够了。因为我们很多时候所需要完成的事情，就是&amp;#8220;要求获得的对象实例是全局唯一的&amp;#8221;。&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;确实是这样的，但是思考一下，还会有其他需求吗？&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;设想一个打印文件系统的场景，任务队列里有非常多的任务，每次处理一个任务，都需要获取一个打印机对象，而打印机对象是极为有限的，比如只有&lt;/span&gt;5&lt;span style=&quot;font-family: 宋体&quot;&gt;个。&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;我们决定获取打印机&lt;/span&gt;(Printer)&lt;span style=&quot;font-family: 宋体&quot;&gt;对象的时候使用&lt;/span&gt;Registry&lt;span style=&quot;font-family: 宋体&quot;&gt;模式。在系统中定义一个全局&lt;/span&gt;PrinterRegistry&lt;span style=&quot;font-family: 宋体&quot;&gt;对象，理想情况下，我们希望每调用一次&lt;/span&gt;PrinterRegistry.GetAvailablePrinter&lt;span style=&quot;font-family: 宋体&quot;&gt;方法就能够获得一个可用的打印机对象，参考&lt;/span&gt;Singletom&lt;span style=&quot;font-family: 宋体&quot;&gt;模式，我们可以写出类似这样的代码：&lt;/span&gt;&lt;/p&gt; &lt;p align=&quot;left&quot;&gt;&lt;span style=&quot;font-size: 9pt; font-family: &apos;Courier New&apos;&quot;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2008/09/05/从6-0到6-1/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1123,6 +980,149 @@
           
             <p>花了几乎是整整一天时间，给手机换了系统，没丢什么东西，很好<br>终于用上wm6.1了，很好很强大……<br>新的输入法还没那么习惯，据说是好用了，不过还是喜欢原来的<br>因为习惯了，仅此而已<br>习惯是个很有用的东西，很多东西，就是一个习惯问题，说起来一句话……习惯不好<br>这两天心血来潮淘二手，一共4笔交易，居然清一色类似，之前讨论的时间，统统有空，到约好的时间了，两个人有急事推迟，一个人直接取消，只有一个守了承诺<br>其实我损失也没太大，两个小时而已，让我惊叹的是素质<br>还都是研究生，硕士！<br>怪不得公司里老说大学生太嫩<br>基本的原则，一件事儿，做了99‰跟没做是一会事情，说说看都懂<br>曾经我也是给骂过<br>看到一堆半成品，恩，大学生做的<br>因此花了几乎一天时间来重装手机，我不认为这是浪费时间<br>再次鄙视某些人<br>认真 设身处地 同理心<br>人性</p>
 
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2008/09/05/重温经典之《企业应用架构模式》——-NET中的架构模式运用-Base-Patterns-2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2008/09/05/重温经典之《企业应用架构模式》——-NET中的架构模式运用-Base-Patterns-2/" class="post-title-link" itemprop="url">重温经典之《企业应用架构模式》——.NET中的架构模式运用 (Base Patterns 2)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2008-09-05 00:00:00" itemprop="dateCreated datePublished" datetime="2008-09-05T00:00:00+08:00">2008-09-05</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://www.cnblogs.com/yayx/archive/2008/09/05/1285337.html" target="_blank" rel="noopener">https://www.cnblogs.com/yayx/archive/2008/09/05/1285337.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;忙了两天，继续我的随笔。&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;今天来看的，是另外几个基本模式。这些基本模式很多都已经发展的非常成熟，以至于现在大家都不习惯称其为模式了。但是我还是决定继续了解一下这些模式的来龙去脉，这样能够让我们对现有的一些用法有更加透彻的领悟。&lt;/span&gt;&lt;/p&gt; &lt;h2&gt;Registry&lt;span style=&quot;font-family: 宋体&quot;&gt;模式&lt;/span&gt;&lt;/h2&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;在架构设计中，我们总关注各种各样的对象以及各个对象之间的关系，我们经常&lt;/span&gt;new&lt;span style=&quot;font-family: 宋体&quot;&gt;一个对象，然后由一个对象的产生多个对象，如此反复。但是这一切复杂的关系，总得需要正确一个开始，第一个对象从哪里开始呢？&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;我们经常在系统中引入一种全局的对象，这种对象对他作用域中所有程序都是已知的，任何程序都可以直接通过这个全局对象来获得一个对象实例，并由此开始一系列的操作。这种引入全局对象的操作方式在这里就被称作为&lt;/span&gt;Registry&lt;span style=&quot;font-family: 宋体&quot;&gt;模式。&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;这样的说法是抽象的，换句话说，&lt;/span&gt;Registry&lt;span style=&quot;font-family: 宋体&quot;&gt;模式，就是在系统中定义一个用于获得其他对象实例的全局对象。&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;这种模式的目的在于&amp;#8220;获得对象&amp;#8221;，就好象读取配置需要获取配置文件对象，权限管理需要获得权限管理对象。在面向对象编程中，一个对象的实例往往是通过&lt;/span&gt;new&lt;span style=&quot;font-family: 宋体&quot;&gt;关键字获得的，也许你会问，那为什么这里还要创建专门的全局对象用于&amp;#8220;获得对象实例&amp;#8221;呢？这里就是这个模式的重点。&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;之所以我们要使用一个专门的对象用于对象获取，就是因为我们对&lt;/span&gt;new&lt;span style=&quot;font-family: 宋体&quot;&gt;这个操作不放心，一个最简单的要求是，我们经常要求获得的对象实例是全局唯一的。&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;到这里你也许会想到&lt;/span&gt;Singleton&lt;span style=&quot;font-family: 宋体&quot;&gt;模式，没错，这种最简单的&lt;/span&gt;Registry&lt;span style=&quot;font-family: 宋体&quot;&gt;就是使用&lt;/span&gt;Singleton&lt;span style=&quot;font-family: 宋体&quot;&gt;实现的。在书中也有大量的代码来说明了如何使用&lt;/span&gt;Singleton&lt;span style=&quot;font-family: 宋体&quot;&gt;实现一个&lt;/span&gt;Registry&lt;span style=&quot;font-family: 宋体&quot;&gt;对象，实际上大多数情况下我们使用&lt;/span&gt;Singletom&lt;span style=&quot;font-family: 宋体&quot;&gt;模式也就足够了。因为我们很多时候所需要完成的事情，就是&amp;#8220;要求获得的对象实例是全局唯一的&amp;#8221;。&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;确实是这样的，但是思考一下，还会有其他需求吗？&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;设想一个打印文件系统的场景，任务队列里有非常多的任务，每次处理一个任务，都需要获取一个打印机对象，而打印机对象是极为有限的，比如只有&lt;/span&gt;5&lt;span style=&quot;font-family: 宋体&quot;&gt;个。&lt;/span&gt;&lt;/p&gt; &lt;p style=&quot;text-indent: 21pt&quot;&gt;&lt;span style=&quot;font-family: 宋体&quot;&gt;我们决定获取打印机&lt;/span&gt;(Printer)&lt;span style=&quot;font-family: 宋体&quot;&gt;对象的时候使用&lt;/span&gt;Registry&lt;span style=&quot;font-family: 宋体&quot;&gt;模式。在系统中定义一个全局&lt;/span&gt;PrinterRegistry&lt;span style=&quot;font-family: 宋体&quot;&gt;对象，理想情况下，我们希望每调用一次&lt;/span&gt;PrinterRegistry.GetAvailablePrinter&lt;span style=&quot;font-family: 宋体&quot;&gt;方法就能够获得一个可用的打印机对象，参考&lt;/span&gt;Singletom&lt;span style=&quot;font-family: 宋体&quot;&gt;模式，我们可以写出类似这样的代码：&lt;/span&gt;&lt;/p&gt; &lt;p align=&quot;left&quot;&gt;&lt;span style=&quot;font-size: 9pt; font-family: &apos;Courier New&apos;&quot;</span><br></pre></td></tr></table></figure>
           
         
       
