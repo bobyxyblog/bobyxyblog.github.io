@@ -748,162 +748,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/05/03/05-01-2006-MCSE笔记12/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bobyuxiyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bob's log">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2006/05/03/05-01-2006-MCSE笔记12/" class="post-title-link" itemprop="url">[05.01.2006]MCSE笔记12</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2006-05-03 00:00:00" itemprop="dateCreated datePublished" datetime="2006-05-03T00:00:00+08:00">2006-05-03</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>休整了几天，今天继续</p>
-<p>05.01.2006<br>目录服务：资源存放的内容，形式组织  放什么东西，怎么来放<br><strong>目录：如何存取 服务：如何做出相应</strong></p>
-<p>ad<br>可扩展性，基于internet标准，安全，方便升级，灵活的变化<br>新增：对于用户物理设备的管理<br>验证，授权<br>目录合并，接口<br>可以为每一个用户指定带宽<br>基于策略的应用程序配置</p>
-<p><strong>都基于internet标准</strong></p>
-<p>ad逻辑结构<br>域domains 树trees 森林forest 组织单元ou</p>
-<p>域：<strong>安全边界   只有域上有安全性设计<br>一个域有若干域控制器，可复制(replication) 同一个域内，所有dc内容一致    域和域之间复制</strong></p>
-<p>域模式：混合域模式（包含nt4的bdc 和nt4兼容） -&gt;单向  私有模式（完全win2k）</p>
-<p>域树:和根域有信任关系的n个域的集合<strong>(连续的命名空间)<br>信任关系:两个域之间安全信息的 通讯连接  (用户名口令等)<br>  信任:双向(a-b -&gt;b-a) 可传递(a-b b-c -&gt; a-c) 使用kerboros</strong></p>
-<p><strong>win2k ad中,由于双向可传递,任意创建两个域,都内置有信任关系,<br>能够创建的信任关系 show a card,加快访问速度,,,,,win2k域和winnt4域间需要手动创建信任关系(nt4信任关系 单向不可传递)</strong></p>
-<p>根域:提供连续命名空间开始(与dns命名空间相同,对于zone)</p>
-<p><strong>信任关系只提供管理信息交换的可能</strong></p>
-<p>森林:多个域树的集合(没有一个连续的命名空间)<br>   构成:1同时种多棵树 2首先种一棵,在种其他 (根域间有信任关系)</p>
-<p>为达到资源共享,把多棵树合并成一个森林(公司兼并) —&gt;多树森林</p>
-<p><strong>森林中第一棵树的根域-&gt;森林的根域-&gt;森林管理员(有最大的权力)</strong></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/05/03/05-02-2006-MCSE笔记13/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1010,6 +854,162 @@
 <p><strong>否优先</strong></p>
 <p><strong>权限委派,许可的自动分配  大多数情况,在ou上 或者在对象上,进行权限设置(方便快捷)</strong></p>
 <p>所有者:默认(创建者即所有者)</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/05/03/05-01-2006-MCSE笔记12/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2006/05/03/05-01-2006-MCSE笔记12/" class="post-title-link" itemprop="url">[05.01.2006]MCSE笔记12</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2006-05-03 00:00:00" itemprop="dateCreated datePublished" datetime="2006-05-03T00:00:00+08:00">2006-05-03</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>休整了几天，今天继续</p>
+<p>05.01.2006<br>目录服务：资源存放的内容，形式组织  放什么东西，怎么来放<br><strong>目录：如何存取 服务：如何做出相应</strong></p>
+<p>ad<br>可扩展性，基于internet标准，安全，方便升级，灵活的变化<br>新增：对于用户物理设备的管理<br>验证，授权<br>目录合并，接口<br>可以为每一个用户指定带宽<br>基于策略的应用程序配置</p>
+<p><strong>都基于internet标准</strong></p>
+<p>ad逻辑结构<br>域domains 树trees 森林forest 组织单元ou</p>
+<p>域：<strong>安全边界   只有域上有安全性设计<br>一个域有若干域控制器，可复制(replication) 同一个域内，所有dc内容一致    域和域之间复制</strong></p>
+<p>域模式：混合域模式（包含nt4的bdc 和nt4兼容） -&gt;单向  私有模式（完全win2k）</p>
+<p>域树:和根域有信任关系的n个域的集合<strong>(连续的命名空间)<br>信任关系:两个域之间安全信息的 通讯连接  (用户名口令等)<br>  信任:双向(a-b -&gt;b-a) 可传递(a-b b-c -&gt; a-c) 使用kerboros</strong></p>
+<p><strong>win2k ad中,由于双向可传递,任意创建两个域,都内置有信任关系,<br>能够创建的信任关系 show a card,加快访问速度,,,,,win2k域和winnt4域间需要手动创建信任关系(nt4信任关系 单向不可传递)</strong></p>
+<p>根域:提供连续命名空间开始(与dns命名空间相同,对于zone)</p>
+<p><strong>信任关系只提供管理信息交换的可能</strong></p>
+<p>森林:多个域树的集合(没有一个连续的命名空间)<br>   构成:1同时种多棵树 2首先种一棵,在种其他 (根域间有信任关系)</p>
+<p>为达到资源共享,把多棵树合并成一个森林(公司兼并) —&gt;多树森林</p>
+<p><strong>森林中第一棵树的根域-&gt;森林的根域-&gt;森林管理员(有最大的权力)</strong></p>
 
           
         

@@ -623,7 +623,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/搬家了！/">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/自己做个大头贴软件-一些总结/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bobyuxiyang">
@@ -643,7 +643,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2005/10/21/搬家了！/" class="post-title-link" itemprop="url">搬家了！</a>
+                <a href="/2005/10/21/自己做个大头贴软件-一些总结/" class="post-title-link" itemprop="url">自己做个大头贴软件,一些总结</a>
               
             
           </h2>
@@ -709,7 +709,42 @@
       
         
           
-            <p>blog从csdn搬到了msn，csdn现在稳定性不是很好，功能上也偏少，所以迟早是要搬的。 其实以前是想往q-zone搬的，毕竟qq群众基础比较好。只是实在讨厌qq极慢的速度与臃肿繁杂的程序，而且还要收费！研究再三，还是选择了msn spaces   既然搬来了，就在这儿好好干了 呵呵</p>
+            <p>呵呵 以前还真没有认真研究过图像处理这块儿东西(其实这回也只是了解一些皮毛),研究一下,才发现自己做这样的大头贴程序还算简单</p>
+<p>具体的程序没写完,只是稍微写了一些想法…</p>
+<p>大头贴说白了就是个图像叠加程序,两步动作,一个是抠像/照相程序,一个是图像处理及其叠加</p>
+<p>抠像比较复杂,不去研究,照相都有现成的dll,用不着研究,图像处理都有标准算法,以后上了大学会研究</p>
+<p>现在主要就看看图像叠加</p>
+<p>背景模板是gif文件,有一块设置为transparent的区域,也就是用来放大头的</p>
+<p>一种方式是直接用canvas的draw方法或者是copyrect方法把模板图像花在大头上边,设置好transparent颜色,就行了 下边是网上拉下来的一段程序(不是我写的,我写的程序比这个漂亮多了 呵呵)</p>
+<p>procedure tform1.button2click(sender: tobject);<br>var<br>  b,s:tbitmap;<br>begin<br>  b:=tbitmap.create;<br>  s:=tbitmap.create;<br>  s.transparentmode :=tmauto;  //可以自己设置透明色<br>  b.loadfromfile(‘c:\windows\forest.bmp’);  //大的<br>  s.loadfromfile(‘c:\windows\circles.bmp’); //小的<br>  b.canvas.copymode:=cmsrccopy;  //选择合适的<br>  s.pixelformat:=pf32bit;  //避免调色板问题<br>  b.pixelformat:=pf32bit;<br>  //b.canvas.draw(b.width-s.width,b.height-s.height,s); 另一种做法<br>  b.canvas.copyrect (rect(b.width-s.width,b.height-s.height,b.width,b.height),<br>    s.canvas,rect(0,0,s.width,s.height));<br>  canvas.draw (0,0,b);<br>  b.savetofile(‘d:\temp.bmp’);<br>  b.free;<br>  s.free;<br>end;</p>
+<p>还找到一个api函数,bitblt 以前听说过,倒是没有研究过,下面是msdn里边的摘录</p>
+<p>the bitblt function performs a bit-block transfer of the color data corresponding to a rectangle of pixels from the specified source device context into a destination device context. </p>
+<p>hdcdest</p>
+<p>nxdest</p>
+<p>nydest</p>
+<p>nwidth</p>
+<p>nheight</p>
+<p>hdcsrc</p>
+<p>nxsrc</p>
+<p>nysrc</p>
+<p>dwrop</p>
+<p>the following list shows some common raster operation codes. </p>
+<p>if the function succeeds, the return value is nonzero.</p>
+<p>if the function fails, the return value is zero. </p>
+<p>windows nt/2000/xp: to get extended error information, call getlasterror. </p>
+<p>bitblt only does clipping on the destination dc.</p>
+<p>if a rotation or shear transformation is in effect in the source device context, bitblt returns an error. if other transformations exist in the source device context (and a matching transformation is not in effect in the destination device context), the rectangle in the destination device context is stretched, compressed, or rotated, as necessary. </p>
+<p>if the color formats of the source and destination device contexts do not match, the bitblt function converts the source color format to match the destination format. </p>
+<p>when an enhanced metafile is being recorded, an error occurs if the source device context identifies an enhanced-metafile device context. </p>
+<p>not all devices support the bitblt function. for more information, see the rc_bitblt raster capability entry in the getdevicecaps function as well as the following functions: maskblt, plgblt, and stretchblt. </p>
+<p>bitblt returns an error if the source and destination device contexts represent different devices. to transfer data between dcs for different devices, convert the memory bitmap to a dib by calling getdibits. to display the dib to the second device, call setdibits or stretchdibits.</p>
+<p>icm: no color management is performed when blits occur. </p>
+<p>还有一段example</p>
+<p>you can use a bitmap to capture an image, and you can store the captured image in memory, display it at a different location in your application’s window, or display it in another window. </p>
+<p>in some cases, you may want your application to capture images and store them only temporarily. for example, when you scale or zoom a picture created in a drawing application, the application must temporarily save the normal view of the image and display the zoomed view. later, when the user selects the normal view, the application must replace the zoomed image with a copy of the normal view that it temporarily saved. </p>
+<p>to store an image temporarily, your application must call createcompatibledc to create a dc that is compatible with the current window dc. after you create a compatible dc, you create a bitmap with the appropriate dimensions by calling the createcompatiblebitmap function and then select it into this device context by calling the selectobject function. </p>
+<p>after the compatible device context is created and the appropriate bitmap has been selected into it, you can capture the image. the bitblt function captures images. this function performs a bit block transfer that is, it copies data from a source bitmap into a destination bitmap. however, the two arguments to this function are not bitmap handles. instead, bitblt receives handles that identify two device contexts and copies the bitmap data from a bitmap selected into the source dc into a bitmap selected into the target dc. in this case, the target dc is the compatible dc, so when bitblt completes the transfer, the image has been stored in memory. to redisplay the image, call bitblt a second time, specifying the compatible dc as the source dc and a window (or printer) dc as the target dc. </p>
+<p>the following example code, from an application that captures an image of the entire desktop, creates a compatible device context and a bitmap with the appropriate dimensions, selects the bitmap into the compatible dc, and then copies the image using the bitblt function. </p>
 
           
         
@@ -766,7 +801,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/从吃的好开始-2/">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/从吃的好开始-1/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bobyuxiyang">
@@ -786,7 +821,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2005/10/21/从吃的好开始-2/" class="post-title-link" itemprop="url">从吃的好开始~(2)</a>
+                <a href="/2005/10/21/从吃的好开始-1/" class="post-title-link" itemprop="url">从吃的好开始~(1)</a>
               
             
           </h2>
@@ -852,7 +887,7 @@
       
         
           
-            <p>接着上次的写系统需要完成的功能 １ 有些类似银行卡，但是只存钱，不取钱。（应该考虑在卡销毁时，也就是毕业时的退钱） ２ 校园消费，仅限于校园的消费，主要是食堂买饭，同时包括小卖部一类地方 ３ 身份标识，上面说到要实现班级班费管理等等功能，那么必须严格的遵循“一人一卡”。每张卡一个编号，每个编号对应一个人，这个编号应该统一编排，与班级，年级等无关（持卡人可能更换）4 终端上做的事情：根据卡查询关于这张卡的各类信息，若为班主任，则可以管理整个班级的事务，如交钱收钱等，若为总务处主任，则能完成相应任务５ 读卡器做的事情：就是扣钱了模块：１ 硬件： 食堂、小卖部等地方用读卡器：网上搜了下，总觉得比较好的就是现在公交用的那种卡，不用接触，反应快速，不过不清楚能不能实现饭卡那种输入一个数字扣除相应钱数的功能，这是个问题，在网上卖的那些机子大部分都得连着电脑用，否则就是那种很简单的读头。不过话又说回来，公共汽车上的那种应该就没什么问题，反面是有输入价钱功能的，还能语音提示，正面刷卡还有个显示，虽然没在网上找到有这样的读卡设备，但是我想这样的设备既然存在就应该能买得到，而且既然公交车上能够大规模的应用，那价钱就不应该太大。 终端设备上用的设备：这个是要连接电脑的，需要有强大的读写功能，设备倒是在网上看见了，价钱是3xx一台，我想全校每个教室一个应该也不是什么问题～～～要不就每个办公室一个 电脑：终端管理用的电脑学校应该是很好解决的，用不着很高配置的东西，学校淘汰下来的那些老赛扬应该就没问题～，服务器学校肯定有，这方面不是问题 网络：不清楚现在的食堂联网是怎么实现的，如果普通的以太网，那么换了系统肯定也没有任何问题，如果需要重新组建网络，那么也许就有些麻烦，利用现在的校园网络吧，只需要把网络通到食堂就行了，或者，在食堂里放一个服务器，通过wi-fi连接到附近的教学楼里，只是不知道距离够不够，呵呵软件： １ 读卡器只需要实现输入一个价钱然后刷卡扣钱就行了，很简单 ２ 终端电脑上面的是主头，得拿出一套高效率功能强大的学生校园卡管理系统，这个问题放在软件上面详谈 ３ 服务器软件，和上面一样，放在软件设计上面祥谈这个暂时就研究到这里，其实硬件方面读卡器厂商都会很好的解决的，以后主要研究软件的设计了~</p>
+            <p>从吃的好开始~ 校园卡系统设计 高三的中午的时间是宝贵的，可学校食堂的效率就那么的低下，长的吓人的队伍，凶神恶煞的“师傅”，质量实在不怎么地的菜……只能忍着了 却突然想到食堂的那套“校园卡”系统 无锡一中的“校园卡”其实也就只是饭卡，高一拿到卡时就感觉这东西质量不怎么样，估计是上个世纪九零年代初的东西了(系统还是foxbase 连同样差劲的中国石化都用foxpro…)。事实也证明，在这个学校里呆了两年多，饭卡换了无数张，而这只是我一个人，５块一张的卡算不上贵，不过想想学校在这上边大概也赚足了钱了吧~ 说说学校的饭卡系统 很明显，卡中存储的只是一个编号信息，这从加钱的过程可以看出来，那老师要的只是一个编号，我便可以扔下钱走人，同时，学校里应该有一台总的服务器储存了所有学生卡中的钱数（其实也就几千数据，数据量算不上大），刷卡时候能显示出现在卡中的钱数，而卡拿掉之后才去减钱。这样的话，食堂中每一台刷卡的终端应该都是联网的。 现在的问题不少，总结一下，大概有这么几点： １ 加钱很不方便，每次开学总务处都人满为患，相信每个一中的学生都是深有体会！ ２ 现在使用的磁卡性能比较差了，容易折断，磁条容易坏，而刷卡机由于有一定的年头了，工作起来更是想个老头子似的，什么都读不清楚。。。。每次刷卡的时候我总想，如果用菜票是不效率更高~ ３ 校园卡功能太单一，名曰“校园卡”却只能当饭卡，如果饭卡除了能在食堂使用之外，还能在小卖部，自动贩卖机使用，甚至用来交班费，交学费等等等等，若能实现这些功能，那一中的校园卡一定会成为一中的一个特色！ 所以很想给学校换一套饭卡系统，我还是重新来分析分析需求 系统需要完成的功能 １ 有些类似银行卡，但是只存钱，不取钱。（应该考虑在卡销毁时，也就是毕业时的退钱） ２ 校园消费，仅限于校园的消费，主要是食堂买饭，同时包括小卖部一类地方，但是自动贩卖机使用的实现有难度，主要是设备需要更新 ３ 身份标识，上面说到要实现班级班费管理等等功能，那么必须严格的遵循“一人一卡”。每张卡一个编号，每个编号对应一个人，这个编号应该统一编排，与班级，年级等无关（持卡人可能更换） …………未完待续 一些零散的想法，以后视情况加进来： １ 每个终端都是一台电脑肯定不实际，可能需要两种终端，一种是只会扣钱的那种，一种是能完成各种功能的终端（这个需要一台pc了），这种终端可以放在班级中，小卖部，办公室等等，可以加钱，查询帐务，扣钱（比如班级交钱，或者罚款 呵呵）等等 ２ 加钱一定要支持各种方式，只支持现金肯定太落后了 我想得到的方式有，现金，银行卡转帐，通过网络帐户（支付宝，paypal一类） 3 整个网络利用学校中局域网就行，但是如果能wi-fi 那岂不太爽~~~~ 4 既然是校园卡，不一定只能管理钱方面的事情，可以用来建立学生信用度 比如校内骑车扣分啊，，考试作弊处分啊，或者做了什么好事啊 都可以记在上面 呵呵….. 甚至是学生档案也可以部分的进到系统里边…. 这玩艺儿就算是教师节送给老师的礼物 呵呵 </p>
 
           
         

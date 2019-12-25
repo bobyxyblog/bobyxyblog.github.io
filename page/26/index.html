@@ -1394,158 +1394,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/21/04-20-2006-MCSE笔记4/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bobyuxiyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bob's log">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2006/04/21/04-20-2006-MCSE笔记4/" class="post-title-link" itemprop="url">[04.20.2006]MCSE笔记4</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2006-04-21 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-21T00:00:00+08:00">2006-04-21</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>04.20.2006</p>
-<p>32g以上不推荐fat32<br>ntfs: 支持ad(ad必需ntfs)  支持许可 加密 配额……  不支持软盘<br>转换： convert c:/fs: ntfs</p>
-<p>permission:决定用户如何访问对象 记录在ntfs资源上 及时生效<br>right: 记录在user信息上，重新登陆生效</p>
-<p>文件权限：修改 比 写 多删除   <strong>完全控制 比 修改 多可以修改文件权限<br>拥有 更改权限 或者 所有者  就可以改变权限<br>拥有 取得所有权  可以改变对象所有权为 自己<br>admins 可以成为任何一个对象所有者（此时owner为administrators组）</strong></p>
-<p>admins通过 取得所有权 可以对任何文件操作 但会改变所有者 且无法改回<br><strong>许可累加  底层权限优先 拒绝权限优先</strong></p>
-<p><strong>特例: 对文件夹有 完全控制  则可以删除所有文件！(posix兼容)</strong></p>
-<p>copy文件时，根据目标文件夹变化<br>move文件时，不同盘，根据目标文件夹变化，<strong>move相同盘，不变(未建立新文件)</strong></p>
-<p>copy压缩文件按照压缩大小计算，1m to 1.44m可能会报空间不足</p>
-<p>配额：1 只对于磁盘 2 根据所有者确定大小 3 按照非压缩计算 4看到的磁盘剩余空间根据配额大小</p>
-<p>加密：文件内容加密，换操作系统也不能读取<br><strong>copy时，加密文件仍然加密 压缩文件不再压缩</strong></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/21/04-19-2006-MCSE笔记3/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1648,6 +1496,158 @@
 </strong>磁盘映射称文件夹：要求ntfs 空目录</p>
 <hr>
 <p>这些东西似乎很简单，大部分都知道，呵呵，难度大的在后面</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/21/04-20-2006-MCSE笔记4/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2006/04/21/04-20-2006-MCSE笔记4/" class="post-title-link" itemprop="url">[04.20.2006]MCSE笔记4</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2006-04-21 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-21T00:00:00+08:00">2006-04-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>04.20.2006</p>
+<p>32g以上不推荐fat32<br>ntfs: 支持ad(ad必需ntfs)  支持许可 加密 配额……  不支持软盘<br>转换： convert c:/fs: ntfs</p>
+<p>permission:决定用户如何访问对象 记录在ntfs资源上 及时生效<br>right: 记录在user信息上，重新登陆生效</p>
+<p>文件权限：修改 比 写 多删除   <strong>完全控制 比 修改 多可以修改文件权限<br>拥有 更改权限 或者 所有者  就可以改变权限<br>拥有 取得所有权  可以改变对象所有权为 自己<br>admins 可以成为任何一个对象所有者（此时owner为administrators组）</strong></p>
+<p>admins通过 取得所有权 可以对任何文件操作 但会改变所有者 且无法改回<br><strong>许可累加  底层权限优先 拒绝权限优先</strong></p>
+<p><strong>特例: 对文件夹有 完全控制  则可以删除所有文件！(posix兼容)</strong></p>
+<p>copy文件时，根据目标文件夹变化<br>move文件时，不同盘，根据目标文件夹变化，<strong>move相同盘，不变(未建立新文件)</strong></p>
+<p>copy压缩文件按照压缩大小计算，1m to 1.44m可能会报空间不足</p>
+<p>配额：1 只对于磁盘 2 根据所有者确定大小 3 按照非压缩计算 4看到的磁盘剩余空间根据配额大小</p>
+<p>加密：文件内容加密，换操作系统也不能读取<br><strong>copy时，加密文件仍然加密 压缩文件不再压缩</strong></p>
 
           
         
