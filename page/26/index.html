@@ -642,6 +642,162 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/24/04-23-2006-MCSE笔记7/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2006/04/24/04-23-2006-MCSE笔记7/" class="post-title-link" itemprop="url">[04.23.2006]MCSE笔记7</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2006-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-24T00:00:00+08:00">2006-04-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>04.23.2006<br>网络的扩展<br>  全部用hub:物理设备不同，但不同pc依然不能同时工作</p>
+<p>  网桥(bridge)：工作在第二层 <strong>能分析第二层报头 通过mac地址记录 端口 内网卡  两网卡端口一致，直接扔掉，端口不一致，则转发</strong>    -&gt;网络分段,划分冲突域   广播帧直接转发 </p>
+<p><strong>广播风暴:hub不能成环,bridge也不可以成环(广播帧) 路由其可以成环</strong></p>
+<p>路由器 router 工作在第三层,有ip协议<br>ip地址:networkid+hostid   n.h结构<br><strong>路由器根据netid进行路由,  所有广播帧会被丢掉,因此网络可以成环  能够自动选择一条合适的通路,在不同网段之间,数据包转发<br>不同协议间无法转发
+</strong>路由表</p>
+<p>tcp/ip ipx/spx可路由 netbeui,dlc不可路由</p>
+<p>用bridge连接的网段,在ip层netid相同<br>用router连接的网段,netid一定不同</p>
+<p>交换机:网桥或路由器~<strong>硬件转发</strong> asic可以专门作为数据包转发使用 速度快!    能实现多路转发, 相当于多个网桥叠加,背板容量:同时转发的总速度</p>
+<p>网关 gateway:大多数工作在第七层,协议的翻译,</p>
+<p>广域网<br>1 pstn 电话线 用modem调制解调  <strong>56kmodem上传为33.6k<br>2 t1 美国常见的数字线路,1.544mbps -&gt;分成24份 24<em>64k  中国:e1 2.048mbps 分成32</em>64k<br>3 isdn 仍使用电话线,本地交换机上使用数字电话网卡 本地需要nt(net terminal) device接数字电话机,  用ta(terminal adaptor)接到pc或者模拟电话上  2b+d (1*64k+16k)b:数据通道 d:控制通道<br>4 分组交换(packet swiching)  x.25 模拟连接<br> 帧中继(frame relay):数字线路上的分组交换网络 数据包比较大,可变 pvc技术<br>5 atm异步传输模式 发送固定大小数据包(5+48字节) 速度快155m 622m<br>6 adsl:  利用4khz-1mhz  高速~ 虚拟拨号</strong><br>7 cable modom:通过电视信号</p>
+<p>tcp/ip协议<br>适合c/s结构,<br>1 网络接口层 network interface<br>2 internet   ip协议 internet protocol  大多数数据包最终转到ip协议   <strong>arp协议-&gt;把ip地质翻译成mac地址 icmp(internet control message prtocol)传输控制协议 igmp负责多目广播<br>3 传输层transport tcp udp 工作在传输层，基于ip协议工作<br>4 应用层application: telnet远程登录协议  ftp   telnet ftp smtp基于tcp  dns,rip(交换路由表),snmp(简单网络管理协议，检查网络状况)基于udp</strong>   nntp(network news transport protocol新闻组)</p>
+<p>apipa 自动专用ip寻址 没有设置ip且无dhcp服务器,默认169.254.<strong><em>.</em></strong>  <strong>遇冲突自动产生10次ip</strong></p>
+<p>传输层tcp协议：保证数据传输正确     udp不建立连接，不保证数据传输正确</p>
+<p>端口<br>套接字：ip tcp/udp port合成socket 套接字  应用程序连接标识<br>139 netbios  53:dns  </p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/24/我想学的数学类课程/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -785,7 +941,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/24/04-23-2006-MCSE笔记7/">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/23/JYBBS暑假计划/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bobyuxiyang">
@@ -805,7 +961,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2006/04/24/04-23-2006-MCSE笔记7/" class="post-title-link" itemprop="url">[04.23.2006]MCSE笔记7</a>
+                <a href="/2006/04/23/JYBBS暑假计划/" class="post-title-link" itemprop="url">JYBBS暑假计划</a>
               
             
           </h2>
@@ -830,7 +986,7 @@
                 
               
 
-              <time title="创建时间：2006-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-24T00:00:00+08:00">2006-04-24</time>
+              <time title="创建时间：2006-04-23 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-23T00:00:00+08:00">2006-04-23</time>
             
 
             
@@ -871,20 +1027,7 @@
       
         
           
-            <p>04.23.2006<br>网络的扩展<br>  全部用hub:物理设备不同，但不同pc依然不能同时工作</p>
-<p>  网桥(bridge)：工作在第二层 <strong>能分析第二层报头 通过mac地址记录 端口 内网卡  两网卡端口一致，直接扔掉，端口不一致，则转发</strong>    -&gt;网络分段,划分冲突域   广播帧直接转发 </p>
-<p><strong>广播风暴:hub不能成环,bridge也不可以成环(广播帧) 路由其可以成环</strong></p>
-<p>路由器 router 工作在第三层,有ip协议<br>ip地址:networkid+hostid   n.h结构<br><strong>路由器根据netid进行路由,  所有广播帧会被丢掉,因此网络可以成环  能够自动选择一条合适的通路,在不同网段之间,数据包转发<br>不同协议间无法转发
-</strong>路由表</p>
-<p>tcp/ip ipx/spx可路由 netbeui,dlc不可路由</p>
-<p>用bridge连接的网段,在ip层netid相同<br>用router连接的网段,netid一定不同</p>
-<p>交换机:网桥或路由器~<strong>硬件转发</strong> asic可以专门作为数据包转发使用 速度快!    能实现多路转发, 相当于多个网桥叠加,背板容量:同时转发的总速度</p>
-<p>网关 gateway:大多数工作在第七层,协议的翻译,</p>
-<p>广域网<br>1 pstn 电话线 用modem调制解调  <strong>56kmodem上传为33.6k<br>2 t1 美国常见的数字线路,1.544mbps -&gt;分成24份 24<em>64k  中国:e1 2.048mbps 分成32</em>64k<br>3 isdn 仍使用电话线,本地交换机上使用数字电话网卡 本地需要nt(net terminal) device接数字电话机,  用ta(terminal adaptor)接到pc或者模拟电话上  2b+d (1*64k+16k)b:数据通道 d:控制通道<br>4 分组交换(packet swiching)  x.25 模拟连接<br> 帧中继(frame relay):数字线路上的分组交换网络 数据包比较大,可变 pvc技术<br>5 atm异步传输模式 发送固定大小数据包(5+48字节) 速度快155m 622m<br>6 adsl:  利用4khz-1mhz  高速~ 虚拟拨号</strong><br>7 cable modom:通过电视信号</p>
-<p>tcp/ip协议<br>适合c/s结构,<br>1 网络接口层 network interface<br>2 internet   ip协议 internet protocol  大多数数据包最终转到ip协议   <strong>arp协议-&gt;把ip地质翻译成mac地址 icmp(internet control message prtocol)传输控制协议 igmp负责多目广播<br>3 传输层transport tcp udp 工作在传输层，基于ip协议工作<br>4 应用层application: telnet远程登录协议  ftp   telnet ftp smtp基于tcp  dns,rip(交换路由表),snmp(简单网络管理协议，检查网络状况)基于udp</strong>   nntp(network news transport protocol新闻组)</p>
-<p>apipa 自动专用ip寻址 没有设置ip且无dhcp服务器,默认169.254.<strong><em>.</em></strong>  <strong>遇冲突自动产生10次ip</strong></p>
-<p>传输层tcp协议：保证数据传输正确     udp不建立连接，不保证数据传输正确</p>
-<p>端口<br>套接字：ip tcp/udp port合成socket 套接字  应用程序连接标识<br>139 netbios  53:dns  </p>
+            <p>  板块： 1 简忆同学录-&gt;原一中,大桥等版合并 起网上同学录的作用,方便联系 -&gt;美食移至之内,交流各地美食之用 2 简忆动漫社-&gt;以前东满板块,动漫交流,活动等… 3 简忆影音吧-&gt;原电影音乐板块 讨论,资源交流等 4 简忆自游人-&gt;组织旅游… 5 简忆文学社-&gt;文学交流… 6 简忆g-sport-&gt;原体育版权全部合并 7 简忆科技园-&gt;学术交流,计算机等 原学习板 8 简忆大水池-&gt;新水库 9 版务-&gt; 区长办公室,管理办公室,宣传部   清理所有个人论坛资料,删除无用资料   征集logo:jy  简忆  中英文   争取组织聚会,重新开始召集管理层,所有改变开会决定….   good luck to jy  </p>
 
           
         
@@ -1100,149 +1243,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/23/JYBBS暑假计划/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bobyuxiyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bob's log">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2006/04/23/JYBBS暑假计划/" class="post-title-link" itemprop="url">JYBBS暑假计划</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2006-04-23 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-23T00:00:00+08:00">2006-04-23</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>  板块： 1 简忆同学录-&gt;原一中,大桥等版合并 起网上同学录的作用,方便联系 -&gt;美食移至之内,交流各地美食之用 2 简忆动漫社-&gt;以前东满板块,动漫交流,活动等… 3 简忆影音吧-&gt;原电影音乐板块 讨论,资源交流等 4 简忆自游人-&gt;组织旅游… 5 简忆文学社-&gt;文学交流… 6 简忆g-sport-&gt;原体育版权全部合并 7 简忆科技园-&gt;学术交流,计算机等 原学习板 8 简忆大水池-&gt;新水库 9 版务-&gt; 区长办公室,管理办公室,宣传部   清理所有个人论坛资料,删除无用资料   征集logo:jy  简忆  中英文   争取组织聚会,重新开始召集管理层,所有改变开会决定….   good luck to jy  </p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/22/04-21-2006-MCSE笔记5/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1338,6 +1338,158 @@
 <p>——-下面开始学网络基础了，会比较无聊…… come on!  还是老样子，只记下不清楚地和很重要的东西</p>
 <p>同轴电缆：同轴+屏蔽  只能组建总线型网络 +两个终结器 即50o电阻，在屏蔽层和芯上，吸收反射 10m网络<br><strong>露天需要避雷器，否则会烧网卡<br>双绞线：橙色绿色绞合度比较高 1,2,3,6负责传输 橙白 橙 绿白 蓝 蓝白 绿 棕 棕白<br>交叉线：hub(1,2发送 3，6接受) 网卡（3,6发送 1,2接受） 同种相连做对换<br>干扰较大可以用屏蔽线</strong></p>
 <p>光纤：<br> 单模 走激光，细，直线传播，距离长 带宽极高<br> 多模，复色光 2km<br>抗干扰，安全性好</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/21/04-20-2006-MCSE笔记4/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2006/04/21/04-20-2006-MCSE笔记4/" class="post-title-link" itemprop="url">[04.20.2006]MCSE笔记4</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2006-04-21 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-21T00:00:00+08:00">2006-04-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>04.20.2006</p>
+<p>32g以上不推荐fat32<br>ntfs: 支持ad(ad必需ntfs)  支持许可 加密 配额……  不支持软盘<br>转换： convert c:/fs: ntfs</p>
+<p>permission:决定用户如何访问对象 记录在ntfs资源上 及时生效<br>right: 记录在user信息上，重新登陆生效</p>
+<p>文件权限：修改 比 写 多删除   <strong>完全控制 比 修改 多可以修改文件权限<br>拥有 更改权限 或者 所有者  就可以改变权限<br>拥有 取得所有权  可以改变对象所有权为 自己<br>admins 可以成为任何一个对象所有者（此时owner为administrators组）</strong></p>
+<p>admins通过 取得所有权 可以对任何文件操作 但会改变所有者 且无法改回<br><strong>许可累加  底层权限优先 拒绝权限优先</strong></p>
+<p><strong>特例: 对文件夹有 完全控制  则可以删除所有文件！(posix兼容)</strong></p>
+<p>copy文件时，根据目标文件夹变化<br>move文件时，不同盘，根据目标文件夹变化，<strong>move相同盘，不变(未建立新文件)</strong></p>
+<p>copy压缩文件按照压缩大小计算，1m to 1.44m可能会报空间不足</p>
+<p>配额：1 只对于磁盘 2 根据所有者确定大小 3 按照非压缩计算 4看到的磁盘剩余空间根据配额大小</p>
+<p>加密：文件内容加密，换操作系统也不能读取<br><strong>copy时，加密文件仍然加密 压缩文件不再压缩</strong></p>
 
           
         
@@ -1496,158 +1648,6 @@
 </strong>磁盘映射称文件夹：要求ntfs 空目录</p>
 <hr>
 <p>这些东西似乎很简单，大部分都知道，呵呵，难度大的在后面</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/21/04-20-2006-MCSE笔记4/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bobyuxiyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bob's log">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2006/04/21/04-20-2006-MCSE笔记4/" class="post-title-link" itemprop="url">[04.20.2006]MCSE笔记4</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2006-04-21 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-21T00:00:00+08:00">2006-04-21</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>04.20.2006</p>
-<p>32g以上不推荐fat32<br>ntfs: 支持ad(ad必需ntfs)  支持许可 加密 配额……  不支持软盘<br>转换： convert c:/fs: ntfs</p>
-<p>permission:决定用户如何访问对象 记录在ntfs资源上 及时生效<br>right: 记录在user信息上，重新登陆生效</p>
-<p>文件权限：修改 比 写 多删除   <strong>完全控制 比 修改 多可以修改文件权限<br>拥有 更改权限 或者 所有者  就可以改变权限<br>拥有 取得所有权  可以改变对象所有权为 自己<br>admins 可以成为任何一个对象所有者（此时owner为administrators组）</strong></p>
-<p>admins通过 取得所有权 可以对任何文件操作 但会改变所有者 且无法改回<br><strong>许可累加  底层权限优先 拒绝权限优先</strong></p>
-<p><strong>特例: 对文件夹有 完全控制  则可以删除所有文件！(posix兼容)</strong></p>
-<p>copy文件时，根据目标文件夹变化<br>move文件时，不同盘，根据目标文件夹变化，<strong>move相同盘，不变(未建立新文件)</strong></p>
-<p>copy压缩文件按照压缩大小计算，1m to 1.44m可能会报空间不足</p>
-<p>配额：1 只对于磁盘 2 根据所有者确定大小 3 按照非压缩计算 4看到的磁盘剩余空间根据配额大小</p>
-<p>加密：文件内容加密，换操作系统也不能读取<br><strong>copy时，加密文件仍然加密 压缩文件不再压缩</strong></p>
 
           
         

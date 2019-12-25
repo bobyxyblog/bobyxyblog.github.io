@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/6-27-2005-ToDo-List/">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/自己做个大头贴软件-一些总结/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bobyuxiyang">
@@ -339,7 +339,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2005/10/21/6-27-2005-ToDo-List/" class="post-title-link" itemprop="url">[6.27.2005]ToDo List</a>
+                <a href="/2005/10/21/自己做个大头贴软件-一些总结/" class="post-title-link" itemprop="url">自己做个大头贴软件,一些总结</a>
               
             
           </h2>
@@ -405,10 +405,42 @@
       
         
           
-            <p><strong>1 期末考试了，考得怎么样将直接影响以后几个星期的学习！！！</strong></p>
-<p><strong>２想做出个网页来，要求两个方面，一是界面要好，而是扩展性强</strong></p>
-<p><strong> 计划用韩国模板做，然后自己写些asp程序，可能会要很多时间 所以，在动手之前应该有个完整的策划 asp程序方面力求力所能及！</strong></p>
-<p><strong>３c#方面，考完试之前暂时就不看了，delphi方面也是，还是考试好啊</strong></p>
+            <p>呵呵 以前还真没有认真研究过图像处理这块儿东西(其实这回也只是了解一些皮毛),研究一下,才发现自己做这样的大头贴程序还算简单</p>
+<p>具体的程序没写完,只是稍微写了一些想法…</p>
+<p>大头贴说白了就是个图像叠加程序,两步动作,一个是抠像/照相程序,一个是图像处理及其叠加</p>
+<p>抠像比较复杂,不去研究,照相都有现成的dll,用不着研究,图像处理都有标准算法,以后上了大学会研究</p>
+<p>现在主要就看看图像叠加</p>
+<p>背景模板是gif文件,有一块设置为transparent的区域,也就是用来放大头的</p>
+<p>一种方式是直接用canvas的draw方法或者是copyrect方法把模板图像花在大头上边,设置好transparent颜色,就行了 下边是网上拉下来的一段程序(不是我写的,我写的程序比这个漂亮多了 呵呵)</p>
+<p>procedure tform1.button2click(sender: tobject);<br>var<br>  b,s:tbitmap;<br>begin<br>  b:=tbitmap.create;<br>  s:=tbitmap.create;<br>  s.transparentmode :=tmauto;  //可以自己设置透明色<br>  b.loadfromfile(‘c:\windows\forest.bmp’);  //大的<br>  s.loadfromfile(‘c:\windows\circles.bmp’); //小的<br>  b.canvas.copymode:=cmsrccopy;  //选择合适的<br>  s.pixelformat:=pf32bit;  //避免调色板问题<br>  b.pixelformat:=pf32bit;<br>  //b.canvas.draw(b.width-s.width,b.height-s.height,s); 另一种做法<br>  b.canvas.copyrect (rect(b.width-s.width,b.height-s.height,b.width,b.height),<br>    s.canvas,rect(0,0,s.width,s.height));<br>  canvas.draw (0,0,b);<br>  b.savetofile(‘d:\temp.bmp’);<br>  b.free;<br>  s.free;<br>end;</p>
+<p>还找到一个api函数,bitblt 以前听说过,倒是没有研究过,下面是msdn里边的摘录</p>
+<p>the bitblt function performs a bit-block transfer of the color data corresponding to a rectangle of pixels from the specified source device context into a destination device context. </p>
+<p>hdcdest</p>
+<p>nxdest</p>
+<p>nydest</p>
+<p>nwidth</p>
+<p>nheight</p>
+<p>hdcsrc</p>
+<p>nxsrc</p>
+<p>nysrc</p>
+<p>dwrop</p>
+<p>the following list shows some common raster operation codes. </p>
+<p>if the function succeeds, the return value is nonzero.</p>
+<p>if the function fails, the return value is zero. </p>
+<p>windows nt/2000/xp: to get extended error information, call getlasterror. </p>
+<p>bitblt only does clipping on the destination dc.</p>
+<p>if a rotation or shear transformation is in effect in the source device context, bitblt returns an error. if other transformations exist in the source device context (and a matching transformation is not in effect in the destination device context), the rectangle in the destination device context is stretched, compressed, or rotated, as necessary. </p>
+<p>if the color formats of the source and destination device contexts do not match, the bitblt function converts the source color format to match the destination format. </p>
+<p>when an enhanced metafile is being recorded, an error occurs if the source device context identifies an enhanced-metafile device context. </p>
+<p>not all devices support the bitblt function. for more information, see the rc_bitblt raster capability entry in the getdevicecaps function as well as the following functions: maskblt, plgblt, and stretchblt. </p>
+<p>bitblt returns an error if the source and destination device contexts represent different devices. to transfer data between dcs for different devices, convert the memory bitmap to a dib by calling getdibits. to display the dib to the second device, call setdibits or stretchdibits.</p>
+<p>icm: no color management is performed when blits occur. </p>
+<p>还有一段example</p>
+<p>you can use a bitmap to capture an image, and you can store the captured image in memory, display it at a different location in your application’s window, or display it in another window. </p>
+<p>in some cases, you may want your application to capture images and store them only temporarily. for example, when you scale or zoom a picture created in a drawing application, the application must temporarily save the normal view of the image and display the zoomed view. later, when the user selects the normal view, the application must replace the zoomed image with a copy of the normal view that it temporarily saved. </p>
+<p>to store an image temporarily, your application must call createcompatibledc to create a dc that is compatible with the current window dc. after you create a compatible dc, you create a bitmap with the appropriate dimensions by calling the createcompatiblebitmap function and then select it into this device context by calling the selectobject function. </p>
+<p>after the compatible device context is created and the appropriate bitmap has been selected into it, you can capture the image. the bitblt function captures images. this function performs a bit block transfer that is, it copies data from a source bitmap into a destination bitmap. however, the two arguments to this function are not bitmap handles. instead, bitblt receives handles that identify two device contexts and copies the bitmap data from a bitmap selected into the source dc into a bitmap selected into the target dc. in this case, the target dc is the compatible dc, so when bitblt completes the transfer, the image has been stored in memory. to redisplay the image, call bitblt a second time, specifying the compatible dc as the source dc and a window (or printer) dc as the target dc. </p>
+<p>the following example code, from an application that captures an image of the entire desktop, creates a compatible device context and a bitmap with the appropriate dimensions, selects the bitmap into the compatible dc, and then copies the image using the bitblt function. </p>
 
           
         
@@ -628,7 +660,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/从吃的好开始-2/">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/2005-6-27-总结1/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bobyuxiyang">
@@ -648,7 +680,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2005/10/21/从吃的好开始-2/" class="post-title-link" itemprop="url">从吃的好开始~(2)</a>
+                <a href="/2005/10/21/2005-6-27-总结1/" class="post-title-link" itemprop="url">[2005.6.27]总结1</a>
               
             
           </h2>
@@ -714,7 +746,10 @@
       
         
           
-            <p>接着上次的写系统需要完成的功能 １ 有些类似银行卡，但是只存钱，不取钱。（应该考虑在卡销毁时，也就是毕业时的退钱） ２ 校园消费，仅限于校园的消费，主要是食堂买饭，同时包括小卖部一类地方 ３ 身份标识，上面说到要实现班级班费管理等等功能，那么必须严格的遵循“一人一卡”。每张卡一个编号，每个编号对应一个人，这个编号应该统一编排，与班级，年级等无关（持卡人可能更换）4 终端上做的事情：根据卡查询关于这张卡的各类信息，若为班主任，则可以管理整个班级的事务，如交钱收钱等，若为总务处主任，则能完成相应任务５ 读卡器做的事情：就是扣钱了模块：１ 硬件： 食堂、小卖部等地方用读卡器：网上搜了下，总觉得比较好的就是现在公交用的那种卡，不用接触，反应快速，不过不清楚能不能实现饭卡那种输入一个数字扣除相应钱数的功能，这是个问题，在网上卖的那些机子大部分都得连着电脑用，否则就是那种很简单的读头。不过话又说回来，公共汽车上的那种应该就没什么问题，反面是有输入价钱功能的，还能语音提示，正面刷卡还有个显示，虽然没在网上找到有这样的读卡设备，但是我想这样的设备既然存在就应该能买得到，而且既然公交车上能够大规模的应用，那价钱就不应该太大。 终端设备上用的设备：这个是要连接电脑的，需要有强大的读写功能，设备倒是在网上看见了，价钱是3xx一台，我想全校每个教室一个应该也不是什么问题～～～要不就每个办公室一个 电脑：终端管理用的电脑学校应该是很好解决的，用不着很高配置的东西，学校淘汰下来的那些老赛扬应该就没问题～，服务器学校肯定有，这方面不是问题 网络：不清楚现在的食堂联网是怎么实现的，如果普通的以太网，那么换了系统肯定也没有任何问题，如果需要重新组建网络，那么也许就有些麻烦，利用现在的校园网络吧，只需要把网络通到食堂就行了，或者，在食堂里放一个服务器，通过wi-fi连接到附近的教学楼里，只是不知道距离够不够，呵呵软件： １ 读卡器只需要实现输入一个价钱然后刷卡扣钱就行了，很简单 ２ 终端电脑上面的是主头，得拿出一套高效率功能强大的学生校园卡管理系统，这个问题放在软件上面详谈 ３ 服务器软件，和上面一样，放在软件设计上面祥谈这个暂时就研究到这里，其实硬件方面读卡器厂商都会很好的解决的，以后主要研究软件的设计了~</p>
+            <p>明天考试，今天要继续复习……</p>
+<p>c#刚开始几乎就是在学语法，东西没什么难度，每次１小时左右就能看完一章，以后抽时间看</p>
+<p>delphi方面，看来只能停一停了，以后看来没必要深究，因为再下去难度也比较大了，“高手突破”这段路不好走，还是上了大学再说，现在应该以“广种”为主。。。。所以呢，以后又机会应该多看看技术文章，书就不要啃了</p>
+<p>这段总结就到这儿 哈哈</p>
 
           
         
