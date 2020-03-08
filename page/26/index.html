@@ -319,6 +319,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/27/04-26-2006-MCSE笔记10/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2006/04/27/04-26-2006-MCSE笔记10/" class="post-title-link" itemprop="url">[04.26.2006]MCSE笔记10</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2006-04-27 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-27T00:00:00+08:00">2006-04-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>04.26.2006</p>
+<p>dns<br>最早用hosts文件记录域名和ip， 人工维护  平面型名称，记录之间没有关系   难以维护</p>
+<p>域：<strong>层次的，逻辑的，树型结构  命名空间</strong><br>命名规范,fqdn a-z a-z - 0-9</p>
+<p>第一层：根域<br>第二层：顶级域 .com .org .cn .us 等<br>反向查找：通过ip找到资源<br>区域(zone):一个特殊的域，包含一个或者多个域 <strong> 用来存放dns纪录</strong></p>
+<p><strong>标准区域：”主zone”可以添加删除，”从zone”无权 主zone通过”zone transfer”把信息传给”从zone”与ad集成区域</strong></p>
+<p>每一个标准zone有一个zone file<br>zone file: owner ttl class type(类型) rdata</p>
+<p>资源记录类型<br>soa(statr of authority)：记录zone主服务器<br>ns(name server):zone中的其他服务器<br>a address:主机纪录<br>ptr pointer:反向查询<br>cname 别名纪录:为fqdn创建别名<br>mx:邮件服务器记录<br><strong>srv service: 服务资源纪录</strong></p>
+<p>zone transfer 区传递<br>nt只能发出“完全区传递” <strong>win2k可以发出“增量区传递” 从 检查 主</strong></p>
+<p>dns通知:区域复制中，主 通知 从</p>
+<p><strong>同一区域主 和 从不能保存在一台服务器上</strong></p>
+<p>转发：作为另外一台服务器的”cache-only” 的转发器</p>
+<p>成为dns服务器：静态ip 安装dns服务</p>
+<p><strong>dns查询<br>递归查询： dns客户端对dns服务器提出 要不得到正确结果 要不得到“没有”<br>反复查询：一般在dns服务器之间，可以得到“最好的结果”</strong></p>
+<p>1 检查是否为本机名 2找hosts 3再找dns服务器 4如果找不到，找wins</p>
+<p>win2k的dns<br>在ad中提供名字解析服务<br>为域提供命名空间 <strong>和ad使用共同的命名空间<br>为ad的域控制器定位提供条件(通过srv纪录) 如果没有dns服务器，启动时就会长时间“查找网络”</strong></p>
+<p>hosts name    computer name 在win2k中统一</p>
+<p>创建于ad集成的dns后,zone file会保存到ad中</p>
+<p>动态更新：计算机加入离开win2k域时，自动添加删除计算机a纪录</p>
+<p><strong>srv service: 服务资源纪录，进行域控制器定位 把fqdn映射为服务，需要服务时通过dns定位服务器<br>srv记录格式： service  protocol domain ttl class priority weight(同等优先级，重量大的在高性能计算机上) port target(fqdn)<br>eg._ldap_tcp cancel.smft 600 in srv 0 100 389 loden.cancel.smft<br>可以为域控制器自动添加相应srv记录（需要动态更新）</strong></p>
+<p>可以集成dns和wins服务,在dns下找不到自动去wins找</p>
+<hr>
+<p>云里雾里，dns讲的似乎很没目的，有些莫名其妙，看来得多做实验。。。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/26/04-25-2006-MCSE笔记9/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -642,149 +806,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/24/我想学的数学类课程/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bobyuxiyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bob's log">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2006/04/24/我想学的数学类课程/" class="post-title-link" itemprop="url">我想学的数学类课程</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2006-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-24T00:00:00+08:00">2006-04-24</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>  1 高等数学<br>2 线性代数<br>3 概率论与数理统计<br>4 离散数学<br>5 数学建模<br>….<br>6 计算几何……组合数学~…… 好多，不知道hust怎么安排课程的</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/24/04-23-2006-MCSE笔记7/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -941,7 +962,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/23/JYBBS暑假计划/">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/24/我想学的数学类课程/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bobyuxiyang">
@@ -961,7 +982,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2006/04/23/JYBBS暑假计划/" class="post-title-link" itemprop="url">JYBBS暑假计划</a>
+                <a href="/2006/04/24/我想学的数学类课程/" class="post-title-link" itemprop="url">我想学的数学类课程</a>
               
             
           </h2>
@@ -986,7 +1007,7 @@
                 
               
 
-              <time title="创建时间：2006-04-23 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-23T00:00:00+08:00">2006-04-23</time>
+              <time title="创建时间：2006-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-24T00:00:00+08:00">2006-04-24</time>
             
 
             
@@ -1027,7 +1048,7 @@
       
         
           
-            <p>  板块： 1 简忆同学录-&gt;原一中,大桥等版合并 起网上同学录的作用,方便联系 -&gt;美食移至之内,交流各地美食之用 2 简忆动漫社-&gt;以前东满板块,动漫交流,活动等… 3 简忆影音吧-&gt;原电影音乐板块 讨论,资源交流等 4 简忆自游人-&gt;组织旅游… 5 简忆文学社-&gt;文学交流… 6 简忆g-sport-&gt;原体育版权全部合并 7 简忆科技园-&gt;学术交流,计算机等 原学习板 8 简忆大水池-&gt;新水库 9 版务-&gt; 区长办公室,管理办公室,宣传部   清理所有个人论坛资料,删除无用资料   征集logo:jy  简忆  中英文   争取组织聚会,重新开始召集管理层,所有改变开会决定….   good luck to jy  </p>
+            <p>  1 高等数学<br>2 线性代数<br>3 概率论与数理统计<br>4 离散数学<br>5 数学建模<br>….<br>6 计算几何……组合数学~…… 好多，不知道hust怎么安排课程的</p>
 
           
         
@@ -1187,6 +1208,149 @@
 <p>802.4 token bus 令牌总线<br>在总线型网络上通过编号实现逻辑上的令牌结构<br>能在总线上实现大负荷传输</p>
 <p>apple talk<br>苹果机使用<br>机制 csma/ca 慢于 csma/cd<br> 可在苹果机上安装ethernet网卡 走tcp/ip 和windowsnt互联</p>
 <p><strong>网络协议<br>netbeui:速度快，效率高，尺寸小，配置简单  不能跨越路由器(赛车)<br>ipx/spx:netware使用，速度快，规模大后路由效果差(轿车)<br>tcp/ip:规模大，路由效果好  但是速度慢(卡车)</strong></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/23/JYBBS暑假计划/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2006/04/23/JYBBS暑假计划/" class="post-title-link" itemprop="url">JYBBS暑假计划</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2006-04-23 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-23T00:00:00+08:00">2006-04-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>  板块： 1 简忆同学录-&gt;原一中,大桥等版合并 起网上同学录的作用,方便联系 -&gt;美食移至之内,交流各地美食之用 2 简忆动漫社-&gt;以前东满板块,动漫交流,活动等… 3 简忆影音吧-&gt;原电影音乐板块 讨论,资源交流等 4 简忆自游人-&gt;组织旅游… 5 简忆文学社-&gt;文学交流… 6 简忆g-sport-&gt;原体育版权全部合并 7 简忆科技园-&gt;学术交流,计算机等 原学习板 8 简忆大水池-&gt;新水库 9 版务-&gt; 区长办公室,管理办公室,宣传部   清理所有个人论坛资料,删除无用资料   征集logo:jy  简忆  中英文   争取组织聚会,重新开始召集管理层,所有改变开会决定….   good luck to jy  </p>
 
           
         
@@ -1689,161 +1853,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2006/04/19/04-18-2006-MCSE笔记2/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bobyuxiyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bob's log">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2006/04/19/04-18-2006-MCSE笔记2/" class="post-title-link" itemprop="url">[04.18.2006]MCSE笔记2</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2006-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2006-04-19T00:00:00+08:00">2006-04-19</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>4.18.2006<br>w2k安装</p>
-<p>win2k只支持i386~hcl.txt 支持的硬件<br>\i386 复制在服务器上 即可安装<br>16bitdos: winnt<br>32bit: winnt32<br>nt4: sp4以上支持ntfs5.0</p>
-<p><strong>makeboot a: 制作软盘安装</strong></p>
-<p>升级: 95/98/nt4workstation -&gt; win2kpro  不能到win2kser<br>从95/98升级: winnt32/checkupgradeonly 检查98软件兼容性</p>
-<p>server升级到win2kser  自动升级服务器<br>可能的问题 1 升级bios            2  安装重启错误找不到系统-&gt;<strong>关掉dma</strong></p>
-<p><strong>perserver: 1 ser面对连接不多<br>perseat: 多ser 连接多</strong></p>
-<p>nt4 to win2k:<br>  backup<br>  <strong>断掉ups信号线! 否则ups会发生不可预知的错误!</strong></p>
-<p>win2k 模拟网卡 microsoft lookback adapter</p>
-<p>run-&gt;sigverif  检查未经签名的程序</p>
-<p>硬件配置文件</p>
-<p>优先级-&gt;后台服务  后台服务优先级和application一样</p>
-<p>用户帐户： 本地安全账户 sam</p>
-<p>今天好累。。。想睡觉</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1891,7 +1900,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">324</span>
+                    <span class="site-state-item-count">325</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1966,7 +1975,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

@@ -319,6 +319,184 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/11/14/OI的最后一段路（上路了）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bobyuxiyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2005/11/14/OI的最后一段路（上路了）/" class="post-title-link" itemprop="url">OI的最后一段路（上路了）</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2005-11-14 00:00:00" itemprop="dateCreated datePublished" datetime="2005-11-14T00:00:00+08:00">2005-11-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>10点半了，作业搞定<br>今天开始看看基本的回溯搜索，全排列。。。</p>
+<p>看成是一个栈，每次操作栈顶元素</p>
+<p>结束条件是a[1]&gt;6也就是第一个元素大于最大了（从后往前加），操作分两类，1 a[i]&lt;=m情况，如果已经满足个数，也就是i=maxn 那么输出 然后inc(a[i])，否则的话，就往后一个（入栈）  2 a[i]&gt;m的情况，也就是a[i]加到多出来了，那么就回溯，dec(i)，然后inc(a[i])就行</p>
+<p>procedure work(n:integer);<br>var<br>  i:integer;<br>begin<br>  i:=m;<br>  while a[1]&lt;=n do<br>  begin</p>
+<pre><code>if a[i]&gt;m then
+begin
+  dec(i); inc(a[i]);
+end
+else begin
+  if i=m then
+  begin
+    out;
+    inc(a[i]);
+  end
+  else begin
+    inc(i); a[i]:=1;
+  end;
+end;
+</code></pre><p>  end;</p>
+<p>end;</p>
+<p>*因为每一部里面都有inc(a[i])  所以可以写的简单一点</p>
+<p>procedure work(n:integer);<br>var<br>  i:integer;<br>begin<br>  i:=m;<br>  while a[1]&lt;=n do<br>  begin<br>    if a[i]&gt;m then dec(i)<br>    else begin<br>      if i=m then out<br>      else begin<br>        inc(i); a[i]:=0;<br>      end;<br>    end;<br>    inc(a[i]);<br>  end;<br>end;</p>
+<p>这个就是最简单的深搜了，下面试着把那到经典的自然数拆分做一做</p>
+<p>7=1+1+1+1+1+1+1 从全部1开始 记录sum<br>结束条件a[1]=7 也就是只有一个数组成</p>
+<p>如果 sum=7 那么输出，然后出来一个，后面的+1  dec(i); inc(a[i]);<br>如果 sum&gt;7 那么直接出来一个<br>如果 sun&lt;7 那么进去一个，inc(i); a[i]:=a[i-1]</p>
+<p>可以把sum=7和sum&gt;7并起来写。。。</p>
+<p>基本上搞定，花了12分钟…..速度还行</p>
+<p>program chaifen;<br>const maxn=1000;</p>
+<p>var<br>  n:integer;<br>  a:array[1..maxn] of integer;</p>
+<p>procedure init;<br>begin<br>  write(‘input the num:’);<br>  readln(n);<br>end;</p>
+<p>procedure out(x:integer);<br>var<br>  i:integer;<br>begin<br>  for i:=1 to x do write(a[i],’ ‘);<br>  writeln;<br>end;</p>
+<p>procedure work;<br>var<br>  i,sum:integer;<br>begin<br>//init<br>  for i:=1 to n do a[i]:=1;</p>
+<p>  i:=n;sum:=n;<br>  while a[1]&lt;=n do<br>  begin<br>    if sum&gt;=n then<br>    begin<br>      if sum=n then out(i);<br>      dec(sum,a[i]); dec(i);<br>      inc(a[i]); inc(sum);<br>    end else<br>    begin<br>      inc(i); a[i]:=a[i-1]; inc(sum,a[i]);<br>    end;<br>  end;</p>
+<p>end;</p>
+<p>begin<br>  init;<br>  work;<br>end.</p>
+<p>东西看得不多，却花了一个多小时，不过算是有些门了，呵呵。。。。明天继续<br>现在时间是23:37 再看一些文章，12点之前睡……</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/11/11/OI的最后一段路（开场白）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -605,7 +783,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/。。。游戏/">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/10-07-2005-开始为MP3奋斗-也为Point奋斗了/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bobyuxiyang">
@@ -625,7 +803,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2005/10/21/。。。游戏/" class="post-title-link" itemprop="url">。。。游戏</a>
+                <a href="/2005/10/21/10-07-2005-开始为MP3奋斗-也为Point奋斗了/" class="post-title-link" itemprop="url">[10.07.2005]~开始为MP3奋斗 也为Point奋斗了</a>
               
             
           </h2>
@@ -691,12 +869,17 @@
       
         
           
-            <p> 以前热衷于cs，每天都要来上两把，可手上动作实在不怎么样，水平始终也就这样，于是荒废不玩．很早就喜欢玩帝国时代，可ms就是不争气，几年也不出一个新版本，aoe2玩的成了定式，手上功夫还是不行，逐渐也不怎么玩儿了．<br> 一直在考虑什么样的游戏适合我，不喜欢玩有些是骗人的，而对某些游戏的反感倒是事实．玩qq堂，别说弱智，别说无聊，可玩性不错，就是手上不停的按键太累；后来去找街机模拟器，fc模拟器，都是些自己很小的时候爱玩得东东，可玩多了也觉得有些腻，可能是没有手柄的缘故吧．至于网络游戏，实在反感，其乃污浊之地，吾曾偶涉足，知其污秽遍野，胆子有限，莫敢再试也<br> 其实我自己什么类型的游戏都玩过，游戏者游者戏也，只要能让人愉快，让人有那种快感，也就达到游戏之目的．<br>……<br> 想来想去我想，我的电脑上除了扫雷之外，应该还有一个战棋类的休闲游戏，动脑子，但对手上“功夫”没任何要求了。个人喜欢决战朝鲜，又在想地雷战。妄想今后工作闲暇之余，背水一战，炸得敌人片甲不留，实在不行修改其所定，感觉实为淋漓尽致，快哉,,,,,, </p>
-<p> 曹操传从电脑里消失已经好几个月了，仙剑奇侠传很能感动人，却似乎已经没法再一次地感动我了，那东西太假，太虚幻……感情丰富的人笑过哭过之后也只是全当作一时的冲动～</p>
-<p> 现在电脑里边几乎没有任何游戏了，高三，高三，高三！</p>
-<p> 高三看起来很惨，实际上很快乐。。。。。。最好玩的那一场游戏还是高三这谁都能爆机却结局难料的游戏，刚刚开头，竟然就已经分出了快慢。游戏游者戏，这真实游戏之戏却早已超出游戏之戏，这是一出大戏啊！想起当年玩仙剑的感悟，老老实实对话，踏踏实实打怪，仔仔细细搜宝，最后打可恶之拜月也不是轻松解决？总在想仙剑，但是总被打断，高三终于还是来了。</p>
-<p> 写得很乱，所以不想写太多，还是用仙剑里边的一句台词结束吧。</p>
-<p> “该面对的，总该去面对！”</p>
+            <p>不知道从什么时候开始喜欢hifi这东西，烧钱的东西啊</p>
+<p>以前就不花什么钱，结果现在几个月把小学以来的压岁钱手烧的差不多了~(其实才1k不到)</p>
+<p>几年的积蓄烧光，有了好的耳机，有了卡，有了……</p>
+<p>很想要一个音质很好的mp3，考虑iriver,总不喜欢那种太专的东西，虽然价钱还可以</p>
+<p>最后看上iaudio 5</p>
+<p>现在的价钱是这样的，256m的920 512m的1120…贵啊，真的没这么多钱，这种东西要钱买似乎太败家了一点～～～～</p>
+<p>老美的网站上512m的才99usd,900都不到，整整便宜200多rmb，强烈bs老美！</p>
+<p>可以没办法，以后慢慢留钱了，希望在明年高考之后能凑足购的money(当然最好也得有足够的point~)…</p>
+<p>其实认真起来，留钱还是很快的～从两个星期之前开始，到现在已经快0.1k了~虽然说才1/10，不过若是按照这个速度，明年过大年就能到1k~~哈哈……希望中，最好那个时候512的i5能降到0.8k左右,还有希望那个时候的point能到0.65k，哈哈哈哈哈哈</p>
+<p>今天开始，接着往下走了，下面得玩真的，还有２４３个好玩的日子了，呵呵</p>
+<p>发表于 2005年10月07日 9:48 pm </p>
 
           
         
@@ -753,7 +936,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/从吃的好开始-2/">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/10-5-2005-从技术到管理，从优秀到卓越！/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bobyuxiyang">
@@ -773,7 +956,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2005/10/21/从吃的好开始-2/" class="post-title-link" itemprop="url">从吃的好开始~(2)</a>
+                <a href="/2005/10/21/10-5-2005-从技术到管理，从优秀到卓越！/" class="post-title-link" itemprop="url">[10.5.2005]从技术到管理，从优秀到卓越！</a>
               
             
           </h2>
@@ -839,7 +1022,15 @@
       
         
           
-            <p>接着上次的写系统需要完成的功能 １ 有些类似银行卡，但是只存钱，不取钱。（应该考虑在卡销毁时，也就是毕业时的退钱） ２ 校园消费，仅限于校园的消费，主要是食堂买饭，同时包括小卖部一类地方 ３ 身份标识，上面说到要实现班级班费管理等等功能，那么必须严格的遵循“一人一卡”。每张卡一个编号，每个编号对应一个人，这个编号应该统一编排，与班级，年级等无关（持卡人可能更换）4 终端上做的事情：根据卡查询关于这张卡的各类信息，若为班主任，则可以管理整个班级的事务，如交钱收钱等，若为总务处主任，则能完成相应任务５ 读卡器做的事情：就是扣钱了模块：１ 硬件： 食堂、小卖部等地方用读卡器：网上搜了下，总觉得比较好的就是现在公交用的那种卡，不用接触，反应快速，不过不清楚能不能实现饭卡那种输入一个数字扣除相应钱数的功能，这是个问题，在网上卖的那些机子大部分都得连着电脑用，否则就是那种很简单的读头。不过话又说回来，公共汽车上的那种应该就没什么问题，反面是有输入价钱功能的，还能语音提示，正面刷卡还有个显示，虽然没在网上找到有这样的读卡设备，但是我想这样的设备既然存在就应该能买得到，而且既然公交车上能够大规模的应用，那价钱就不应该太大。 终端设备上用的设备：这个是要连接电脑的，需要有强大的读写功能，设备倒是在网上看见了，价钱是3xx一台，我想全校每个教室一个应该也不是什么问题～～～要不就每个办公室一个 电脑：终端管理用的电脑学校应该是很好解决的，用不着很高配置的东西，学校淘汰下来的那些老赛扬应该就没问题～，服务器学校肯定有，这方面不是问题 网络：不清楚现在的食堂联网是怎么实现的，如果普通的以太网，那么换了系统肯定也没有任何问题，如果需要重新组建网络，那么也许就有些麻烦，利用现在的校园网络吧，只需要把网络通到食堂就行了，或者，在食堂里放一个服务器，通过wi-fi连接到附近的教学楼里，只是不知道距离够不够，呵呵软件： １ 读卡器只需要实现输入一个价钱然后刷卡扣钱就行了，很简单 ２ 终端电脑上面的是主头，得拿出一套高效率功能强大的学生校园卡管理系统，这个问题放在软件上面详谈 ３ 服务器软件，和上面一样，放在软件设计上面祥谈这个暂时就研究到这里，其实硬件方面读卡器厂商都会很好的解决的，以后主要研究软件的设计了~</p>
+            <p>一直以技术为荣，直到某年某月某人说技术只能是工人，于是以管理为荣，总认为能管理才是真才实学</p>
+<p>然后，看到了某文章，才感觉到其实技术还是最重要的东西，但光有技术永远是工人，关键是怎么把技术和经验能力结合在一起，结合好了，自然也就会了管理</p>
+<p>1、学技术真的可以赚到很多钱，只是要看你学得精不精！<br>2、光窝在办公室里编程序也不行，你得多花时间社交，与不同背景、不同专业的人交往，会学到很多技术以外的东西。<br>3、创业也好打工也好，都要事先想清楚你想获得什么，能获得什么，不要糊里糊涂就一腔热血地行动起来。</p>
+<p>1、首先当然要把专业学好。但自己不一定要什么都懂，学会找到好的商业伙伴合作，一起来做大事。<br>2、读书时多参加社会活动，这个精力花下去，绝对比打游戏、泡bbs来得值。</p>
+<p><strong>从技术到管理，从优秀到卓越！</strong> </p>
+<p>没有技术的管理是无能为力的，任何一个卓越的人才都经历过优秀，但是优秀不是终点</p>
+<p>所以，还是要把技术搞好，包括各方面的技术！！！</p>
+<p>技术实现梦想</p>
+<p>发表于 2005年10月05日 5:11 pm </p>
 
           
         
@@ -896,7 +1087,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/我是从贵州吃出来的/">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/2005-6-21-c-笔记2/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bobyuxiyang">
@@ -916,7 +1107,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2005/10/21/我是从贵州吃出来的/" class="post-title-link" itemprop="url">我是从贵州吃出来的</a>
+                <a href="/2005/10/21/2005-6-21-c-笔记2/" class="post-title-link" itemprop="url">[2005.6.21] c#笔记2</a>
               
             
           </h2>
@@ -982,13 +1173,14 @@
       
         
           
-            <p>从小生长在大中国西南边的那个山洼洼里，独特的人，土地，还有气候，造就了当地特有的吃的文化。在这样的文化熏陶下，从呱呱坠地那一天开始算，一直到离开那块土地的好几个年头里，我时刻都是生活在浓香四溢的环境里。</p>
-<p>今天不小心在网上看见了卖“贵州小吃”的，不禁想起了这些。</p>
-<p>小时候最喜欢的是牛肉米粉，每天上学前一碗，为了体力——那个时候上学需要爬１０分钟的山——也为了给家里省事，以前早上８点上学，吃牛肉粉可以７点半才起床。</p>
-<p>想起贵州的吃，和江苏的吃有很大个不同。这地方毕竟是江南，什么事情都是“吴侬软语”的感觉，小气得很。吃个包子，吃个糕点，都是小个小个的。这也就是为什么无锡拱北楼搞了个大碗面出来就会这么有名，所谓物以稀为贵。若是把拱北楼那大碗面送到贵州，也许就根本勾不起贵州人的食欲了，就如同他根本勾不起我的食欲一样。贵州人不像四川人，但凡吃的要讲个麻辣鲜香，极其讲究，也不像湖南人那样要的就是一个辣不怕，怕不辣，贵州人的食物要的是一个“满足生理需要”，解饿，顺带还得解个潮气，解给闷气。</p>
-<p>牛肉粉就是这样的东西。</p>
-<p>还有个印象很深的是折儿根。那玩艺儿取自鱼腥草之根。说是非贵州人吃不惯，而觉得难以下咽。确实这样，那是一股浓烈的药味，是一种让人无法忍受的气味。可是贵州人（比如我）闻起来，百闻不厌。这也许是天生的吧。</p>
-<p>下午在家里研究delphi，却突然想起，书包里的那些东西和牛肉粉似乎有某种联系，而delphi，就好像是折儿根………………</p>
+            <p>2005.6.21 晚</p>
+<p> 今天时间不多，接着昨天的看．．．</p>
+<p> 转义字符还是挺好用的，和c里边差不多 在双引号里边加 “\n \” \ “ 一类的 就行了<br>字符串前边加@则所有的转义失效，估计还是挺有用的 设计得不错 呵呵  不过{0} {1}这样的模板还</p>
+<p> 是能用的如果后边有数据的话 实验情况是，数据不够会出错 呵呵 多出来倒是无所谓 会自动取前边的<br> int age=25;这样的赋初值感觉挺好…</p>
+<p> 找到c#里边的类型转换了，有个叫convert的类，功能太强了，名字叫to***呵呵，基本类型能转的都能转，这比delphi做得比strtoini好多了</p>
+<p> a/=b 是 a=a/b</p>
+<p> 名字空间概念出来了．．．!!!<br> 不同名字空间里边可以定义名字一样的名字，但是using以后就要出错 可以定义别名 用using otherddd=ddd 然后用otherddd.sssname访问名字 </p>
+<p>抓紧时间睡了，今天看得不多，明天开始没时间看了，好好复习………..^_^</p>
 
           
         
@@ -1045,7 +1237,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/转篇文章，祝愿中国GIS系统快快发展/">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/2005-6-22-关于C-的ReadLine和Read/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bobyuxiyang">
@@ -1065,7 +1257,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2005/10/21/转篇文章，祝愿中国GIS系统快快发展/" class="post-title-link" itemprop="url">转篇文章，祝愿中国GIS系统快快发展</a>
+                <a href="/2005/10/21/2005-6-22-关于C-的ReadLine和Read/" class="post-title-link" itemprop="url">[2005.6.22]关于C#的ReadLine和Read</a>
               
             
           </h2>
@@ -1131,16 +1323,9 @@
       
         
           
-            <p>倒不是我对这所谓的“成就”特别感兴趣，我感兴趣的地方在于今年的早些时候我自己也做过一些关于地理信息系统的项目，那时候还以为这块儿是个空白，只是后来在角落里看见稀稀落落的一点关于gis系统的info.半年多的时间过去，就传来了这个消息。。。。</p>
-<p>gis系统应用是相当广泛的，如果在这方面能有能很好的发展，那么计算机一定会更加迅速深入日常生活之中。。。深入生活，也就是计算机技术生存的目的吧</p>
-<p><strong>导读：以“supermap”为代表的国产gis软件已经成为我国信息化建设的主力军，被广泛应用于国土、规划、电力、水利、统计、设施管理、城市应急以及军事等数十个领域，完全打破了此前被国外软件“一统江山”的尴尬局面。
-</strong></p>
-<p> 新华网北京１０月６日电（记者李斌、吴晶晶）目前地理信息技术已经融入it主流，成为it的重要组成部分。记者从日前举行的中国科学院地理信息技术与产业发展论坛上获悉，以“supermap”为代表的国产gis软件已经成为我国信息化建设的主力军，被广泛应用于国土、规划、电力、水利、统计、设施管理、城市应急以及军事等数十个领域，完全打破了此前被国外软件“一统江山”的尴尬局面。 </p>
-<p> 在地球上80％以上的信息都与空间位置有关，在信息化建设中加强空间信息基础设施建设显得尤为重要。而地理信息系统（gis）技术作为分析和处理空间信息的核心技术，在各领域的信息化建设中扮演着越来越重要的角色。 </p>
-<p> 目前，以中国科学院旗下的supermap等为代表的国产gis软件已经在国土、交通、民航、房产、电力、电信、水利、公安、军事、城市规划、物流等领域有着广泛应用，成为主流软件，并在很多大型项目中代替国外软件取得应用，甚至打入了日本、韩国、香港、东南亚、欧美等国际市场，用户中还包括15个全球500强企业。 </p>
-<p> 国家sars预警与控制地理信息系统、杭州市房产管理信息综合系统、国家社会经济统计地理信息系统……在国产操作系统、国产数据库和国产办公软件市场份额只占5%左右的背景下，国产gis软件一枝独秀，占到30%以上，成为国产软件中的“中流砥柱”。 </p>
-<p> 国内首个中学gis教学软件“超级地图”、国内100多所高校合作建立gis实验室……最近，我国国产地理软件纷纷进军教育等行业领域，进一步开拓市场，以进一步拓宽和发展地理软件市场。</p>
-<p>发表于 2005年10月09日 9:54 pm </p>
+            <p><strong>console.readline    console.read</strong></p>
+<p><strong>readline一次读入一行，得到的是string  用char会出错</strong></p>
+<p><strong>read一次只读入一个字符的assic码，得到的类型是int</strong></p>
 
           
         
@@ -1197,7 +1382,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/i-WAS-a-OIer/">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/2005-6-27-总结1/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bobyuxiyang">
@@ -1217,7 +1402,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2005/10/21/i-WAS-a-OIer/" class="post-title-link" itemprop="url">i WAS a OIer!!!</a>
+                <a href="/2005/10/21/2005-6-27-总结1/" class="post-title-link" itemprop="url">[2005.6.27]总结1</a>
               
             
           </h2>
@@ -1283,13 +1468,10 @@
       
         
           
-            <p>广播里说”停止答题”,我放下笔,看着试卷,第五次走进noip考场,又第五次走出来.每一次走进和走出都有着类似的心情,这一次也不例外,对答案完全是种心理安慰了,天知道分数多少.又想起初二的全市第7,高二的全市第5,恰恰初二全市名额有6个,高二那年有4个~</p>
-<p>今年怎样,一切未知…..但是不管怎样,5年的oi生涯就要走到尽头了大概只能留下无限的怅惘,引上那句几乎每个oier都知道的话:</p>
-<p> <strong> 多少英雄要以有限的生命征服无穷的远方，但远方依然微笑，而英雄一个个倒下….你那么残酷，我却一往无前</strong></p>
-<p>以后时险恶的acmer之路,我能走上去吗?</p>
-<p>也许能吧</p>
-<p>i was a oier.</p>
-<p>发表于 2005年10月15日 10:41 pm </p>
+            <p>明天考试，今天要继续复习……</p>
+<p>c#刚开始几乎就是在学语法，东西没什么难度，每次１小时左右就能看完一章，以后抽时间看</p>
+<p>delphi方面，看来只能停一停了，以后看来没必要深究，因为再下去难度也比较大了，“高手突破”这段路不好走，还是上了大学再说，现在应该以“广种”为主。。。。所以呢，以后又机会应该多看看技术文章，书就不要啃了</p>
+<p>这段总结就到这儿 哈哈</p>
 
           
         
@@ -1346,7 +1528,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/[2005.6.20] ToDo List/">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/2005-7-2-关于最近一段时间的总结及规划/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bobyuxiyang">
@@ -1366,7 +1548,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2005/10/21/[2005.6.20] ToDo List/" class="post-title-link" itemprop="url">[2005.6.20] ToDo List</a>
+                <a href="/2005/10/21/2005-7-2-关于最近一段时间的总结及规划/" class="post-title-link" itemprop="url">[2005.7.2]关于最近一段时间的总结及规划</a>
               
             
           </h2>
@@ -1432,13 +1614,14 @@
       
         
           
-            <ul>
-<li>Hello</li>
-</ul>
-<p>1 期末复习 until 6.27</p>
-<p>2 得看看C#基础教程 预计2－3小时 6.26之前搞定</p>
-<p>3 还有几篇小文章 争取每天能看一篇 还要写些smalltext 6.27之前</p>
-<p>就这么多吧，希望能很好的完成</p>
+            <p>总算考完了,混了一天,不管成绩,只管休息….明天开始要干正事了</p>
+<p>发生了一些意外,可怜的notebook键盘坏了,整个电脑被留在了维修部,几乎一切资料都没有了,最近一段时间会比较难熬</p>
+<p><strong>下面是整个暑假要干的事情,也许只是计划</strong></p>
+<p><strong>1 暑假作业,布置多少做多少,另外加英语,单选和重高一开始没做的阅读完型,尽量多做,其他方面有空尽量看语文,数理化只力求做好作业!~  只要英语搞定就算成功</strong></p>
+<p><strong>2 oi 3本书一定重新啃一遍,最好能每天动手,重要的是笔记要有(等laptop回来再说了),,,想办法研究初赛,尽量每天有2-3小时研究,还得写些代码</strong></p>
+<p><strong>3 网页及论坛的问题  本来准备这两天搞定的  laptop不在也没办法,,预计花20小时左右时间搞定这方面东西   论坛方面,若bbsxp6出来,就重新做一下程序(可能得花一整天时间),网页还是那个打算,用韩国模板做,内容不多但精,顺便要把论坛整合进去</strong></p>
+<p><strong>4 尽量把那本c#书啃一遍,用不着很细,预计平均每天40分钟即可,再在delphi上花些时间,,有可能找两个小工程做做,程序方面不能丢……..</strong></p>
+<p><strong>时间:</strong></p>
 
           
         
@@ -1495,7 +1678,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/告别了JYBBS/">
+    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/2005-7-25-DelimitedText/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bobyuxiyang">
@@ -1515,7 +1698,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2005/10/21/告别了JYBBS/" class="post-title-link" itemprop="url">告别了JYBBS</a>
+                <a href="/2005/10/21/2005-7-25-DelimitedText/" class="post-title-link" itemprop="url">2005.7.25]DelimitedText</a>
               
             
           </h2>
@@ -1581,159 +1764,29 @@
       
         
           
-            <p>今天把自己区长真正撤了，高考结束之前应该不会再回来</p>
-<p>想想倒是不怎么舍得，毕竟是自己一点一点做出来的，现在数据库都8xm了，不过该走还是得走</p>
-<p>从8月开始基本上就没对论坛进行什么正式的管理，果然才过了１个月，论坛简直变得一片萧条，不过好在这bbs基础还比较实，既然花了两年才做到这种样子，应该不会在很短的时间内倒掉，大不了今后有一些倒退</p>
-<p>money方面其实并不是大问题，最近手里的钱支持明年一年论坛的运作还是没有问题的，还得感谢tx等的捐款</p>
-<p>本来一直在想找所谓的“接班人”，后来也发现几乎不可能，其实大家都忙，平时不会有很多时间来论坛的，除非论坛真的不只是玩的地方。</p>
-<p>anyway….我先撤了，这一年的论坛就顺其自然，大不了明年再从头来做。。。。。。</p>
-<p>谨以此文纪念曾经的区长yayx 还有对论坛管理做出巨大贡献的sisi 当然也包括ash zyx…..除此之外感谢所有为jybbs做出过贡献的岛民</p>
-<p>还有，这里一定要b4一下yuzi和bbsxp,预计05年5月份推出的bbsxp6.0估计得跳票到2006年了……这可是苦了广大热衷于bbsxp的仁人志士</p>
-<p>2005年08月20日 12:37 pm </p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bobyuxinyang.com/2005/10/21/2005年07月19日-终于可以回来了/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bobyuxiyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bob's log">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2005/10/21/2005年07月19日-终于可以回来了/" class="post-title-link" itemprop="url">2005年07月19日 终于可以回来了</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2005-10-21 00:00:00" itemprop="dateCreated datePublished" datetime="2005-10-21T00:00:00+08:00">2005-10-21</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>终于可以回来了，整整16天，几经周折，笔记本又回来了</p>
-<p>生活还在继续，技术的探究依然不停！</p>
+            <p>[</p>
+<p>一段代码,可以把qq里边复制出来的文字中小黑方块变成正常的换行</p>
+<p>procedure convertqqmsg(lines: tmemo);<br>var<br>  tmpstrlist: tstrings;<br>begin<br>  tmpstrlist := tstringlist.create;<br>  try<br>    tmpstrlist.text := lines.lines.text;<br>    tmpstrlist.delimiter := #13;<br>    lines.lines.delimitedtext := tmpstrlist.delimitedtext;<br>  finally<br>    tmpstrlist.free;<br>  end;<br>end;</p>
+<p>研究半天,没看懂那个delimitedtext是什么意思………</p>
+<p>这格式帮助里边的解释</p>
+<p>descriptio</p>
+<p>use delimitedtext to get or set all the strings in the tstrings object in a single string. </p>
+<p>when reading delimitedtext, the resulting value delimits individual strings in two ways: each string is surrounded (before and after) by the quote character specified by the quotechar property. in addition, individual strings are separated by the character specified by the delimiter property. </p>
+<p>when writing delimitedtext, individual strings must be separated using quotechar at both ends, using delimiter as a separator, or using both these methods.</p>
+<p>note: commatext is the same as the delimitedtext property when delimiter is ‘,’ and quotechar is ‘“‘.</p>
+<p>大概是delimitedtext在read时候会把tstringlist里边的text的多行文字按两种方式组合,一是用quotechar里边的东西把每行东西 二是用delimiter里边的东西把每行分开…..但是实际试验似乎不是这样的……….</p>
+<p>拿这几句try了一下</p>
+<p>memo1.lines.delimiter:=’;’;<br>memo1.lines.quotechar:=’~’;<br>memo2.lines.add(memo1.lines.delimitedtext)</p>
+<p>大概的结论:</p>
+<p><strong>   换行会被;隔开,但是最后一行除外  如果这行有; 那么这行会被~引起来(包括;) 如果这样有~ 那么这行会被n个~成n+1段,每段用~引起来</strong></p>
+<p>write应该就是反过来</p>
+<p>结论是 这东西用于把单行文字变成多行文字或者相反</p>
+<p>那段代码的意思是,qq复制下来的东西是以#13为分割的单行文字,所以把tem的delimited设置成#13</p>
+<p>然后再转成多行</p>
+<p>不过总觉得那段代码是有问题的,read”tmpstrlist.delimitedtext”的时候会自动在字符串两边加上quotechar………</p>
+<p>研究了半天</p>
+<p>memo2.lines.delimiter:=#65;<br>memo2.lines.delimitedtext:=memo1.lines.text;</p>
+<p>这个倒是可以把’a’改成换行</p>
 
           
         
@@ -1822,7 +1875,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">324</span>
+                    <span class="site-state-item-count">325</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1897,7 +1950,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
